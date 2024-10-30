@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  basePath: "/",
-  output: "export",
   reactStrictMode: true,
+  assetPrefix: '', // No prefix needed for the root domain
+  basePath: '', // No base path needed for the root domain
+  trailingSlash: true,
+  output: 'export',
 };
 
-module.exports = nextConfig;
+export default nextConfig;
