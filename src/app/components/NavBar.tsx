@@ -8,6 +8,11 @@ const NavBar = () => {
             </a>
           </li>
           <li>
+            <a href="#programming-languages" className="hover:text-blue-400 transition">
+                Programming Languages
+            </a>
+          </li>
+          <li>
             <a href="#projects" className="hover:text-blue-400 transition">
               Projects
             </a>
@@ -16,10 +21,6 @@ const NavBar = () => {
             <a href="#contact" className="hover:text-blue-400 transition">
               Contact
             </a>
-           
-          </li>
-          <li>
-          <a href="#games"  className="hover:text-blue-400 transition"> Games</a>
           </li>
         </ul>
       </nav>
