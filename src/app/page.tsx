@@ -1,5 +1,6 @@
 import NavBar from "./components/NavBar";
 import Image from 'next/image';
+import ProjectImage from "./components/ProjectImage";
 
 const languages = [
   { name: "JavaScript", level: 90 },
@@ -49,44 +50,147 @@ export default function Home() {
             ))}
           </ul>
         </section>
-
-        <section id="projects" className="mb-12">
+        <section id="projects" className="mb-12 flex flex-col items-center">
           <h2 className="text-3xl font-semibold mb-4">Projects</h2>
           <ul className="space-y-6">
-            <li className="bg-gray-800 p-4 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-white">Centrebyte</h3>
-              <p className="text-gray-100 mb-2">
-                Centrebyte is a web marketplace powered by cryptocurrency, designed to facilitate seamless transactions between buyers and sellers.
-              </p>
-              <p className="text-gray-100 mb-2">
-                Built using the Django web framework with a SQLite database, Centrebyte ensures secure and efficient handling of user data and transactions.
-              </p>
-              <p className="text-gray-100 mb-4">
-                The front-end is crafted with HTML, CSS, and JavaScript, providing a responsive and intuitive user experience. Key features include user authentication, a customizable shopping cart, and integration with popular cryptocurrency payment gateways.
-              </p>
-              <a href="http://centrebyte.com" className="text-blue-400 hover:underline">
-                View Project
-              </a>
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
+              <ProjectImage
+                src="/media/centrebyte.png" 
+                alt="Centrebyte Marketplace" 
+                className="mb-3 rounded mr-4" 
+                width={128} 
+                height={128} 
+              />
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-white mb-3">Centrebyte</h3>
+                <p className="text-gray-100 mb-2">
+                  A cryptocurrency-powered web marketplace for seamless buyer-seller transactions.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  Built with Django and SQLite, ensuring secure user data handling.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  Features include user authentication and a customizable shopping cart.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  <strong>Technologies:</strong> Python, Django, SQLite, HTML, CSS, JavaScript
+                </p>
+                <a href="http://centrebyte.com" className="text-blue-400 hover:underline">View Project</a>
+              </div>
             </li>
 
-            <li className="bg-gray-800 p-4 rounded-lg shadow-md">
-              <h3 className="text-xl font-semibold text-white">Core Roullete</h3>
-              <p className="text-gray-300 mb-2">
-                Core Roullete is an innovative web application built with React and Next.js that randomizes ab workouts to cater to users at beginner, intermediate, and advanced fitness levels. 
-              </p>
-              <p className="text-gray-300 mb-2">
-                This application provides users with a diverse range of core exercises, ensuring an engaging and effective workout experience every time they visit the gym. By selecting workouts based on their fitness level, users can progressively challenge themselves and achieve their fitness goals.
-              </p>
-              <p className="text-gray-300 mb-4">
-                In addition to workout randomization, Core Roullete features a dedicated section that offers researched core training advice and instructional how-tos, helping users to perform exercises correctly and safely. The user-friendly interface and responsive design make it accessible across all devices, encouraging users to stay committed to their fitness journey.
-              </p>
-              <a href="http://www.core-roulette.com/" className="text-blue-400 hover:underline">
-                View Project
-              </a>
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
+              <ProjectImage
+                src="/media/battleship.png" 
+                alt="MUV Web App" 
+                className="mb-3 rounded mr-4" 
+                width={128} 
+                height={128} 
+              />
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-white mb-3">MUV Web App</h3>
+                <p className="text-gray-100 mb-2">
+                  A party planning app built with React, designed to simplify event organization and management.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  Users can create events, set details like date and location, and send out invitations to friends and family.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  The app features a user-friendly interface, RSVP functionality, and reminders to ensure everyone is informed.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  <strong>Technologies:</strong> React, JavaScript, CSS
+                </p>
+                <a href="https://dsneed123.github.io/muv/" className="text-blue-400 hover:underline">View Project</a>
+              </div>
             </li>
-            {/* Add more projects as needed */}
+
+
+
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
+              <ProjectImage
+                src="/media/Core-roullete.png" 
+                alt="Core roulette" 
+                className="mb-3 rounded mr-4" 
+                width={128} 
+                height={128} 
+              />
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-white mb-3">Core Roullete</h3>
+                <p className="text-gray-100 mb-2">
+                  A web app that randomizes ab workouts for all fitness levels.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  Offers a variety of core exercises to keep workouts engaging.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  Includes core training advice and instructional content for safety.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  <strong>Technologies:</strong> JavaScript, React, Next.js
+                </p>
+                <a href="http://www.core-roulette.com/" className="text-blue-400 hover:underline">View Project</a>
+              </div>
+            </li>
+
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
+              <ProjectImage
+                src="/media/weather-app.png" 
+                alt="Weather app" 
+                className="mb-3 rounded mr-4" 
+                width={128} 
+                height={128} 
+              />
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-white mb-3">Weather App Prototype</h3>
+                <p className="text-gray-100 mb-2">
+                  A user-friendly app for accessing real-time weather data.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  Features customizable UI and location-based weather alerts.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  Focuses on clean design and responsive functionality.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  <strong>Technologies:</strong> HTML, CSS, JavaScript
+                </p>
+                <a href="https://dsneed123.github.io/weather-app-prototype/" className="text-blue-400 hover:underline">View Project</a>
+              </div>
+            </li>
+
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
+              <ProjectImage
+                src="/media/battleship.png" 
+                alt="Battleship UI Game" 
+                className="mb-3 rounded mr-4" 
+                width={128} 
+                height={128} 
+              />
+              <div className="flex-1">
+                <h3 className="text-2xl font-semibold text-white mb-3">Battleship UI Game</h3>
+                <p className="text-gray-100 mb-2">
+                  A classic Battleship game built with a user-friendly interface that allows players to enjoy a strategic naval battle experience.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  Players can place their ships on the grid, take turns to guess the location of their opponent&apos;s ships, and track their hits and misses.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  The game features an animated interface, sound effects, and score tracking, enhancing the overall gameplay experience.
+                </p>
+                <p className="text-gray-100 mb-2">
+                  <strong>Technologies:</strong> Java, JavaFX
+                </p>
+                <a href="https://dsneed123.github.io/battleship/" className="text-blue-400 hover:underline">View Project</a>
+              </div>
+            </li>
+
           </ul>
         </section>
+
+
+
+
 
         <section id="contact">
           <h2 className="text-3xl font-semibold mb-4">Contact Me</h2>
