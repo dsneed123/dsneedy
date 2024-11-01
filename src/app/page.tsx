@@ -13,6 +13,7 @@ const languages = [
 export default function Home() {
   return (
     <div className="min-h-screen bg-gray-900 text-white flex flex-col">
+      <title>Davis Sneed</title>
       <header className="bg-gray-800 p-6 text-center">
         <Image 
           src="/media/headshot.jpeg" 
