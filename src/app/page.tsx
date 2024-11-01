@@ -81,18 +81,21 @@ export default function Home() {
                 width={128} 
                 height={128} 
               />
-              <div className="flex-1 text-center">
+              <div className="flex-1 text-center w-full">
                 <h3 className="text-2xl font-semibold text-white mb-3">Centrebyte</h3>
-                <p className="text-gray-100 mb-2">
-                  A cryptocurrency-powered web marketplace for seamless buyer-seller transactions.
+                <p className="text-gray-100 mb-2 text-left">
+                  A cryptocurrency-powered marketplace that facilitates seamless transactions between buyers and sellers. Users benefit from features like instant payment processing, transparent records, and reduced fees. The integrated cryptocurrency wallet enables quick deposits and withdrawals, allowing for secure trading without intermediaries.
                 </p>
-                <p className="text-gray-100 mb-2">
+
+
+                <p className="text-gray-100 mb-2 text-left">
                   Built with Django and SQLite, ensuring secure user data handling.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  Features include user authentication and a customizable shopping cart.
+                <p className="text-gray-100 mb-2 text-left">
+                  Features include user authentication and a customizable shopping cart, a crypto wallet, a checkout system based on the Bitcoin network, and the ability to sell and purchase products.
                 </p>
-                <p className="text-gray-100 mb-2">
+
+                <p className="text-gray-100 mb-2 text-left">
                   <strong>Technologies:</strong> Python, Django, SQLite, HTML, CSS, JavaScript
                 </p>
                 <a href="http://centrebyte.com" className="text-blue-400 hover:underline">View Project</a>
@@ -100,24 +103,24 @@ export default function Home() {
             </li>
 
             <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
-              
-              <div className="flex-1 text-center">
+              <div className="flex-1 text-center w-full">
                 <h3 className="text-2xl font-semibold text-white mb-3">MUV Web App</h3>
-                <p className="text-gray-100 mb-2">
-                  A party planning app built with React, designed to simplify event organization and management.
+                <p className="text-gray-100 mb-2 text-left">
+                  A dynamic party planning app built with React, designed to simplify event organization and management for users of all ages.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  Users can create events, set details like date and location, and send out invitations to friends and family.
+                <p className="text-gray-100 mb-2 text-left">
+                  Users can easily create and customize events, setting crucial details like date, time, and location, while effortlessly sending out invitations to friends and family through integrated sharing options.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  The app features a user-friendly interface, RSVP functionality, and reminders to ensure everyone is informed.
+                <p className="text-gray-100 mb-2 text-left">
+                  The app features a user-friendly interface that enhances user experience, complete with RSVP functionality and automated reminders to ensure that everyone stays informed and engaged throughout the planning process.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  <strong>Technologies:</strong> React, JavaScript, CSS
+                <p className="text-gray-100 mb-2 text-left">
+                  <strong>Technologies:</strong> Built with React, JavaScript, and CSS, ensuring a smooth and responsive performance across devices.
                 </p>
                 <a href="https://dsneed123.github.io/muv/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
+
 
             <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <ProjectImage
@@ -127,23 +130,24 @@ export default function Home() {
                 width={128} 
                 height={128} 
               />
-              <div className="flex-1 text-center">
+              <div className="flex-1 text-center w-full">
                 <h3 className="text-2xl font-semibold text-white mb-3">Core Roulette</h3>
-                <p className="text-gray-100 mb-2">
-                  A web app that randomizes ab workouts for all fitness levels.
+                <p className="text-gray-100 mb-2 text-left">
+                  A web app designed to randomize abdominal workouts for users across all fitness levels, providing an engaging and dynamic exercise experience.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  Offers a variety of core exercises to keep workouts engaging.
+                <p className="text-gray-100 mb-2 text-left">
+                  Features a diverse library of core exercises, ensuring that workouts remain fresh and challenging, with options tailored to beginner, intermediate, and advanced users.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  Includes core training advice and instructional content for safety.
+                <p className="text-gray-100 mb-2 text-left">
+                  Incorporates essential core training advice along with instructional content, prioritizing user safety and proper technique throughout each workout session.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  <strong>Technologies:</strong> JavaScript, React, Next.js
+                <p className="text-gray-100 mb-2 text-left">
+                  <strong>Technologies:</strong> Developed using JavaScript with React for the front-end, and Next.js for server-side rendering, enhancing performance and SEO.
                 </p>
                 <a href="http://www.core-roulette.com/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
+
 
             <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <ProjectImage
@@ -153,45 +157,46 @@ export default function Home() {
                 width={128} 
                 height={128} 
               />
-              <div className="flex-1 text-center">
+              <div className="flex-1 text-center w-full">
                 <h3 className="text-2xl font-semibold text-white mb-3">Weather App Prototype</h3>
-                <p className="text-gray-100 mb-2">
-                  A user-friendly app for accessing real-time weather data.
+                <p className="text-gray-100 mb-2 text-left">
+                  A user-friendly web application designed to provide real-time weather data for any location, offering an intuitive experience for users.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  Features customizable UI and location-based weather alerts.
+                <p className="text-gray-100 mb-2 text-left">
+                  Features a customizable user interface (UI) that allows users to select their preferred location and receive personalized weather alerts based on current conditions.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  Focuses on clean design and responsive functionality.
+                <p className="text-gray-100 mb-2 text-left">
+                  Focuses on a clean design that is fully responsive, ensuring seamless functionality across a variety of devices, from desktops to mobile screens.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  <strong>Technologies:</strong> HTML, CSS, JavaScript
+                <p className="text-gray-100 mb-2 text-left">
+                  <strong>Technologies:</strong> Built using HTML for structure, CSS for styling, and JavaScript for dynamic functionality, with API integration for fetching live weather data.
                 </p>
                 <a href="https://dsneed123.github.io/weather-app-prototype/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
 
             <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
-              
               <div className="flex-1 text-center">
                 <h3 className="text-2xl font-semibold text-white mb-3">Battleship UI Game</h3>
-                <p className="text-gray-100 mb-2">
-                  A classic Battleship game built with a user-friendly interface that allows players to enjoy a strategic naval battle experience.
+                <p className="text-gray-100 mb-2 text-left">
+                  A classic Battleship game developed with a user-friendly interface that immerses players in a strategic naval battle experience, echoing the timeless board game.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  Players can place their ships on the grid, take turns to guess the location of their opponent&apos;s ships, and track their hits and misses.
+                <p className="text-gray-100 mb-2 text-left">
+                  Players can place their ships on a grid and take turns guessing the locations of their opponent&apos;s ships while tracking their hits and misses throughout the game.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  The game features an animated interface, sound effects, and score tracking, enhancing the overall gameplay experience.
+                <p className="text-gray-100 mb-2 text-left">
+                  The game is enhanced with an animated interface, engaging sound effects, and a scoring system, all designed to elevate the gameplay experience and maintain player engagement.
                 </p>
-                <p className="text-gray-100 mb-2">
-                  <strong>Technologies:</strong> Java, JavaFX
+                <p className="text-gray-100 mb-2 text-left">
+                  <strong>Technologies:</strong> Developed using Java with JavaFX for rich graphical user interface capabilities, ensuring smooth animations and interactions.
                 </p>
                 <a href="https://dsneed123.github.io/battleship/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
+
           </ul>
         </section>
+
 
 
 
