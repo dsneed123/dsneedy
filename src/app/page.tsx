@@ -26,12 +26,32 @@ export default function Home() {
       </header>
 
       <main className="flex-grow p-6">
-        <section id="about" className="mb-12">
-          <h2 className="text-3xl font-semibold mb-4">About Me</h2>
-          <p className="text-gray-300 w-85">
+      <section id="about" className="mb-12 flex flex-col items-center">
+        <h2 className="text-3xl font-semibold mb-4">About Me</h2>
+        <div className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full  mx-auto">
+          <p className="text-gray-300 w-full">
             Dynamic and motivated computer science student specializing in software development and security programming. I possess robust communication skills, enabling me to effectively convey complex technical concepts to diverse audiences. My focus is on delivering innovative solutions to both technical and everyday challenges, fostering collaboration and enhancing project outcomes. I am dedicated to continuous learning and applying best practices in software engineering to contribute meaningfully to team objectives and drive success in all initiatives.
           </p>
+        </div>
+      </section>
+
+        <section id="education" className="mb-12 flex flex-col items-center">
+          <h2 className="text-3xl font-semibold mb-4">Education</h2>
+          <ul className="space-y-6">
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-start max-w-full mx-auto">
+              <h3 className="text-2xl font-semibold text-white mb-1">Gonzaga University, Spokane, WA</h3>
+              <p className="text-gray-100 mb-2">August 2021 - Present</p>
+              <p className="text-gray-100 mb-2">
+                Junior majoring in Computer Science and Computational Thinking with a concentration in Software Development, Security, and Philosophy.
+              </p>
+            </li>
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-start max-w-full mx-auto">
+              <h3 className="text-2xl font-semibold text-white mb-1">Central Catholic High School, Portland, OR</h3>
+              <p className="text-gray-100 mb-2">August 2017 - June 2021</p>
+            </li>
+          </ul>
         </section>
+
 
         <section id="programming-languages" className="mb-12">
           <h2 className="text-3xl font-semibold mb-4">Programming Languages</h2>
@@ -53,15 +73,15 @@ export default function Home() {
         <section id="projects" className="mb-12 flex flex-col items-center">
           <h2 className="text-3xl font-semibold mb-4">Projects</h2>
           <ul className="space-y-6">
-            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <ProjectImage
                 src="/media/centrebyte.png" 
                 alt="Centrebyte Marketplace" 
-                className="mb-3 rounded mr-4" 
+                className="mb-3 rounded" 
                 width={128} 
                 height={128} 
               />
-              <div className="flex-1">
+              <div className="flex-1 text-center">
                 <h3 className="text-2xl font-semibold text-white mb-3">Centrebyte</h3>
                 <p className="text-gray-100 mb-2">
                   A cryptocurrency-powered web marketplace for seamless buyer-seller transactions.
@@ -79,15 +99,9 @@ export default function Home() {
               </div>
             </li>
 
-            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
-              <ProjectImage
-                src="/media/battleship.png" 
-                alt="MUV Web App" 
-                className="mb-3 rounded mr-4" 
-                width={128} 
-                height={128} 
-              />
-              <div className="flex-1">
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
+              
+              <div className="flex-1 text-center">
                 <h3 className="text-2xl font-semibold text-white mb-3">MUV Web App</h3>
                 <p className="text-gray-100 mb-2">
                   A party planning app built with React, designed to simplify event organization and management.
@@ -105,18 +119,16 @@ export default function Home() {
               </div>
             </li>
 
-
-
-            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <ProjectImage
                 src="/media/Core-roullete.png" 
-                alt="Core roulette" 
-                className="mb-3 rounded mr-4" 
+                alt="Core Roulette" 
+                className="mb-3 rounded" 
                 width={128} 
                 height={128} 
               />
-              <div className="flex-1">
-                <h3 className="text-2xl font-semibold text-white mb-3">Core Roullete</h3>
+              <div className="flex-1 text-center">
+                <h3 className="text-2xl font-semibold text-white mb-3">Core Roulette</h3>
                 <p className="text-gray-100 mb-2">
                   A web app that randomizes ab workouts for all fitness levels.
                 </p>
@@ -133,15 +145,15 @@ export default function Home() {
               </div>
             </li>
 
-            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <ProjectImage
                 src="/media/weather-app.png" 
-                alt="Weather app" 
-                className="mb-3 rounded mr-4" 
+                alt="Weather App" 
+                className="mb-3 rounded" 
                 width={128} 
                 height={128} 
               />
-              <div className="flex-1">
+              <div className="flex-1 text-center">
                 <h3 className="text-2xl font-semibold text-white mb-3">Weather App Prototype</h3>
                 <p className="text-gray-100 mb-2">
                   A user-friendly app for accessing real-time weather data.
@@ -159,15 +171,9 @@ export default function Home() {
               </div>
             </li>
 
-            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex items-start max-w-full mx-auto">
-              <ProjectImage
-                src="/media/battleship.png" 
-                alt="Battleship UI Game" 
-                className="mb-3 rounded mr-4" 
-                width={128} 
-                height={128} 
-              />
-              <div className="flex-1">
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
+              
+              <div className="flex-1 text-center">
                 <h3 className="text-2xl font-semibold text-white mb-3">Battleship UI Game</h3>
                 <p className="text-gray-100 mb-2">
                   A classic Battleship game built with a user-friendly interface that allows players to enjoy a strategic naval battle experience.
@@ -184,9 +190,9 @@ export default function Home() {
                 <a href="https://dsneed123.github.io/battleship/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
-
           </ul>
         </section>
+
 
 
 
