@@ -256,6 +256,7 @@ export default function Home() {
                 <a href="https://dsneed123.github.io/weather-app-prototype/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
+
             <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <div className="flex-1 text-center">
                 <h3 className="text-2xl font-semibold text-white mb-3">Battleship GUI</h3>
@@ -274,6 +275,32 @@ export default function Home() {
                 <a href="https://dsneed123.github.io/battleship/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
+
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
+            <ProjectImage
+                src="/media/solarsystem.gif" 
+                alt="Weather App" 
+                className="mb-3 rounded" 
+                width={128} 
+                height={128} 
+              />
+              <div className="flex-1 text-center">
+                <h3 className="text-2xl font-semibold text-white mb-3">Solar System Simulation</h3>
+                <p className="text-gray-100 mb-2 text-left">
+                  A visually engaging simulation of the Solar System, featuring planets with dynamic orbits around a central sun. This project brings the celestial movements of our Solar System to life using scalable properties for planetary distances, sizes, and orbital periods.
+                </p>
+                <p className="text-gray-100 mb-2 text-left">
+                  Users can adjust the zoom level interactively to explore the system at various scales. Planets are rendered with realistic relative sizes and colors, and their positions are updated in real-time using angular velocity calculations to simulate orbital dynamics.
+                </p>
+                <p className="text-gray-100 mb-2 text-left">
+                  <strong>Technologies:</strong> Developed in Rust using the Minifb library for efficient rendering, with advanced trigonometric calculations to animate planetary orbits.
+                </p>
+                <a href="https://github.com/your-repository-url" className="text-blue-400 hover:underline">
+                  View Project
+                </a>
+              </div>
+            </li>
+
 
           
 
