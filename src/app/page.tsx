@@ -31,7 +31,7 @@ export default function Home() {
         <h2 className="text-3xl font-semibold mb-4">About Me</h2>
         <div className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full  mx-auto">
           <p className="text-gray-300 w-full">
-            Dynamic and motivated computer science student specializing in software development and security programming. I possess robust communication skills, enabling me to effectively convey complex technical concepts to diverse audiences. My focus is on delivering innovative solutions to both technical and everyday challenges, fostering collaboration and enhancing project outcomes. I am dedicated to continuous learning and applying best practices in software engineering to contribute meaningfully to team objectives and drive success in all initiatives.
+          Senior at Gonzaga University | Focused on software development and cybersecurity | Building secure, efficient solutions | Open to collaboration and learning.
           </p>
         </div>
       </section>
@@ -102,6 +102,59 @@ export default function Home() {
                 <a href="http://centrebyte.com" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
+            <ProjectImage
+                src="/media/bouncing-balls.gif" 
+                alt="Weather App" 
+                className="mb-3 rounded" 
+                width={128} 
+                height={128} 
+              />
+              <div className="flex-1 text-center">
+                <h3 className="text-2xl font-semibold text-white mb-3">Rust Ball Animation</h3>
+                <p className="text-gray-100 mb-2 text-left">
+                  A dynamic 2D ball simulation built in Rust, showcasing real-time collision handling and smooth animations. The simulation includes multiple colorful balls bouncing within a defined area while interacting with each other.
+                </p>
+                <p className="text-gray-100 mb-2 text-left">
+                  Each ball has unique properties such as velocity, position, and color. The simulation uses physics principles to handle collisions, reversing velocities when balls or boundaries are encountered.
+                </p>
+                <p className="text-gray-100 mb-2 text-left">
+                  The animation leverages the <strong>minifb</strong> library for creating a lightweight window and rendering graphics efficiently. It also incorporates randomization for initializing ball properties, ensuring diverse and engaging visual effects.
+                </p>
+                <p className="text-gray-100 mb-2 text-left">
+                  <strong>Technologies:</strong> Developed using Rust with <strong>minifb</strong> for graphics rendering and <strong>rand</strong> for generating random ball attributes. This project demonstrates Rust&apos;s performance and capabilities in graphical applications.
+                </p>
+                <a href="https://github.com/dsneed123/Bouncing_balls_rust" className="text-blue-400 hover:underline">
+                  View Project
+                </a>
+              </div>
+            </li>
+            <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
+            <ProjectImage
+                src="/media/Figure_1.png" 
+                alt="graph" 
+                className="mb-3 rounded" 
+                width={128} 
+                height={128} 
+              />
+              <div className="flex-1 text-center">
+                <h3 className="text-2xl font-semibold text-white mb-3">Shamir Secret Sharing Scheme</h3>
+                <p className="text-gray-100 mb-2 text-left">
+                  An educational implementation of the Shamir Secret Sharing scheme, which splits a secret into multiple shares and requires a threshold number of shares to reconstruct the original secret. This cryptographic method ensures secure and distributed key management.
+                </p>
+                <p className="text-gray-100 mb-2 text-left">
+                  The program allows users to specify the number of shares and threshold, then generates random coefficients to create a polynomial for splitting the secret. It supports secret reconstruction using Lagrange interpolation for any combination of shares that meets the threshold.
+                </p>
+                <p className="text-gray-100 mb-2 text-left">
+                  <strong>Technologies:</strong> Developed in Python, leveraging mathematical operations for modular arithmetic and Lagrange interpolation, and includes command-line argument parsing for ease of use.
+                </p>
+                <a href="https://github.com/dsneed123/shamir_secret_sharing" className="text-blue-400 hover:underline">
+                  View Project
+                </a>
+              </div>
+            </li>
+
+
 
             <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <div className="flex-1 text-center w-full">
@@ -148,9 +201,37 @@ export default function Home() {
                 <a href="http://www.core-roulette.com/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
-
-
             <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
+            <ProjectImage
+                src="/media/langtons_ant.gif" 
+                alt="Core Roulette" 
+                className="mb-3 rounded" 
+                width={128} 
+                height={128} 
+              />
+            <div className="flex-1 text-center">
+              <h3 className="text-2xl font-semibold text-white mb-3">Langton&apos;s Ant Simulation</h3>
+              <p className="text-gray-100 mb-2 text-left">
+                A mesmerizing simulation of Langton&apos;s Ant, a Turing-complete cellular automaton that creates complex patterns from simple rules. The simulation showcases multiple ants navigating a grid, flipping cell states and changing direction based on cell colors.
+              </p>
+              <p className="text-gray-100 mb-2 text-left">
+                Each ant begins on a randomly initialized grid and moves according to deterministic rules: turning left or right depending on whether the current cell is &quot;black&quot; or &quot;white.&quot; This produces intricate, emergent patterns over time.
+              </p>
+              <p className="text-gray-100 mb-2 text-left">
+                The simulation is implemented with the <strong>minifb</strong> library, offering a visually rich and performance-efficient grid display. It supports multiple ants interacting on the same grid, with dynamic reinitialization using the Enter key.
+              </p>
+              <p className="text-gray-100 mb-2 text-left">
+                <strong>Technologies:</strong> Built using Rust with <strong>minifb</strong> for rendering and <strong>rand</strong> for initializing random ant positions. The use of a lightweight graphics library ensures smooth animation and grid updates.
+              </p>
+              <a href="https://github.com/dsneed123/Langtons_ant" className="text-blue-400 hover:underline">
+                View Project
+              </a>
+            </div>
+          </li>
+
+
+
+          <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <ProjectImage
                 src="/media/weather-app.png" 
                 alt="Weather App" 
@@ -175,10 +256,9 @@ export default function Home() {
                 <a href="https://dsneed123.github.io/weather-app-prototype/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
-
             <li className="bg-gray-800 p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
               <div className="flex-1 text-center">
-                <h3 className="text-2xl font-semibold text-white mb-3">Battleship UI Game</h3>
+                <h3 className="text-2xl font-semibold text-white mb-3">Battleship GUI</h3>
                 <p className="text-gray-100 mb-2 text-left">
                   A classic Battleship game developed with a user-friendly interface that immerses players in a strategic naval battle experience, echoing the timeless board game.
                 </p>
@@ -194,6 +274,8 @@ export default function Home() {
                 <a href="https://dsneed123.github.io/battleship/" className="text-blue-400 hover:underline">View Project</a>
               </div>
             </li>
+
+          
 
           </ul>
         </section>
