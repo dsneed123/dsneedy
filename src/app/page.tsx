@@ -45,6 +45,7 @@ const tiers = [
 
 export default function Home() {
   return (
+    
     <div className="min-h-screen bg-[#fbfff7] text-black flex flex-col">
       <title>Davis Sneed</title>
       <header className="bg-[#ED6A5A] p-6 text-center">
@@ -67,16 +68,16 @@ export default function Home() {
             
             <div className="bg-[#E6EBE0] p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto h-full flex-grow">
               <h2 className="text-3xl font-semibold mb-4">About Me</h2>
-              <p className="text-black-300 w-full">
+              <p className="text-black-300 text-xl w-full">
               Creative computer scientist with an emphasis on software development and security programming with strong communication skills focused on delivering solutions to technical and everyday challenges.
               </p>
             
-              <h2 className="text-3xl font-semibold mb-4">Education</h2>
+              <h2 className="mt-5 text-3xl font-semibold mb-4">Education</h2>
               <ul className="space-y-6">
               <li className=" flex flex-col items-start max-w-full mx-auto">
                 <h3 className="text-2xl font-semibold text-black mb-1">Gonzaga University, Spokane, WA</h3>
                 <p className="text-black-100 mb-2">August 2021 - Graduating in May 2025</p>
-                <p className="text-black-100 mb-2">
+                <p className="text-black-100 mb-2 text-xl">
                 Senior majoring in Computer Science and Computational Thinking with a concentration in Software Development, Security, and Philosophy.
                 </p>
               </li>
@@ -110,6 +111,7 @@ export default function Home() {
           
         </div>
         <section id="projects" className="mb-12 flex flex-col items-center ml-2">
+        <h2 className="text-3xl font-semibold mb-4">Projects</h2>
         <Projects/>
         </section>
         <section id="contact" className="mb-12 flex flex-col items-center ml-2 bg-[#E6EBE0] p-4 rounded-lg shadow-md">

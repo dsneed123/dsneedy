@@ -1,10 +1,9 @@
 'use client';
-import { useState } from 'react';
-import ProjectImage from './ProjectImage';  // Ensure this is correctly imported.
+import React, { useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination } from 'swiper/modules';
+import ProjectImage from './ProjectImage';
 import 'swiper/css';
-
-
 const projects = [
   {
     title: 'Centrebyte',
@@ -88,55 +87,35 @@ const projects = [
     link: 'https://github.com/your-repository-url'
   },
 ];
-
 const Projects = () => {
-  const [expandedProject, setExpandedProject] = useState<number | null>(null);
-
-  const handleReadMore = (index: number) => {
-    setExpandedProject(expandedProject === index ? null : index);
-  };
-
   return (
-    <section id="projects" className="mb-12 flex flex-col items-center ml-2">
-      <h2 className="text-3xl font-semibold mb-4">Projects</h2>
+    <div style={{ width: '80%', margin: '0 auto' }}>
       <Swiper
-        spaceBetween={50}
+        spaceBetween={15}
+        modules={[Navigation, Pagination]}
         slidesPerView={3}
         onSlideChange={() => console.log('slide change')}
+        pagination={{ clickable: true }}
+      
         onSwiper={(swiper) => console.log(swiper)}
       >
         {projects.map((project, index) => (
-          <SwiperSlide key={index}> {/* Use index as the unique key */}
-            <div className="bg-[#E6EBE0] p-4 rounded-lg shadow-md flex flex-col items-center max-w-full mx-auto">
-              <ProjectImage
-                src={project.imageSrc}
-                alt={project.imageAlt}
-                className="mb-3 rounded"
-                width={128}
-                height={128}
+          <SwiperSlide key={index}>
+            <div>
+              <ProjectImage 
+                src={project.imageSrc} 
+                alt={project.imageAlt} 
+                width={400} 
+                height={250} 
               />
-              <div className="flex-1 text-center w-full">
-                <h3 className="text-2xl font-semibold text-black mb-3">{project.title}</h3>
-                <p className="text-black mb-2 text-left">{project.shortDescription}</p>
-                {expandedProject === index && (
-                  <p className="text-black mb-2 text-left">{project.fullDescription}</p>
-                )}
-                <button
-                  onClick={() => handleReadMore(index)}
-                  className="text-blue-400 hover:underline mt-2"
-                >
-                  {expandedProject === index ? 'Read Less' : 'Read More'}
-                </button>
-                <p className="text-black mb-2 text-left">
-                  <strong>Technologies:</strong> {project.technologies}
-                </p>
-                <a href={project.link} className="text-blue-400 hover:underline">View Project</a>
-              </div>
+              <h3>{project.title}</h3>
+              <p>{project.shortDescription}</p>
+              <a href={project.link} target="_blank" rel="noopener noreferrer">Learn More</a>
             </div>
           </SwiperSlide>
         ))}
       </Swiper>
-    </section>
+    </div>
   );
 };
 
