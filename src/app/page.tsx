@@ -55,7 +55,7 @@ export default function Home() {
         <Image 
           src="/media/headshot.jpeg" 
           alt="Davis Sneed" 
-          className="w-50 h-50 rounded-full border-4 border-[#5ADDED]" 
+          className="w-50 h-50 rounded-full border-2 border-[#ffffff]" 
           width={180} 
           height={180}
         />
@@ -68,7 +68,7 @@ export default function Home() {
         <div id="middle-container" className="flex col">
           <div className="flex-col w-2/3 mb-4">
           <section id="about" className="mb-12 flex flex-col items-center w-full">
-            <div className="bg-[#f0f0f0] p-8 rounded-lg shadow-md flex flex-col items-center w-full">
+            <div className="bg-[#F4F5F7] p-8 rounded-lg shadow-md flex flex-col items-center w-full">
               <h2 className="text-3xl font-semibold mb-4">About Me</h2>
               <p className="text-black-300 text-xl w-full text-left">
                 Creative computer scientist with an emphasis on software development and security programming with strong communication skills focused on delivering solutions to technical and everyday challenges.
@@ -116,11 +116,11 @@ export default function Home() {
                 <li className="text-gray-500">No languages in this tier</li>
                 )}
               </ul>
-              {index < tiers.length - 1 && <hr className="border-t-2 border-[#5ADDED] my-4" />}
+              {index < tiers.length - 1 && <hr className="border-t-2 border-[#1E2A38] my-4" />}
               </div>
             ))}
             </div>
-            <section id="contact" className="mb-12 flex flex-col items-center ml-2 bg-[#f0f0f0] p-8 rounded-lg shadow-md mt-10 w-full">
+            <section id="contact" className="mb-12 flex flex-col items-center ml-2 bg-[#F4F5F7] p-8 rounded-lg shadow-md mt-10 w-full">
               <h2 className="text-3xl font-semibold mb-4">Contact me</h2>
               <ul className="flex flex-col space-y-6 w-full">
                 <li className="transparent flex items-center justify-start">
@@ -155,7 +155,7 @@ export default function Home() {
        
       </main>
 
-      <footer className="bg-[#f0f0f0] text-center p-4">
+      <footer className="bg-[#F4F5F7] text-center p-4">
         <p>&copy; {new Date().getFullYear()} Davis Sneed. All rights reserved.</p>
       </footer>
     </div>

@@ -7,7 +7,7 @@ import 'swiper/css';
 import ChevronRightIcon from '@mui/icons-material/ChevronRight';
 import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
 import CloseIcon from '@mui/icons-material/Close';
-import OpenInFullIcon from '@mui/icons-material/OpenInFull';
+import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 const projects = [
   {
     title: 'Centrebyte',
@@ -95,144 +95,97 @@ const Projects = () => {
   };
 
   return (
-    <div style={{ position: 'relative', width: '80%', margin: '0 auto' }}>
+    <div className="relative w-4/5 mx-auto">
       {/* Left Arrow */}
       <ChevronLeftIcon
-        id="custom-prev"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          left: '-70px',
-          transform: 'translateY(-50%)',
-          zIndex: 10,
-          fontSize: '4rem',
-          cursor: 'pointer',
-        }}
+      id="custom-prev"
+      className="absolute top-1/2 left-[-70px] transform -translate-y-1/2 z-10 text-4xl cursor-pointer"
       />
       <Swiper
-        spaceBetween={15}
-        modules={[Navigation, Pagination]}
-        slidesPerView={3}
-        pagination={{ clickable: true }}
-        navigation={{
-          prevEl: '#custom-prev',
-          nextEl: '#custom-next',
-        }}
+      spaceBetween={15}
+      modules={[Navigation, Pagination]}
+      slidesPerView={3}
+      pagination={{ clickable: true }}
+      navigation={{
+        prevEl: '#custom-prev',
+        nextEl: '#custom-next',
+      }}
       >
-        {projects.map((project, index) => (
-              <SwiperSlide
-              className="bg-[#f0f0f0] p-5 h-full rounded flex flex-col justify-between items-start"
-              key={index}
-              style={{ height: "70vh" }}
-              >
-              <div className="flex flex-col items-start">
-                <div >
-                  <ProjectImage
-                    src={project.imageSrc}
-                    alt={project.imageAlt}
-                    width={400}
-                    height={250}
-                  />
-                </div>
-                <h3 className="text-xl font-semibold mb-4">
-                <strong>{project.title}</strong>
-                </h3>
-                <p>{project.shortDescription}</p>
-              </div>
-                <div>
-                <button
-                className="group flex items-center bg-gray-800 hover:bg-[#5ADDED] text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
-                onClick={() => openModal(project)}
-                >
-                <OpenInFullIcon className="text-white group-hover:scale-125 transition-transform duration-300" />
-                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  Read More
-                </span>
-                </button>
-                </div>
-              </SwiperSlide>
-        ))}
+      {projects.map((project, index) => (
+        <SwiperSlide
+        className="bg-[#F4F5F7] p-5 h-full rounded-2xl flex flex-col justify-between items-start"
+        key={index}
+        style={{ height: "70vh", position: "relative" }}
+        >
+        <div className="flex flex-col items-start h-full">
+          <div className="flex-grow flex items-center justify-center w-full">
+          <div className="object-cover w-full">
+            <ProjectImage
+            src={project.imageSrc}
+            alt={project.imageAlt}
+            width={250}
+            height={250}
+            />
+          </div>
+          </div>
+          <div className="flex flex-col justify-between w-full mt-4 mb-10">
+          <h3 className="text-xl font-semibold mb-2 text-center w-full">
+            <strong>{project.title}</strong>
+          </h3>
+          <p className="text-center w-full">{project.shortDescription}</p>
+          </div>
+        </div>
+        <div className="absolute bottom-2 left-2">
+          <button
+          className="group flex items-center bg-[#1E2A38] hover:bg-[#1E2A38] text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
+          onClick={() => openModal(project)}
+          >
+          <ZoomOutMapIcon className="text-white group-hover:scale-125 transition-transform duration-300" />
+          <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+            Read More
+          </span>
+          </button>
+        </div>
+        </SwiperSlide>
+      ))}
       </Swiper>
       {/* Right Arrow */}
       <ChevronRightIcon
-        id="custom-next"
-        style={{
-          position: 'absolute',
-          top: '50%',
-          right: '-70px',
-          transform: 'translateY(-50%)',
-          zIndex: 10,
-          fontSize: '4rem',
-          cursor: 'pointer',
-        }}
+      id="custom-next"
+      className="absolute top-1/2 right-[-70px] transform -translate-y-1/2 z-10 text-4xl cursor-pointer"
       />
 
       {/* Modal */}
       {selectedProject && (
-        <div
-          style={{
-            position: 'fixed',
-            top: 0,
-            left: 0,
-            width: '100%',
-            height: '100%',
-            backgroundColor: 'rgba(0, 0, 0, 0.5)',
-            display: 'flex',
-            justifyContent: 'center',
-            alignItems: 'center',
-            zIndex: 1000,
-          }}
+      <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div className="bg-white p-5 rounded-lg max-w-lg w-11/12 relative">
+        <button
+          className="absolute top-2 right-2 bg-transparent border-none text-2xl cursor-pointer"
+          onClick={closeModal}
         >
-          <div
-            style={{
-              background: 'white',
-              padding: '20px',
-              borderRadius: '8px',
-              maxWidth: '600px',
-              width: '90%',
-              position: 'relative',
-            }}
-          >
-            <button
-              style={{
-                position: 'absolute',
-                top: '10px',
-                right: '10px',
-                background: 'transparent',
-                border: 'none',
-                fontSize: '1.5rem',
-                cursor: 'pointer',
-              }}
-              onClick={closeModal}
-            >
-              <CloseIcon />
-            </button>
-            <h2>{selectedProject.title}</h2>
-            <ProjectImage
-              src={selectedProject.imageSrc}
-              alt={selectedProject.imageAlt}
-              width={400}
-              height={250}
-            />
-            <p>{selectedProject.fullDescription}</p>
-            <p>
-              <strong>Technologies:</strong> {selectedProject.technologies}
-            </p>
-            <a
-              href={selectedProject.link}
-              target="_blank"
-              rel="noopener noreferrer"
-              style={{
-                color: 'blue',
-                textDecoration: 'underline',
-                marginTop: '10px',
-                display: 'inline-block',
-              }}
-            >
-              Visit Project
-            </a>
-          </div>
+          <CloseIcon />
+        </button>
+        <h2 className="text-2xl font-bold mb-4">{selectedProject.title}</h2>
+        <ProjectImage
+          src={selectedProject.imageSrc}
+          alt={selectedProject.imageAlt}
+          width={400}
+          height={250}
+        />
+        <p className="mt-4">{selectedProject.fullDescription}</p>
+        <p className="mt-2">
+          <strong>Technologies:</strong> {selectedProject.technologies}
+        </p>
+        <a
+          href={selectedProject.link}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="text-blue-500 underline mt-4 inline-block"
+        >
+          Visit Project
+        </a>
         </div>
+      </div>
       )}
     </div>
   );

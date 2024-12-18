@@ -10,13 +10,15 @@ interface ProjectImageProps {
 
 const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, className, width, height }) => {
   return (
-    <Image 
+    <div style={{ width, height, borderRadius: '8px', overflow: 'hidden', margin: '0 auto' }} className={className}>
+      <Image 
       src={src} 
       alt={alt} 
-      className={className} 
       width={width} 
       height={height} 
-    />
+      style={{ objectFit: 'contain' }} // You can change 'contain' to 'fill', 'none', 'scale-down', or 'cover'
+      />
+    </div>
   );
 };
 
