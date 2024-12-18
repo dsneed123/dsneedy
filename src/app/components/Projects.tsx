@@ -4,6 +4,10 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 import ProjectImage from './ProjectImage';
 import 'swiper/css';
+import ChevronRightIcon from '@mui/icons-material/ChevronRight';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import CloseIcon from '@mui/icons-material/Close';
+import OpenInFullIcon from '@mui/icons-material/OpenInFull';
 const projects = [
   {
     title: 'Centrebyte',
@@ -68,15 +72,7 @@ const projects = [
     technologies: 'HTML, CSS, JavaScript, API integration',
     link: 'https://dsneed123.github.io/weather-app-prototype/'
   },
-  {
-    title: 'Battleship GUI',
-    imageSrc: '/media/battleship.png',
-    imageAlt: 'Battleship GUI',
-    shortDescription: 'A classic Battleship game with a user-friendly interface.',
-    fullDescription: 'A classic Battleship game developed with a user-friendly interface that immerses players in a strategic naval battle experience, echoing the timeless board game. Players can place their ships on a grid and take turns guessing the locations of their opponent\'s ships while tracking their hits and misses throughout the game. The game is enhanced with an animated interface, engaging sound effects, and a scoring system, all designed to elevate the gameplay experience.',
-    technologies: 'Java, JavaFX',
-    link: 'https://dsneed123.github.io/battleship/'
-  },
+  
   {
     title: 'Solar System Simulation',
     imageSrc: '/media/solarsystem.gif',
@@ -88,33 +84,156 @@ const projects = [
   },
 ];
 const Projects = () => {
+  const [selectedProject, setSelectedProject] = useState<typeof projects[0] | null>(null);
+
+  const openModal = (project: typeof projects[0]) => {
+    setSelectedProject(project);
+  };
+
+  const closeModal = () => {
+    setSelectedProject(null);
+  };
+
   return (
-    <div style={{ width: '80%', margin: '0 auto' }}>
+    <div style={{ position: 'relative', width: '80%', margin: '0 auto' }}>
+      {/* Left Arrow */}
+      <ChevronLeftIcon
+        id="custom-prev"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          left: '-70px',
+          transform: 'translateY(-50%)',
+          zIndex: 10,
+          fontSize: '4rem',
+          cursor: 'pointer',
+        }}
+      />
       <Swiper
         spaceBetween={15}
         modules={[Navigation, Pagination]}
         slidesPerView={3}
-        onSlideChange={() => console.log('slide change')}
         pagination={{ clickable: true }}
-      
-        onSwiper={(swiper) => console.log(swiper)}
+        navigation={{
+          prevEl: '#custom-prev',
+          nextEl: '#custom-next',
+        }}
       >
         {projects.map((project, index) => (
-          <SwiperSlide key={index}>
-            <div>
-              <ProjectImage 
-                src={project.imageSrc} 
-                alt={project.imageAlt} 
-                width={400} 
-                height={250} 
-              />
-              <h3>{project.title}</h3>
-              <p>{project.shortDescription}</p>
-              <a href={project.link} target="_blank" rel="noopener noreferrer">Learn More</a>
-            </div>
-          </SwiperSlide>
+              <SwiperSlide
+              className="bg-[#f0f0f0] p-5 h-full rounded flex flex-col justify-between items-start"
+              key={index}
+              style={{ height: "70vh" }}
+              >
+              <div className="flex flex-col items-start">
+                <div >
+                  <ProjectImage
+                    src={project.imageSrc}
+                    alt={project.imageAlt}
+                    width={400}
+                    height={250}
+                  />
+                </div>
+                <h3 className="text-xl font-semibold mb-4">
+                <strong>{project.title}</strong>
+                </h3>
+                <p>{project.shortDescription}</p>
+              </div>
+                <div>
+                <button
+                className="group flex items-center bg-gray-800 hover:bg-[#5ADDED] text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
+                onClick={() => openModal(project)}
+                >
+                <OpenInFullIcon className="text-white group-hover:scale-125 transition-transform duration-300" />
+                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  Read More
+                </span>
+                </button>
+                </div>
+              </SwiperSlide>
         ))}
       </Swiper>
+      {/* Right Arrow */}
+      <ChevronRightIcon
+        id="custom-next"
+        style={{
+          position: 'absolute',
+          top: '50%',
+          right: '-70px',
+          transform: 'translateY(-50%)',
+          zIndex: 10,
+          fontSize: '4rem',
+          cursor: 'pointer',
+        }}
+      />
+
+      {/* Modal */}
+      {selectedProject && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            width: '100%',
+            height: '100%',
+            backgroundColor: 'rgba(0, 0, 0, 0.5)',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            zIndex: 1000,
+          }}
+        >
+          <div
+            style={{
+              background: 'white',
+              padding: '20px',
+              borderRadius: '8px',
+              maxWidth: '600px',
+              width: '90%',
+              position: 'relative',
+            }}
+          >
+            <button
+              style={{
+                position: 'absolute',
+                top: '10px',
+                right: '10px',
+                background: 'transparent',
+                border: 'none',
+                fontSize: '1.5rem',
+                cursor: 'pointer',
+              }}
+              onClick={closeModal}
+            >
+              <CloseIcon />
+            </button>
+            <h2>{selectedProject.title}</h2>
+            <ProjectImage
+              src={selectedProject.imageSrc}
+              alt={selectedProject.imageAlt}
+              width={400}
+              height={250}
+            />
+            <p>{selectedProject.fullDescription}</p>
+            <p>
+              <strong>Technologies:</strong> {selectedProject.technologies}
+            </p>
+            <a
+              href={selectedProject.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{
+                color: 'blue',
+                textDecoration: 'underline',
+                marginTop: '10px',
+                display: 'inline-block',
+              }}
+            >
+              Visit Project
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

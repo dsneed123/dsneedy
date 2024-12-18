@@ -26,3 +26,30 @@ body {
   display: inline-block; /* Shrink to content */
   text-align: center; /* Center the text */
 }
+
+@keyframes slideInFromRight {
+  0% {
+    transform: translateX(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+.slide-in {
+  animation: slideInFromRight 0.5s ease-out;
+  will-change: transform, opacity;
+}
+
+.inline-list {
+  list-style-type: none; /* Remove bullet points */
+  padding: 0; /* Remove default padding */
+  display: flex; /* Display items in a row */
+  flex-wrap: wrap; /* Allow items to wrap to the next line if needed */
+}
+
+.inline-list li {
+  margin-right: 10px; /* Space between items */
+}
