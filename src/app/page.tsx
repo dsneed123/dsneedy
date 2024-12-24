@@ -137,27 +137,35 @@ export default function Home() {
         {/* Contact Section */}
         <section id="contact" className="mb-8 sm:mb-12 flex flex-col items-center bg-[#F4F5F7] p-4 sm:p-8 rounded-lg shadow-md mt-10 w-[90%] sm:w-[50%] mx-auto">
           <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-center">Contact me</h2>
-          <ul className="flex flex-col space-y-4 sm:space-y-6 w-full">
+          <ul className="flex flex-row space-x-4 sm:space-x-6 w-full justify-center">
             <li className="transparent flex items-center justify-center">
-              <a href="mailto:dlsneed1298@gmail.com" className="flex items-center text-blue-500 hover:underline">
-                <ContactMailIcon className="text-blue-500" />
-                <span className="ml-2">dlsneed1298@gmail.com</span>
+              <a href="mailto:dlsneed1298@gmail.com" className="flex items-center bg-[#00A9E0] text-white rounded-full w-55 px-2 py-2">
+                <ContactMailIcon className="text-white" />
+                <span className="ml-2 font-source-sans-pro">
+                  dlsneed1298@gmail.com
+                </span>
               </a>
             </li>
             <li className="transparent flex items-center justify-center">
-              <a href="https://www.linkedin.com/in/dsneedy" className="flex items-center text-blue-500 hover:underline">
-                <PeopleIcon className="text-blue-500" />
-                <span className="ml-2">LinkedIn</span>
+              <a href="https://www.linkedin.com/in/dsneedy" className="flex items-center bg-[#00A9E0] text-white rounded-full w-35 px-2 py-2">
+                <PeopleIcon className="text-white" />
+                <span className="ml-2 font-source-sans-pro">
+                  LinkedIn
+                </span>
               </a>
             </li>
             <li className="transparent flex items-center justify-center">
-              <a href="https://drive.google.com/file/d/1MgE3KXLxI0fDKaC_zx58EtIsknZqmEKj/view?usp=sharing" className="flex items-center text-blue-500 hover:underline">
-                <ArticleIcon className="text-blue-500" />
-                <span className="ml-2">Resume</span>
+              <a href="https://drive.google.com/file/d/1MgE3KXLxI0fDKaC_zx58EtIsknZqmEKj/view?usp=sharing" className="flex items-center bg-[#00A9E0] text-white rounded-full w-35 p-2">
+                <ArticleIcon className="text-white" />
+                <span className="ml-2 font-source-sans-pro">
+                  Resume
+                </span>
               </a>
             </li>
           </ul>
         </section>
+
+
       </main>
 
       <footer className="bg-[#F4F5F7] text-center p-4">
