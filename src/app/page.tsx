@@ -135,22 +135,22 @@ export default function Home() {
         </section>
 
         {/* Contact Section */}
-        <section id="contact" className="mb-8 sm:mb-12 flex flex-col items-center bg-[#F4F5F7] p-4 sm:p-8 rounded-lg shadow-md mt-10 w-full">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Contact me</h2>
+        <section id="contact" className="mb-8 sm:mb-12 flex flex-col items-center bg-[#F4F5F7] p-4 sm:p-8 rounded-lg shadow-md mt-10 w-[90%] sm:w-[50%] mx-auto">
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4 text-center">Contact me</h2>
           <ul className="flex flex-col space-y-4 sm:space-y-6 w-full">
-            <li className="transparent flex items-center justify-start">
+            <li className="transparent flex items-center justify-center">
               <a href="mailto:dlsneed1298@gmail.com" className="flex items-center text-blue-500 hover:underline">
                 <ContactMailIcon className="text-blue-500" />
                 <span className="ml-2">dlsneed1298@gmail.com</span>
               </a>
             </li>
-            <li className="transparent flex items-center justify-start">
+            <li className="transparent flex items-center justify-center">
               <a href="https://www.linkedin.com/in/dsneedy" className="flex items-center text-blue-500 hover:underline">
                 <PeopleIcon className="text-blue-500" />
                 <span className="ml-2">LinkedIn</span>
               </a>
             </li>
-            <li className="transparent flex items-center justify-start">
+            <li className="transparent flex items-center justify-center">
               <a href="https://drive.google.com/file/d/1MgE3KXLxI0fDKaC_zx58EtIsknZqmEKj/view?usp=sharing" className="flex items-center text-blue-500 hover:underline">
                 <ArticleIcon className="text-blue-500" />
                 <span className="ml-2">Resume</span>
