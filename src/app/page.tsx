@@ -7,24 +7,19 @@ import PeopleIcon from '@mui/icons-material/People';
 
 const tiers = [
   {
-    name: "Advanced",
+    name: "Highly Confident",
     languages: [
       { name: "Python" },
       { name: "HTML" },
       { name: "CSS" },
+      { name: "JavaScript" },
+      { name: "React" },
     ],
   },
   {
     name: "Confident",
     languages: [
       { name: "C++" },
-      { name: "React" },
-      { name: "JavaScript" },
-    ],
-  },
-  {
-    name: "Intermediate",
-    languages: [
       { name: "Java" },
       { name: "Rust" },
       { name: "Kotlin" },
@@ -33,13 +28,11 @@ const tiers = [
     ],
   },
   {
-    name: "Novice",
-    languages: [{name:"C#"}],
-  },
-  {
-    name: "Beginner",
-    languages: [{name: "Go"},
-      {name: "PHP"}
+    name: "Learning",
+    languages: [
+      { name: "C#" },
+      { name: "Go" },
+      { name: "PHP" },
     ],
   },
 ];
