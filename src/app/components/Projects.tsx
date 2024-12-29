@@ -15,7 +15,7 @@ const projects = [
     imageAlt: 'Centrebyte Marketplace',
     shortDescription: 'A cryptocurrency-powered marketplace for seamless transactions.',
     fullDescription: 'A cryptocurrency-powered marketplace that facilitates seamless transactions between buyers and sellers. Users benefit from features like instant payment processing, transparent records, and reduced fees. The integrated cryptocurrency wallet enables quick deposits and withdrawals, allowing for secure trading without intermediaries.',
-    technologies: 'Python, Django, SQLite, HTML, JavaScript',
+    technologies: 'Python, Django, SQLite, HTML, JavaScript, CSS',
     link: 'http://centrebyte.com'
   },
   {
@@ -125,7 +125,7 @@ const Projects = () => {
         <SwiperSlide
         key={index}
         className="bg-[#F4F5F7] p-5 h-50 rounded-2xl flex flex-col justify-between items-start"
-        style={{ height: "45vh", position: "relative" }}
+        style={{ height: "55vh", position: "relative" }}
         >
         <div className="flex flex-col items-start h-full">
           <div className="flex flex-col justify-between w-full mt-2 mb-6">
