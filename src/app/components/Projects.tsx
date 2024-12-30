@@ -43,7 +43,7 @@ const projects = [
     shortDescription: 'A dynamic party planning app built with React for event organization.',
     fullDescription: 'A dynamic party planning app built with React, designed to simplify event organization and management for users of all ages. Users can easily create and customize events, setting crucial details like date, time, and location, while effortlessly sending out invitations to friends and family through integrated sharing options. The app features a user-friendly interface that enhances user experience, complete with RSVP functionality and automated reminders to ensure that everyone stays informed and engaged throughout the planning process.',
     technologies: 'React, JavaScript, CSS',
-    link: 'https://dsneed123.github.io/muv/'
+    link: 'https://github.com/MaximilianJB/muv-web-app'
   },
   {
     title: 'Core Roulette',
@@ -79,7 +79,7 @@ const projects = [
     shortDescription: 'A simulation of the Solar System with dynamic planetary orbits.',
     fullDescription: 'A visually engaging simulation of the Solar System, featuring planets with dynamic orbits around a central sun. This project brings the celestial movements of our Solar System to life using scalable properties for planetary distances, sizes, and orbital periods. Users can adjust the zoom level interactively to explore the system at various scales. Planets are rendered with realistic relative sizes and colors, and their positions are updated in real-time using angular velocity calculations to simulate orbital dynamics.',
     technologies: 'Rust, minifb, trigonometry',
-    link: 'https://github.com/your-repository-url'
+    link: 'https://github.com/dsneed123/solar-system-rust'
   },
 ];
 
@@ -135,9 +135,9 @@ const Projects = () => {
           <p className="text-center w-full mt-10 text-xl">{project.shortDescription}</p>
           </div>
           <div className="flex-grow flex items-center justify-center w-full">
-          <div className="flex flex-wrap gap-2 mt-4">
+          <div className="flex flex-wrap gap-2 mt-4 ">
         {project.technologies.split(', ').map((tech, techIndex) => (
-        <span key={techIndex} className="bg-gray-200 px-3 py-2 rounded text-lg sm:text-xl">
+        <span key={techIndex} className="bg-gray-200 px-3 py-2 rounded text-md sm:text-md">
           {tech}
         </span>
         ))}

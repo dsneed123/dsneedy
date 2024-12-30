@@ -21,15 +21,15 @@ const NavBar = () => {
           </a>
         </li>
         <li>
-            <a
-            href="#programming-languages"
-            className="group flex items-center bg-[#00A9E0] hover:bg-[#00A9E0] text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-48 px-2 py-2"
-            >
-            <CodeIcon className="text-white group-hover:scale-125 transition-transform duration-300" />
-            <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-source-sans-pro">
-              Programming Languages
-            </span>
-            </a>
+                <a
+                href="#programming-languages"
+                className="group flex items-center bg-[#00A9E0] hover:bg-[#00A9E0] text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-48 px-2 py-2"
+                >
+                <CodeIcon className="text-white group-hover:scale-200 transition-transform duration-300" />
+                <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap font-source-sans-pro w-full">
+                  Programming Languages
+                </span>
+                </a>
         </li>
         <li>
           <a
