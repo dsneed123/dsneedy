@@ -78,22 +78,7 @@ export default function Home() {
             </section>
 
             {/* Experience Section */}
-            <section id="Experience" className="mb-8 sm:mb-12 flex flex-col items-center w-full">
-              <div className="transparent p-4 sm:p-8 rounded-lg flex flex-col items-center w-full">
-                <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Experience</h2>
-                <div className="w-full">
-                  <h3 className="text-xl sm:text-2xl font-semibold text-black mb-1">
-                    <span className="bg-gray-200 px-2 py-1 rounded">PROFOUNDSPORTS</span> – Contract Developer
-                  </h3>
-                  <p className="text-black-100 mb-2 text-sm sm:text-base">August – September 2024</p>
-                  <ul className="list-disc list-inside text-black-300 text-lg sm:text-xl">
-                    <li>Developed a Python web scraper using Requests and BeautifulSoup to extract 10,000+ athlete Twitter handles.</li>
-                    <li>Processed and organized 10,000+ Twitter handles into Excel/CSV for easy access by marketing/outreach teams.</li>
-                    <li>Automated data extraction reducing manual entry and allowing the marketing team to focus on high priority tasks.</li>
-                  </ul>
-                </div>
-              </div>
-            </section>
+            
           </div>
 
           {/* Programming Languages Section */}
@@ -123,7 +108,7 @@ export default function Home() {
 
         {/* Projects Section */}
         <section id="projects" className="mb-8 sm:mb-12 flex flex-col items-center">
-          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Projects</h2>
+          <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Projects and Experience</h2>
           <Projects />
         </section>
 
