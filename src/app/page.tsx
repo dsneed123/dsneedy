@@ -87,11 +87,11 @@ export default function Home() {
             <div className="space-y-4 w-full">
               {tiers.map((tier, index) => (
                 <div key={index} className="slide-in-once animate-slide-in">
-                  <h3 className="text-xl sm:text-2xl font-semibold mb-2">{tier.name}</h3>
+                  
                   <ul className="inline-list">
                     {tier.languages.length > 0 ? (
                       tier.languages.map((lang, langIndex) => (
-                        <li key={`${tier.name}-${langIndex}`} className="bg-gray-200 px-2 py-1 rounded text-sm sm:text-base">
+                        <li key={`${tier.name}-${langIndex}`} className="bg-gray-200 px-2 py-1 rounded text-md sm:text-md">
                           {lang.name}
                         </li>
                       ))
@@ -99,7 +99,7 @@ export default function Home() {
                       <li className="text-gray-500">No languages in this tier</li>
                     )}
                   </ul>
-                  {index < tiers.length - 1 && <hr className="border-t-2 border-[#1E2A38] my-4" />}
+                  {index < tiers.length - 1 && <hr className="border-0  my-4" />}
                 </div>
               ))}
             </div>
