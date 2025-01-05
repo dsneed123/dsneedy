@@ -12,17 +12,16 @@ const tiers = [
       { name: "Python" },
       { name: "HTML" },
       { name: "CSS" },
-      { name: "JavaScript" },
       { name: "React" },
     ],
   },
   {
     name: "Confident",
     languages: [
+      { name: "JavaScript" },
       { name: "C++" },
       { name: "Java" },
       { name: "Rust" },
-      { name: "Kotlin" },
       { name: "C" },
 
     ],
@@ -30,8 +29,8 @@ const tiers = [
   {
     name: "Learning",
     languages: [
+      { name: "Kotlin" },
       { name: "SQL" },
-      { name: "C#" },
       { name: "Go" },
       { name: "PHP" },
     ],
