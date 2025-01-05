@@ -24,12 +24,13 @@ const tiers = [
       { name: "Rust" },
       { name: "Kotlin" },
       { name: "C" },
-      { name: "SQL" },
+
     ],
   },
   {
     name: "Learning",
     languages: [
+      { name: "SQL" },
       { name: "C#" },
       { name: "Go" },
       { name: "PHP" },
@@ -44,7 +45,7 @@ export default function Home() {
       <title>Davis Sneed</title>
       <header className="bg-[#1E2A38] p-6 text-center">
         <Image 
-          src="/media/headshot.jpeg" 
+          src="/media/headshot.png" 
           alt="Davis Sneed" 
           className="w-32 h-32 sm:w-40 sm:h-40 md:w-50 md:h-50 rounded-full border-2 border-[#ffffff] mx-auto" 
           width={180} 
@@ -91,7 +92,7 @@ export default function Home() {
                   <ul className="inline-list">
                     {tier.languages.length > 0 ? (
                       tier.languages.map((lang, langIndex) => (
-                        <li key={`${tier.name}-${langIndex}`} className="bg-gray-200 px-2 py-1 rounded text-md sm:text-md">
+                        <li key={`${tier.name}-${langIndex}`} className="bg-gray-200 px-2 py-1 rounded text-md sm:text-xl">
                           {lang.name}
                         </li>
                       ))
