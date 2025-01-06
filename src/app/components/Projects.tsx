@@ -4,13 +4,16 @@ import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination } from 'swiper/modules';
 
 import 'swiper/css';
-import ChevronRightIcon from '@mui/icons-material/ChevronRight';
-import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+
 import CloseIcon from '@mui/icons-material/Close';
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 const projects = [
   {
-    title: 'PROFOUNDSPORTS Contract Developer',
+    title: 'ProfoundSports',
+    role: 'Contract Developer',
   
     imageAlt: 'PROFOUNDSPORTS',
     shortDescription: 'Developed a webscraper to locate athlete twitter accounts.',
@@ -20,6 +23,7 @@ const projects = [
   },
   {
     title: 'Centrebyte',
+    role: "founder and full-stack developer",
     imageSrc: '/media/centrebyte.png',
     imageAlt: 'Centrebyte Marketplace',
     shortDescription: 'A cryptocurrency-powered marketplace for seamless transactions.',
@@ -29,6 +33,7 @@ const projects = [
   },
   {
     title: 'MUV Web App',
+    role:'Full-Stack Developer',
     imageSrc: '/media/centrebyte.png',
     imageAlt: 'MUV Web App',
     shortDescription: 'A dynamic party planning app built with React for event organization.',
@@ -39,6 +44,7 @@ const projects = [
 
   {
     title: 'Rust Ball Animation',
+    role :'Developer',
     imageSrc: '/media/bouncing-balls.gif',
     imageAlt: 'Weather App',
     shortDescription: 'A dynamic 2D ball simulation built in Rust, showcasing real-time collision handling.',
@@ -48,6 +54,7 @@ const projects = [
   },
   {
     title: 'Langton\'s Ant Simulation',
+    role :'Developer',
     imageSrc: '/media/langtons_ant.gif',
     imageAlt: 'Core Roulette',
     shortDescription: 'A simulation of Langton\'s Ant, a Turing-complete cellular automaton.',
@@ -57,6 +64,7 @@ const projects = [
   },
   {
     title: 'Solar System Simulation',
+    role :'Developer',
     imageSrc: '/media/solarsystem.gif',
     imageAlt: 'Solar System Simulation',
     shortDescription: 'A simulation of the Solar System with dynamic planetary orbits.',
@@ -68,6 +76,7 @@ const projects = [
     title: 'Shamir Secret Sharing Scheme',
     imageSrc: '/media/Figure_1.png',
     imageAlt: 'graph',
+    role :'Developer',
     shortDescription: 'An educational implementation of the Shamir Secret Sharing scheme.',
     fullDescription: 'An educational implementation of the Shamir Secret Sharing scheme, which splits a secret into multiple shares and requires a threshold number of shares to reconstruct the original secret. This cryptographic method ensures secure and distributed key management. The program allows users to specify the number of shares and threshold, then generates random coefficients to create a polynomial for splitting the secret. It supports secret reconstruction using Lagrange interpolation for any combination of shares that meets the threshold.',
     technologies: 'Python, Lagrange interpolation',
@@ -75,6 +84,7 @@ const projects = [
   },
   {
     title: 'Core Roulette',
+    role :'Creator and Developer',
     imageSrc: '/media/Core-roullete.png',
     imageAlt: 'Core Roulette',
     shortDescription: 'A web app that randomizes abdominal workouts for fitness enthusiasts.',
@@ -84,6 +94,7 @@ const projects = [
   },
   {
     title: 'Weather App Prototype',
+    role :'Developer',
     imageSrc: '/media/weather-app.png',
     imageAlt: 'Weather App',
     shortDescription: 'A user-friendly web application providing real-time weather data.',
@@ -107,12 +118,11 @@ const Projects = () => {
 
   return (
     <div className="relative w-11/12 mx-auto">
-      {/* Left Arrow */}
-      <ChevronLeftIcon
-      id="custom-prev"
-      className="absolute top-1/2 left-[-70px] transform -translate-y-1/2 z-10 text-4xl cursor-pointer"
+      <div
+      id="swiper-button-prev"
+      className="swiper-button-prev absolute top-1/2 left-[-300px] transform -translate-y-1/2 z-10 text-4xl cursor-pointer"
       />
-      
+
       <Swiper
       spaceBetween={15}
       modules={[Navigation, Pagination]}
@@ -125,10 +135,12 @@ const Projects = () => {
         slidesPerView: 3, // For screens larger than 1024px (desktop view)
         },
       }}
-      pagination={{ clickable: true }}
       navigation={{
-        prevEl: '#custom-prev',
-        nextEl: '#custom-next',
+        nextEl: '.swiper-button-next',
+        prevEl: '.swiper-button-prev',
+      }}
+      pagination={{
+        el: '.swiper-custom-pagination',
       }}
       >
       {projects.map((project, index) => (
@@ -139,51 +151,55 @@ const Projects = () => {
         >
         <div className="flex flex-col items-start h-full">
           <div className="flex flex-col justify-between w-full mt-2 mb-6">
-          <h3 className="text-2xl font-semibold mb-4 text-center w-full text-[#00A9E0]">
-          <strong>{project.title}</strong>
-          </h3>
-          <p className="text-center w-full mt-10 text-xl">{project.shortDescription}</p>
+          <h2 className="text-2xl font-semibold mb-2 text-center w-full text-[#2b2b2b]">
+            {project.title}
+          </h2>
+          <p className="text-center w-full mt-1 text-l text-[#2b2b2b]">
+            <strong>{project.role}</strong>
+          </p>
+          <p className="text-center w-full mt-10 text-l">
+            {project.shortDescription}
+          </p>
           </div>
           <div className="flex-grow flex items-center justify-center w-full">
-          <div className="flex flex-wrap gap-2 mt-4 ">
-        {project.technologies.split(', ').map((tech, techIndex) => (
-        <span key={techIndex} className="bg-gray-200 px-3 py-2 rounded text-md sm:text-md">
-          {tech}
-        </span>
-        ))}
+          <div className="flex flex-wrap gap-2 mt-4">
+            {project.technologies.split(', ').map((tech, techIndex) => (
+            <span key={techIndex} className="bg-gray-200 px-3 py-2 rounded text-md sm:text-md">
+              {tech}
+            </span>
+            ))}
           </div>
           {/* <div className="object-cover w-full">
-          <ProjectImage
-          src={project.imageSrc}
-          alt={project.imageAlt}
-          width={250}
-          height={250}
-          />
+            <ProjectImage
+            src={project.imageSrc}
+            alt={project.imageAlt}
+            width={250}
+            height={250}
+            />
           </div> */}
           </div>
         </div>
-        <div className="absolute bottom-4 left-4"> {/* Added margin to prevent button from being covered */}
+        <div className="absolute top-4 right-4">
           <button
           className="group flex items-center bg-[#1E2A38] hover:bg-[#1E2A38] text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
           onClick={() => openModal(project)}
           >
           <ZoomOutMapIcon className="text-white group-hover:scale-125 transition-transform duration-300" />
           <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-        Read More
+            Read More
           </span>
           </button>
         </div>
         </SwiperSlide>
       ))}
       </Swiper>
-
-      {/* Right Arrow */}
-      <ChevronRightIcon
-      id="custom-next"
-      className="absolute top-1/2 right-[-70px] transform -translate-y-1/2 z-10 text-4xl cursor-pointer"
+      <div
+      id="swiper-button-next"
+      className="swiper-button-next absolute top-1/2 right-[-70px] transform -translate-y-1/2 z-10 text-4xl cursor-pointer"
       />
 
-      {/* Modal */}
+      <div className="swiper-custom-pagination justify-center flex w-full mt-5" />
+
       {selectedProject && (
       <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
         <div className="bg-white p-8 rounded-lg max-w-lg w-11/12 relative">
@@ -193,7 +209,9 @@ const Projects = () => {
         >
           <CloseIcon />
         </button>
-        <h2 className="text-3xl font-bold mb-6 text-[#00A9E0]">{selectedProject.title}</h2>
+        <h2 className="text-3xl font-bold mb-6 text-[#00A9E0]">
+          {selectedProject.title}
+        </h2>
         {/* <ProjectImage
           src={selectedProject.imageSrc}
           alt={selectedProject.imageAlt}
@@ -203,13 +221,13 @@ const Projects = () => {
         <p className="mt-6 text-lg">{selectedProject.fullDescription}</p>
         <p className="mt-4 text-lg">
           <strong>Technologies:</strong> {selectedProject.technologies}
-        <div className="flex flex-wrap gap-2 mt-4">
+          <div className="flex flex-wrap gap-2 mt-4">
           {selectedProject.technologies.split(', ').map((tech, techIndex) => (
-          <span key={techIndex} className="bg-gray-200 px-3 py-2 rounded text-lg sm:text-xl">
+            <span key={techIndex} className="bg-gray-200 px-3 py-2 rounded text-lg sm:text-xl">
             {tech}
-          </span>
+            </span>
           ))}
-        </div>
+          </div>
         </p>
         <a
           href={selectedProject.link}
