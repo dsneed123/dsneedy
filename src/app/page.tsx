@@ -118,9 +118,9 @@ export default function Home() {
           className="mb-8 sm:mb-12 flex flex-col items-center bg-[#F4F5F7] p-4 sm:p-8 rounded-lg shadow-md mt-10 w-[90%] sm:w-[60%] mx-auto"
         >
           <h2 className="text-xl sm:text-2xl font-semibold mb-4 text-center">Contact me</h2>
-          <ul className="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-6 w-full justify-center">
+          <ul className="flex flex-wrap gap-4 sm:gap-6 w-full justify-center">
             {/* Email */}
-            <li className="flex items-center justify-center">
+            <li className="flex items-center">
               <a 
                 href="mailto:dlsneed1298@gmail.com" 
                 className="flex items-center bg-[#1E2A38] text-white rounded-md px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
@@ -133,7 +133,7 @@ export default function Home() {
             </li>
 
             {/* LinkedIn */}
-            <li className="flex items-center justify-center">
+            <li className="flex items-center">
               <a 
                 href="https://www.linkedin.com/in/dsneedy" 
                 className="flex items-center bg-[#1E2A38] text-white rounded-md px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
@@ -146,7 +146,7 @@ export default function Home() {
             </li>
 
             {/* Resume */}
-            <li className="flex items-center justify-center">
+            <li className="flex items-center">
               <a 
                 href="https://drive.google.com/file/d/1MgE3KXLxI0fDKaC_zx58EtIsknZqmEKj/view?usp=sharing" 
                 className="flex items-center bg-[#1E2A38] text-white rounded-md px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
