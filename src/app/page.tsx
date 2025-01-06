@@ -147,7 +147,7 @@ export default function Home() {
             {/* Resume */}
             <li className="flex items-center">
               <a 
-                href="https://drive.google.com/file/d/1rWkEiw7PG9ilftvXd4BzggktxhSeVk7O/view?usp=sharing" 
+                href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing" 
                 className="flex items-center bg-[#1E2A38] text-white rounded-md px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
               >
                 <ArticleIcon className="text-white" />
