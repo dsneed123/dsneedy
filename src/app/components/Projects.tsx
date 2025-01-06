@@ -7,7 +7,7 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-
+import OpenInNewIcon from '@mui/icons-material/OpenInNew';
 import CloseIcon from '@mui/icons-material/Close';
 import ZoomOutMapIcon from '@mui/icons-material/ZoomOutMap';
 const projects = [
@@ -19,7 +19,7 @@ const projects = [
     shortDescription: 'Developed a webscraper to locate athlete twitter accounts.',
     fullDescription: 'Developed a Python web scraper using Requests and BeautifulSoup to extract 10,000+ athlete Twitter handles. Processed and organized 10,000+ Twitter handles into Excel/CSV for easy access by marketing/outreach teams. Automated data extraction reducing manual entry and allowing the marketing team to focus on high priority tasks.',
     technologies: 'Python, Requests, BeautifulSoup, Excel, CSV',
-    link: 'http://profoundsports.com'
+
   },
   {
     title: 'Centrebyte',
@@ -39,7 +39,7 @@ const projects = [
     shortDescription: 'A dynamic party planning app built with React for event organization.',
     fullDescription: 'A dynamic party planning app built with React, designed to simplify event organization and management for users of all ages. Users can easily create and customize events, setting crucial details like date, time, and location, while effortlessly sending out invitations to friends and family through integrated sharing options. The app features a user-friendly interface that enhances user experience, complete with RSVP functionality and automated reminders to ensure that everyone stays informed and engaged throughout the planning process.',
     technologies: 'React, JavaScript, CSS',
-    link: 'https://github.com/MaximilianJB/muv-web-app'
+
   },
 
   {
@@ -209,9 +209,12 @@ const Projects = () => {
         >
           <CloseIcon />
         </button>
-        <h2 className="text-3xl font-bold mb-6 text-[#00A9E0]">
-          {selectedProject.title}
-        </h2>
+        <h2 className="text-2xl font-semibold mb-2 text-center w-full text-[#2b2b2b]">
+            {selectedProject.title}
+          </h2>
+          <p className="text-center w-full mt-1 text-l text-[#2b2b2b]">
+            <strong>{selectedProject.role}</strong>
+          </p>
         {/* <ProjectImage
           src={selectedProject.imageSrc}
           alt={selectedProject.imageAlt}
@@ -229,14 +232,21 @@ const Projects = () => {
           ))}
           </div>
         </p>
-        <a
+        {selectedProject.link && (
+            <div className="absolute bottom-4 right-4">
+          <a
           href={selectedProject.link}
           target="_blank"
           rel="noopener noreferrer"
-          className="text-blue-500 underline mt-6 inline-block text-lg"
-        >
+          className="group flex items-center bg-transparent hover:bg-[#1E2A38] text-black hover:text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
+          >
+          <OpenInNewIcon className="text-black group-hover:text-white group-hover:scale-125 transition-transform duration-300" />
+          <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap group-hover:text-sm">
           Visit Project
-        </a>
+          </span>
+          </a>
+            </div>
+        )}
         </div>
       </div>
       )}
