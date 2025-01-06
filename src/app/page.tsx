@@ -22,13 +22,13 @@ const tiers = [
       { name: "C++" },
       { name: "Java" },
       { name: "Rust" },
-      { name: "C" },
 
     ],
   },
   {
     name: "Learning",
     languages: [
+      { name: "C" },
       { name: "Kotlin" },
       { name: "SQL" },
       { name: "Go" },
@@ -82,28 +82,27 @@ export default function Home() {
           </div>
 
           {/* Programming Languages Section */}
-          <section id="programming-languages" className="mb-8 sm:mb-12 flex flex-col items-center lg:ml-10">
+            <section id="programming-languages" className="mb-8 sm:mb-12 flex flex-col items-center lg:ml-10">
             <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Programming Languages</h2>
             <div className="space-y-4 w-full">
               {tiers.map((tier, index) => (
-                <div key={index} className="slide-in-once animate-slide-in">
-                  
-                  <ul className="inline-list">
-                    {tier.languages.length > 0 ? (
-                      tier.languages.map((lang, langIndex) => (
-                        <li key={`${tier.name}-${langIndex}`} className="bg-gray-200 px-2 py-1 rounded text-md sm:text-xl">
-                          {lang.name}
-                        </li>
-                      ))
-                    ) : (
-                      <li className="text-gray-500">No languages in this tier</li>
-                    )}
-                  </ul>
-                  {index < tiers.length - 1 && <hr className="border-0  my-4" />}
-                </div>
+              <div key={index} className="slide-in-once animate-slide-in text-center">
+                <ul className="inline-list flex flex-wrap justify-center gap-2">
+                {tier.languages.length > 0 ? (
+                  tier.languages.map((lang, langIndex) => (
+                  <li key={`${tier.name}-${langIndex}`} className="bg-gray-200 px-2 py-1 rounded text-md sm:text-xl">
+                    {lang.name}
+                  </li>
+                  ))
+                ) : (
+                  <li className="text-gray-500">No languages in this tier</li>
+                )}
+                </ul>
+                {index < tiers.length - 1 && <hr className="border-0 my-4" />}
+              </div>
               ))}
             </div>
-          </section>
+            </section>
         </div>
 
         {/* Projects Section */}
