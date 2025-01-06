@@ -151,7 +151,7 @@ const Projects = () => {
         >
         <div className="flex flex-col items-start h-full">
           <div className="flex flex-col justify-between w-full mt-2 mb-6">
-          <h2 className="text-2xl font-semibold mb-2 text-center w-full text-[#2b2b2b]">
+          <h2 className="mt-6 sm:mt-8 text-2xl text-center sm:text-3xl font-semibold mb-4]">
             {project.title}
           </h2>
           <p className="text-center w-full mt-1 text-l text-[#2b2b2b]">
