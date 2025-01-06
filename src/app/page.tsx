@@ -98,7 +98,7 @@ export default function Home() {
                   <li className="text-gray-500">No languages in this tier</li>
                 )}
                 </ul>
-                {index < tiers.length - 1 && <hr className="border-0 my-4" />}
+                {index < tiers.length - 1 && <hr className="border-0 my-1" />}
               </div>
               ))}
             </div>
