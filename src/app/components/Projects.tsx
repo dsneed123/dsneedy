@@ -201,54 +201,56 @@ const Projects = () => {
       <div className="swiper-custom-pagination justify-center flex w-full mt-5" />
 
       {selectedProject && (
-      <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
-        <div className="bg-white p-8 rounded-lg max-w-lg w-11/12 relative">
-        <button
-          className="absolute top-2 right-2 bg-transparent border-none text-2xl cursor-pointer"
-          onClick={closeModal}
-        >
-          <CloseIcon />
-        </button>
-        <h2 className="text-2xl font-semibold mb-2 text-center w-full text-[#2b2b2b]">
-            {selectedProject.title}
-          </h2>
-          <p className="text-center w-full mt-1 text-l text-[#2b2b2b]">
-            <strong>{selectedProject.role}</strong>
-          </p>
-        {/* <ProjectImage
-          src={selectedProject.imageSrc}
-          alt={selectedProject.imageAlt}
-          width={400}
-          height={250}
-        /> */}
-        <p className="mt-6 text-lg">{selectedProject.fullDescription}</p>
-        <p className="mt-4 text-lg">
-          <strong>Technologies:</strong> {selectedProject.technologies}
-          <div className="flex flex-wrap gap-2 mt-4">
-          {selectedProject.technologies.split(', ').map((tech, techIndex) => (
-            <span key={techIndex} className="bg-gray-200 px-3 py-2 rounded text-lg sm:text-xl">
-            {tech}
-            </span>
-          ))}
-          </div>
-        </p>
-        {selectedProject.link && (
-            <div className="absolute bottom-4 right-4">
-          <a
-          href={selectedProject.link}
-          target="_blank"
-          rel="noopener noreferrer"
-          className="group flex items-center bg-transparent hover:bg-[#1E2A38] text-black hover:text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
-          >
-          <OpenInNewIcon className="text-black group-hover:text-white group-hover:scale-125 transition-transform duration-300" />
-          <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap group-hover:text-sm">
-          Visit Project
-          </span>
-          </a>
+        <div className="fixed top-0 left-0 w-full h-full bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white p-8 rounded-lg max-w-lg w-11/12 relative">
+            <button
+              className="absolute top-2 right-2 bg-transparent border-none text-2xl cursor-pointer"
+              onClick={closeModal}
+            >
+              <CloseIcon />
+            </button>
+            <h2 className="text-2xl font-semibold mb-2 text-center w-full text-[#2b2b2b]">
+              {selectedProject.title}
+            </h2>
+            <p className="text-center w-full mt-1 text-l text-[#2b2b2b]">
+              <strong>{selectedProject.role}</strong>
+            </p>
+            <div
+              className="mt-6 text-lg overflow-y-auto"
+              style={{ maxHeight: "60vh" }} // Limit the modal content height
+            >
+              <p>{selectedProject.fullDescription}</p>
+              <p className="mt-4 text-lg">
+                <strong>Technologies:</strong> {selectedProject.technologies}
+                <div className="flex flex-wrap gap-2 mt-4">
+                  {selectedProject.technologies.split(", ").map((tech, techIndex) => (
+                    <span
+                      key={techIndex}
+                      className="bg-gray-200 px-3 py-2 rounded text-lg sm:text-xl"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+              </p>
             </div>
-        )}
+            {selectedProject.link && (
+              <div className="absolute bottom-4 right-4">
+                <a
+                  href={selectedProject.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center bg-transparent hover:bg-[#1E2A38] text-black hover:text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
+                >
+                  <OpenInNewIcon className="text-black group-hover:text-white group-hover:scale-125 transition-transform duration-300" />
+                  <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap group-hover:text-sm">
+                    Visit Project
+                  </span>
+                </a>
+              </div>
+            )}
+          </div>
         </div>
-      </div>
       )}
     </div>
   );
