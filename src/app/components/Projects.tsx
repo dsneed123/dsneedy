@@ -179,16 +179,16 @@ const Projects = () => {
           </div> */}
           </div>
         </div>
-        <div className="absolute top-4 right-4">
-          <button
-          className="group flex items-center bg-[#1E2A38] hover:bg-[#1E2A38] text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
-          onClick={() => openModal(project)}
-          >
-          <ZoomOutMapIcon className="text-white group-hover:scale-125 transition-transform duration-300" />
-          <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+        <div className="absolute bottom-4 right-4">
+            <button
+            className="group flex items-center bg-transparent hover:bg-[#1E2A38] text-black hover:text-white rounded-full transition-all duration-300 overflow-hidden w-10 hover:w-40 px-2 py-2"
+            onClick={() => openModal(project)}
+            >
+            <ZoomOutMapIcon className="text-black group-hover:text-white group-hover:scale-125 transition-transform duration-300" />
+            <span className="ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap group-hover:text-sm">
             Read More
-          </span>
-          </button>
+            </span>
+            </button>
         </div>
         </SwiperSlide>
       ))}

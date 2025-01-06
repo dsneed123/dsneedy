@@ -123,7 +123,7 @@ export default function Home() {
             <li className="flex items-center justify-center">
               <a 
                 href="mailto:dlsneed1298@gmail.com" 
-                className="flex items-center bg-[#00A9E0] text-white rounded-full px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
+                className="flex items-center bg-[#1E2A38] text-white rounded-md px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
               >
                 <ContactMailIcon className="text-white" />
                 <span className="ml-2 font-source-sans-pro text-sm sm:text-base">
@@ -136,7 +136,7 @@ export default function Home() {
             <li className="flex items-center justify-center">
               <a 
                 href="https://www.linkedin.com/in/dsneedy" 
-                className="flex items-center bg-[#00A9E0] text-white rounded-full px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
+                className="flex items-center bg-[#1E2A38] text-white rounded-md px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
               >
                 <PeopleIcon className="text-white" />
                 <span className="ml-2 font-source-sans-pro text-sm sm:text-base">
@@ -149,7 +149,7 @@ export default function Home() {
             <li className="flex items-center justify-center">
               <a 
                 href="https://drive.google.com/file/d/1MgE3KXLxI0fDKaC_zx58EtIsknZqmEKj/view?usp=sharing" 
-                className="flex items-center bg-[#00A9E0] text-white rounded-full px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
+                className="flex items-center bg-[#1E2A38] text-white rounded-md px-4 py-3 sm:py-2 shadow hover:bg-[#0079b3] transition-all"
               >
                 <ArticleIcon className="text-white" />
                 <span className="ml-2 font-source-sans-pro text-sm sm:text-base">
