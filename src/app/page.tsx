@@ -187,9 +187,9 @@ export default function Home() {
               <Image 
                 src="/media/headshot.png" 
                 alt="Davis Sneed" 
-                className="relative w-32 h-32 rounded-full object-cover border-4 border-white shadow-2xl" 
-                width={128} 
-                height={128}
+                className="relative w-75 h-75 rounded-full object-cover border-4 border-white shadow-2xl" 
+                width={195} 
+                height={195}
               />
             </div>
 
