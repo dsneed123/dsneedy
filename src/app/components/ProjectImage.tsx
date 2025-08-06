@@ -10,13 +10,27 @@ interface ProjectImageProps {
 
 const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, className, width, height }) => {
   return (
-    <div style={{ width, height, borderRadius: '8px', overflow: 'hidden', margin: '0 auto' }} className={className}>
+    <div 
+      style={{ 
+        width, 
+        height, 
+        borderRadius: '6px', 
+        overflow: 'hidden', 
+        margin: '0 auto'
+      }} 
+      className={`${className} border border-gray-200 bg-white`}
+    >
       <Image 
-      src={src} 
-      alt={alt} 
-      width={width} 
-      height={height} 
-      style={{ objectFit: 'contain' }} // You can change 'contain' to 'fill', 'none', 'scale-down', or 'cover'
+        src={src} 
+        alt={alt} 
+        width={width} 
+        height={height} 
+        style={{ 
+          objectFit: 'cover',
+          width: '100%',
+          height: '100%'
+        }}
+        className="transition-opacity hover:opacity-95"
       />
     </div>
   );
@@ -24,27 +38,25 @@ const ProjectImage: React.FC<ProjectImageProps> = ({ src, alt, className, width,
 
 export default ProjectImage;
 
-/* Usage Example
-const MyComponent = () => {
+/* Clean Professional Usage
+const ExampleComponent = () => {
   return (
-    <div>
+    <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-4">
       <ProjectImage 
-        src="/path/to/centrebyte-image.jpg" 
-        alt="Centrebyte Marketplace" 
-        className="mb-3 rounded" 
-        width={128} 
-        height={128} 
+        src="/media/project-image.png" 
+        alt="Project Screenshot" 
+        className="mb-4" 
+        width={300} 
+        height={200} 
       />
       <ProjectImage 
-        src="/media/headshot.jpeg" 
-        alt="Davis Sneed" 
-        className="w-32 h-32 rounded-full border-4 border-blue-500" 
-        width={128} 
-        height={128} 
+        src="/media/headshot.png" 
+        alt="Professional Headshot" 
+        className="rounded-full border-2 border-gray-300" 
+        width={120} 
+        height={120} 
       />
     </div>
   );
 };
-
-export default MyComponent;
 */
