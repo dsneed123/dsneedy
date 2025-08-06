@@ -1,13 +1,7 @@
+"use client";
 import React from 'react';
 
-type LinkCardProps = {
-  title: string;
-  url: string;
-  description: string;
-  icon: React.ReactNode;
-};
-
-const LinkCard: React.FC<LinkCardProps> = ({ title, url, description, icon }) => {
+const LinkCard = ({ title, url, description, icon }) => {
   return (
     <a
       href={url}
@@ -130,7 +124,7 @@ const LinksPage = () => {
           {/* Professional header */}
           <div className="text-center mb-12">
             <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-              Davis&apos;s Links
+              Davis's Links
             </h1>
             <div className="w-24 h-0.5 bg-slate-600 mx-auto mb-4"></div>
             <p className="text-slate-400 text-lg">
