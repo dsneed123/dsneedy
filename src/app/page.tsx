@@ -266,7 +266,7 @@ export default function Home() {
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Gonzaga University</h3>
                 <p className="text-lg text-blue-600 font-semibold mb-3">
-                  Bachelor of Science in Computer Science and Computational Thinking
+                  B.A. in Computer Science and Computational Thinking
                 </p>
                 <p className="text-gray-700 mb-3">
                   <strong>Concentration:</strong> Software Development • Security • Philosophy
