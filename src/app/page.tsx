@@ -16,6 +16,17 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 const projects = [
+  (
+    title: 'HygGeo',
+    role: 'co-Founder & Lead Developer',
+    type: 'Professional',
+    description: 'Sustainable travel web app promoting eco-friendly accommodations and activities through geolocation and user reviews. Built with python and django backend, and html, css, and javascript frontend. Obtains over 2000 weekly visitors',
+    technologies: ['Python', 'Django', 'JavaScript', 'HTML', 'CSS'],
+    impact: 'Web app with 2000+ weekly visitors',
+    link: 'https://HygGeo.com',
+    color: 'from-green-500 to-emerald-600'
+
+  ),
   {
     title: 'Centrebyte Marketplace',
     role: 'Founder & Full-Stack Developer',
