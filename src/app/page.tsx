@@ -16,7 +16,7 @@ import MenuIcon from '@mui/icons-material/Menu';
 import CloseIcon from '@mui/icons-material/Close';
 
 const projects = [
-  (
+  {
     title: 'HygGeo',
     role: 'co-Founder & Lead Developer',
     type: 'Professional',
@@ -26,7 +26,7 @@ const projects = [
     link: 'https://HygGeo.com',
     color: 'from-green-500 to-emerald-600'
 
-  ),
+  },
   {
     title: 'Centrebyte Marketplace',
     role: 'Founder & Full-Stack Developer',
