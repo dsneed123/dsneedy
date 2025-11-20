@@ -15,8 +15,8 @@
     "@mui/material": "^6.2.1",
     "@mui/styled-engine-sc": "^6.2.1",
     "next": "15.1.0",
-    "react": "19.0.0",
-    "react-dom": "19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
     "react-toastify": "^11.0.5",
     "styled-components": "^6.1.13",
     "swiper": "^11.1.15"

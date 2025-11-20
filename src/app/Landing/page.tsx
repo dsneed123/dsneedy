@@ -115,6 +115,29 @@ const LinksPage = () => {
         </svg>
       )
     }
+      ,
+      {
+        title: 'Hyggeo',
+        url: 'https://hyggeo.com',
+        description: 'Sustainable travel app for eco-conscious journeys.',
+        icon: (
+          <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" fill="none" />
+            <path d="M8 12a4 4 0 1 1 8 0" stroke="currentColor" strokeWidth="2" fill="none" />
+          </svg>
+        )
+      },
+      {
+        title: 'Relays.social',
+        url: 'https://relays.social',
+        description: 'My social media app in beta.',
+        icon: (
+          <svg className="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+            <rect x="4" y="4" width="16" height="16" rx="4" fill="currentColor" />
+            <path d="M8 12h8M12 8v8" stroke="#fff" strokeWidth="2" strokeLinecap="round" />
+          </svg>
+        )
+      },
   ];
 
   return (
