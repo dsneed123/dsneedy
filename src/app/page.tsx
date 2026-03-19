@@ -92,19 +92,40 @@ const experience = [
   {
     title: 'Graduate Engineer',
     company: 'Qualitest',
-    period: 'Feb 2025 - Present',
-    type: 'Professional',
+    period: 'Feb 2026 - Present',
+    type: 'Full-time',
     description: 'Execute structured testing and validation of AR/VR hardware and software systems to support product development and performance optimization. Collect, analyze, and document experimental data to ensure accuracy, reliability, and compliance with research protocols. Identify system issues and collaborate with cross-functional teams to troubleshoot and improve product functionality.',
     technologies: ['Data Collection', 'Augmented Reality (AR)', 'Virtual Reality (VR)', 'QA Testing', 'Hardware Validation'],
     impact: 'Full-time on-site in Kirkland, WA — AR/VR product quality & optimization',
-    color: 'from-sky-500 to-teal-600',
+    color: 'from-amber-500 to-orange-600',
     logo: '/media/qualitest-logo.jpg'
+  },
+  {
+    title: 'Data Collector (Contract) - Meta Research Project',
+    company: 'Insight Global',
+    period: 'Nov 2025 - Dec 2025',
+    type: 'Contract',
+    description: 'Conducted field-based data collection across diverse Seattle environments, including dense urban canyon areas, to support AR/VR research. Followed standardized procedures to ensure accuracy, reliability, and consistency in collected location data. Collaborated with project managers and technical teams to resolve issues and maintain data quality.',
+    technologies: ['Data Collection', 'AR/VR Research', 'Field Operations', 'Quality Assurance'],
+    impact: 'Field-based AR/VR data collection across diverse Seattle environments',
+    color: 'from-rose-500 to-pink-600',
+    logo: '/media/insightglobal-logo.png'
+  },
+  {
+    title: 'Contract Front-end Developer',
+    company: 'Pivot Politics',
+    period: 'Oct 2025 - Jan 2026',
+    type: 'Contract',
+    description: 'Collaborated with stakeholders to plan and design the website\'s front-end experience. Created high-fidelity UI designs for a social media platform using Figma. Developed responsive front-end features using JavaScript, HTML, and CSS integrated with a Python back-end.',
+    technologies: ['JavaScript', 'HTML', 'CSS', 'Python', 'Figma', 'React', 'UI/UX Design', 'Responsive Design'],
+    impact: 'Designed & developed front-end for social media platform',
+    color: 'from-violet-500 to-purple-600'
   },
   {
     title: 'Contract Developer',
     company: 'ProfoundSports',
     period: '2024',
-    type: 'Professional',
+    type: 'Contract',
     description: 'Developed and deployed automated athlete social media data collection system processing 10,000+ profiles. Built Python web scraper using Requests and BeautifulSoup with data processing pipelines for Excel/CSV export, reducing manual data entry by 90% and enabling marketing teams to focus on high-priority outreach activities.',
     technologies: ['Python', 'BeautifulSoup', 'Excel', 'CSV', 'Data Processing'],
     impact: '10,000+ profiles processed, 90% reduction in manual work',
@@ -113,9 +134,9 @@ const experience = [
 ];
 
 const skills = {
-  'Expert': { level: 95, items: ['Python', 'HTML', 'CSS', 'React'], color: 'bg-emerald-500' },
-  'Advanced': { level: 80, items: ['JavaScript', 'C++', 'Java', 'Rust'], color: 'bg-blue-500' },
-  'Proficient': { level: 65, items: ['C', 'Kotlin', 'SQL', 'Go', 'PHP'], color: 'bg-purple-500' }
+  'Expert': { level: 95, items: ['Python', 'HTML', 'CSS', 'React'], color: 'bg-amber-500' },
+  'Advanced': { level: 80, items: ['JavaScript', 'C++', 'Java', 'Rust'], color: 'bg-orange-500' },
+  'Proficient': { level: 65, items: ['C', 'Kotlin', 'SQL', 'Go', 'PHP'], color: 'bg-rose-400' }
 };
 
 export default function Home() {
@@ -129,7 +150,7 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
+    <div className="min-h-screen bg-gradient-to-br from-stone-50 via-white to-orange-50/30">
       <title>Davis Sneed - Software Developer</title>
 
       {/* Modern Floating Navigation */}
@@ -149,8 +170,8 @@ export default function Home() {
                 onClick={() => scrollToSection(id)}
                 className={`flex items-center space-x-2 px-3 py-2 rounded-full transition-all duration-300 ${
                   activeSection === id
-                    ? 'bg-gradient-to-r from-slate-800 to-teal-600 text-white shadow-md'
-                    : 'text-gray-600 hover:text-teal-600 hover:bg-teal-50'
+                    ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white shadow-md'
+                    : 'text-gray-600 hover:text-amber-600 hover:bg-amber-50'
                 }`}
               >
                 <Icon className="w-4 h-4" />
@@ -163,7 +184,7 @@ export default function Home() {
           <div className="md:hidden">
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="p-2 text-gray-600 hover:text-teal-600"
+              className="p-2 text-gray-600 hover:text-amber-600"
             >
               {mobileMenuOpen ? <CloseIcon className="w-5 h-5" /> : <MenuIcon className="w-5 h-5" />}
             </button>
@@ -187,8 +208,8 @@ export default function Home() {
                   onClick={() => scrollToSection(id)}
                   className={`flex items-center space-x-3 w-full px-3 py-2 rounded-lg transition-all duration-300 ${
                     activeSection === id
-                      ? 'bg-gradient-to-r from-slate-800 to-teal-600 text-white'
-                      : 'text-gray-600 hover:text-teal-600 hover:bg-teal-50'
+                      ? 'bg-gradient-to-r from-amber-500 to-orange-500 text-white'
+                      : 'text-gray-600 hover:text-amber-600 hover:bg-amber-50'
                   }`}
                 >
                   <Icon className="w-4 h-4" />
@@ -205,7 +226,7 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <div className="relative inline-block mb-6">
-              <div className="absolute inset-0 bg-gradient-to-r from-slate-400 via-teal-500 to-cyan-500 rounded-full blur-xl opacity-30 animate-pulse"></div>
+              <div className="absolute inset-0 bg-gradient-to-r from-amber-400 via-orange-400 to-rose-400 rounded-full blur-xl opacity-30 animate-pulse"></div>
               <Image 
                 src="/media/headshot.png" 
                 alt="Davis Sneed" 
@@ -216,7 +237,7 @@ export default function Home() {
             </div>
 
             <div className="space-y-4">
-              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-slate-900 via-slate-800 to-teal-700 bg-clip-text text-transparent leading-tight">
+              <h1 className="text-5xl md:text-6xl font-bold bg-gradient-to-r from-stone-900 via-amber-800 to-orange-700 bg-clip-text text-transparent leading-tight">
                 Davis Sneed
               </h1>
               
@@ -226,15 +247,15 @@ export default function Home() {
 
               <div className="flex flex-wrap justify-center items-center gap-4 text-gray-500 text-sm">
                 <div className="flex items-center space-x-2">
-                  <SchoolIcon className="w-4 h-4 text-teal-500" />
+                  <SchoolIcon className="w-4 h-4 text-amber-500" />
                   <span>Gonzaga University Graduate</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <CalendarTodayIcon className="w-4 h-4 text-slate-500" />
+                  <CalendarTodayIcon className="w-4 h-4 text-orange-500" />
                   <span>Class of 2025</span>
                 </div>
                 <div className="flex items-center space-x-2">
-                  <LocationOnIcon className="w-4 h-4 text-cyan-500" />
+                  <LocationOnIcon className="w-4 h-4 text-rose-400" />
                   <span>Seattle, WA</span>
                 </div>
               </div>
@@ -242,7 +263,7 @@ export default function Home() {
               <div className="flex flex-wrap justify-center gap-3 mt-6">
                 <a 
                   href="mailto:dlsneed1298@gmail.com"
-                  className="group bg-gradient-to-r from-slate-800 to-teal-600 hover:from-slate-900 hover:to-teal-700 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
+                  className="group bg-gradient-to-r from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white px-6 py-3 rounded-xl font-semibold shadow-lg hover:shadow-xl transform hover:-translate-y-1 transition-all duration-300"
                 >
                   <div className="flex items-center space-x-2">
                     <ContactMailIcon className="w-4 h-4 group-hover:scale-110 transition-transform" />
@@ -266,9 +287,9 @@ export default function Home() {
           <div className="bg-white/60 backdrop-blur-sm rounded-2xl p-6 shadow-xl border border-white/50 max-w-4xl mx-auto">
             <p className="text-lg text-gray-700 leading-relaxed text-center">
               Recent Gonzaga University graduate with expertise in 
-              <span className="font-semibold text-teal-600"> full-stack development</span>,
-              <span className="font-semibold text-slate-700"> security programming</span>, and
-              <span className="font-semibold text-cyan-600"> system design</span>. 
+              <span className="font-semibold text-amber-600"> full-stack development</span>,
+              <span className="font-semibold text-orange-600"> security programming</span>, and
+              <span className="font-semibold text-rose-500"> system design</span>. 
               Seeking opportunities to bring fresh perspectives and proven technical skills to innovative teams.
             </p>
           </div>
@@ -280,14 +301,14 @@ export default function Home() {
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Education</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-600 to-teal-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="bg-gradient-to-br from-white via-slate-50 to-teal-50 rounded-2xl p-6 shadow-xl border border-white/50 backdrop-blur-sm">
+          <div className="bg-gradient-to-br from-white via-amber-50/50 to-orange-50/50 rounded-2xl p-6 shadow-xl border border-white/50 backdrop-blur-sm">
             <div className="grid lg:grid-cols-3 gap-6 items-center">
               <div className="lg:col-span-2">
                 <h3 className="text-2xl font-bold text-gray-900 mb-3">Gonzaga University</h3>
-                <p className="text-lg text-teal-600 font-semibold mb-3">
+                <p className="text-lg text-amber-600 font-semibold mb-3">
                   B.A. in Computer Science and Computational Thinking
                 </p>
                 <p className="text-gray-700 mb-3">
@@ -300,10 +321,10 @@ export default function Home() {
               </div>
               
               <div className="text-center lg:text-right">
-                <div className="bg-gradient-to-br from-slate-800 to-teal-600 text-white rounded-xl p-5 shadow-lg">
+                <div className="bg-gradient-to-br from-amber-500 to-orange-500 text-white rounded-xl p-5 shadow-lg">
                   <div className="text-3xl font-bold mb-2">2025</div>
-                  <div className="text-teal-100 mb-2">Graduate</div>
-                  <div className="text-sm text-teal-200">Aug 2021 - May 2025</div>
+                  <div className="text-amber-100 mb-2">Graduate</div>
+                  <div className="text-sm text-amber-100">Aug 2021 - May 2025</div>
                 </div>
               </div>
             </div>
@@ -312,11 +333,11 @@ export default function Home() {
       </section>
 
       {/* Professional Experience Section */}
-      <section id="experience" className="py-12 px-6 bg-gradient-to-br from-slate-50 to-teal-50">
+      <section id="experience" className="py-12 px-6 bg-gradient-to-br from-stone-50 to-amber-50/40">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Professional Experience</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-600 to-teal-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="space-y-6">
@@ -340,7 +361,7 @@ export default function Home() {
                           )}
                           <div>
                             <h3 className="text-xl font-bold text-gray-900 mb-1">{exp.title}</h3>
-                            <p className="text-lg font-semibold text-teal-600 mb-2">{exp.company}</p>
+                            <p className="text-lg font-semibold text-amber-600 mb-2">{exp.company}</p>
                             <p className="text-sm text-gray-500">{exp.period}</p>
                           </div>
                         </div>
@@ -372,7 +393,7 @@ export default function Home() {
                     
                     <div className="md:col-span-1 flex items-center justify-center">
                       <div className={`bg-gradient-to-br ${exp.color} text-white rounded-xl p-4 text-center shadow-lg`}>
-                        <div className="text-2xl font-bold mb-1">{exp.company === 'Qualitest' ? 'Full-time' : 'Contract'}</div>
+                        <div className="text-2xl font-bold mb-1">{exp.type}</div>
                         <div className="text-white/80 text-sm">Professional Work</div>
                       </div>
                     </div>
@@ -385,11 +406,11 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-12 px-6 bg-gradient-to-br from-slate-900 via-slate-800 to-teal-900">
+      <section id="skills" className="py-12 px-6 bg-gradient-to-br from-stone-900 via-stone-800 to-amber-950">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Technical Skills</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-400 to-teal-400 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-400 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
@@ -429,7 +450,7 @@ export default function Home() {
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-600 to-teal-500 mx-auto rounded-full"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full"></div>
             <p className="text-lg text-gray-600 mt-4 max-w-3xl mx-auto">
               A showcase of innovative solutions spanning web development, systems programming, and cryptography
             </p>
@@ -450,7 +471,7 @@ export default function Home() {
                       }`}>
                         {project.type} Project
                       </div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-teal-600 transition-colors">
+                      <h3 className="text-xl font-bold text-gray-900 mb-1 group-hover:text-amber-600 transition-colors">
                         {project.title}
                       </h3>
                       <p className="text-sm font-medium text-gray-500 mb-3">{project.role}</p>
@@ -461,7 +482,7 @@ export default function Home() {
                         href={project.link}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 bg-gray-100 hover:bg-teal-100 rounded-full text-gray-600 hover:text-teal-600 transition-all duration-300 transform hover:scale-110"
+                        className="p-2 bg-gray-100 hover:bg-amber-100 rounded-full text-gray-600 hover:text-amber-600 transition-all duration-300 transform hover:scale-110"
                       >
                         <OpenInNewIcon className="w-4 h-4" />
                       </a>
@@ -484,7 +505,7 @@ export default function Home() {
                     {project.technologies.map((tech, techIndex) => (
                       <span 
                         key={techIndex} 
-                        className="px-2 py-1 bg-gray-100 hover:bg-teal-100 text-gray-700 hover:text-teal-700 rounded text-xs font-medium transition-all duration-300 cursor-default"
+                        className="px-2 py-1 bg-gray-100 hover:bg-amber-100 text-gray-700 hover:text-amber-700 rounded text-xs font-medium transition-all duration-300 cursor-default"
                       >
                         {tech}
                       </span>
@@ -498,11 +519,11 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section id="contact" className="py-12 px-6 bg-gradient-to-br from-slate-50 via-teal-50 to-cyan-50">
+      <section id="contact" className="py-12 px-6 bg-gradient-to-br from-stone-50 via-amber-50/40 to-orange-50/30">
         <div className="max-w-4xl mx-auto text-center">
           <div className="mb-8">
             <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Let&apos;s Connect</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-slate-600 to-teal-500 mx-auto rounded-full mb-4"></div>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full mb-4"></div>
             <p className="text-lg text-gray-600 max-w-2xl mx-auto">
               Recent graduate available for full-time software engineering opportunities. 
               Based in Seattle, ready to contribute to innovative projects and grow with your team.
@@ -512,31 +533,31 @@ export default function Home() {
           <div className="grid md:grid-cols-3 gap-6">
             <a 
               href="mailto:dlsneed1298@gmail.com" 
-              className="group bg-white hover:bg-gradient-to-br hover:from-teal-50 hover:to-cyan-50 rounded-xl p-6 shadow-lg hover:shadow-xl border border-gray-200 hover:border-teal-300 transition-all duration-300 transform hover:-translate-y-1"
+              className="group bg-white hover:bg-gradient-to-br hover:from-amber-50 hover:to-orange-50 rounded-xl p-6 shadow-lg hover:shadow-xl border border-gray-200 hover:border-amber-300 transition-all duration-300 transform hover:-translate-y-1"
             >
-              <ContactMailIcon className="w-10 h-10 text-teal-600 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <ContactMailIcon className="w-10 h-10 text-amber-500 mx-auto mb-3 group-hover:scale-110 transition-transform" />
               <h3 className="text-lg font-bold text-gray-900 mb-2">Email</h3>
               <p className="text-gray-600 mb-3 text-sm">Direct Communication</p>
-              <p className="text-teal-600 font-medium text-sm">dlsneed1298@gmail.com</p>
+              <p className="text-amber-600 font-medium text-sm">dlsneed1298@gmail.com</p>
             </a>
 
             <a 
               href="https://www.linkedin.com/in/dsneedy" 
-              className="group bg-white hover:bg-gradient-to-br hover:from-teal-50 hover:to-cyan-50 rounded-xl p-6 shadow-lg hover:shadow-xl border border-gray-200 hover:border-teal-300 transition-all duration-300 transform hover:-translate-y-1"
+              className="group bg-white hover:bg-gradient-to-br hover:from-amber-50 hover:to-orange-50 rounded-xl p-6 shadow-lg hover:shadow-xl border border-gray-200 hover:border-amber-300 transition-all duration-300 transform hover:-translate-y-1"
             >
-              <PeopleIcon className="w-10 h-10 text-slate-700 mx-auto mb-3 group-hover:scale-110 transition-transform" />
+              <PeopleIcon className="w-10 h-10 text-orange-500 mx-auto mb-3 group-hover:scale-110 transition-transform" />
               <h3 className="text-lg font-bold text-gray-900 mb-2">LinkedIn</h3>
               <p className="text-gray-600 mb-3 text-sm">Professional Network</p>
-              <p className="text-slate-700 font-medium text-sm">Connect & Network</p>
+              <p className="text-orange-600 font-medium text-sm">Connect & Network</p>
             </a>
 
             <a 
               href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing" 
-              className="group bg-gradient-to-br from-slate-800 to-teal-600 hover:from-slate-900 hover:to-teal-700 text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+              className="group bg-gradient-to-br from-amber-500 to-orange-500 hover:from-amber-600 hover:to-orange-600 text-white rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
               <ArticleIcon className="w-10 h-10 text-white mx-auto mb-3 group-hover:scale-110 transition-transform" />
               <h3 className="text-lg font-bold mb-2">Resume</h3>
-              <p className="text-teal-100 mb-3 text-sm">Complete Background</p>
+              <p className="text-amber-100 mb-3 text-sm">Complete Background</p>
               <p className="text-white font-medium text-sm">Download PDF</p>
             </a>
           </div>
@@ -547,11 +568,11 @@ export default function Home() {
       <footer className="bg-gray-900 text-gray-400 py-6 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex justify-center items-center space-x-4 mb-3">
-            <div className="w-8 h-px bg-gradient-to-r from-transparent to-teal-500"></div>
-            <span className="text-base font-semibold bg-gradient-to-r from-slate-400 to-teal-400 bg-clip-text text-transparent">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-amber-500"></div>
+            <span className="text-base font-semibold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
               Davis Sneed
             </span>
-            <div className="w-8 h-px bg-gradient-to-l from-transparent to-teal-500"></div>
+            <div className="w-8 h-px bg-gradient-to-l from-transparent to-orange-500"></div>
           </div>
           <p className="text-sm">© {new Date().getFullYear()} All rights reserved. Built with React, Next.js & Tailwind CSS</p>
         </div>
