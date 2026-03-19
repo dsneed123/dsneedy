@@ -406,31 +406,31 @@ export default function Home() {
       </section>
 
       {/* Skills Section */}
-      <section id="skills" className="py-12 px-6 bg-gradient-to-br from-stone-900 via-stone-800 to-amber-950">
+      <section id="skills" className="py-12 px-6 bg-gradient-to-br from-stone-50 to-amber-50/40">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-8">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">Technical Skills</h2>
-            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-400 mx-auto rounded-full"></div>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">Technical Skills</h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-amber-400 to-orange-500 mx-auto rounded-full"></div>
           </div>
 
           <div className="grid md:grid-cols-3 gap-6">
             {Object.entries(skills).map(([level, { level: percentage, items, color }]) => (
-              <div key={level} className="bg-white/10 backdrop-blur-md rounded-xl p-6 border border-white/20 hover:bg-white/20 transition-all duration-300">
+              <div key={level} className="bg-white rounded-xl p-6 border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
                 <div className="flex items-center justify-between mb-4">
-                  <h3 className="text-lg font-bold text-white">{level}</h3>
+                  <h3 className="text-lg font-bold text-gray-900">{level}</h3>
                   <div className="flex items-center space-x-2">
                     <div className={`w-3 h-3 ${color} rounded-full`}></div>
-                    <span className="text-white/80 font-medium text-sm">{percentage}%</span>
+                    <span className="text-gray-500 font-medium text-sm">{percentage}%</span>
                   </div>
                 </div>
-                
+
                 <div className="space-y-2">
                   {items.map((skill, skillIndex) => (
-                    <div key={skillIndex} className="bg-white/10 backdrop-blur-sm rounded-lg p-3 border border-white/10 hover:bg-white/20 transition-all duration-300">
+                    <div key={skillIndex} className="bg-amber-50/60 rounded-lg p-3 border border-amber-100/50 hover:bg-amber-50 transition-all duration-300">
                       <div className="flex items-center justify-between">
-                        <span className="text-white font-medium text-sm">{skill}</span>
-                        <div className="w-12 bg-white/20 rounded-full h-1.5 overflow-hidden">
-                          <div 
+                        <span className="text-gray-800 font-medium text-sm">{skill}</span>
+                        <div className="w-12 bg-gray-200 rounded-full h-1.5 overflow-hidden">
+                          <div
                             className={`h-full ${color} rounded-full transition-all duration-1000 delay-${skillIndex * 100}`}
                             style={{ width: `${percentage}%` }}
                           ></div>
@@ -565,16 +565,16 @@ export default function Home() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-6 px-6">
+      <footer className="bg-white border-t border-amber-100 text-gray-500 py-6 px-6">
         <div className="max-w-6xl mx-auto text-center">
           <div className="flex justify-center items-center space-x-4 mb-3">
-            <div className="w-8 h-px bg-gradient-to-r from-transparent to-amber-500"></div>
-            <span className="text-base font-semibold bg-gradient-to-r from-amber-400 to-orange-400 bg-clip-text text-transparent">
+            <div className="w-8 h-px bg-gradient-to-r from-transparent to-amber-400"></div>
+            <span className="text-base font-semibold bg-gradient-to-r from-amber-500 to-orange-500 bg-clip-text text-transparent">
               Davis Sneed
             </span>
-            <div className="w-8 h-px bg-gradient-to-l from-transparent to-orange-500"></div>
+            <div className="w-8 h-px bg-gradient-to-l from-transparent to-orange-400"></div>
           </div>
-          <p className="text-sm">© {new Date().getFullYear()} All rights reserved. Built with React, Next.js & Tailwind CSS</p>
+          <p className="text-sm text-gray-400">© {new Date().getFullYear()} All rights reserved. Built with React, Next.js & Tailwind CSS</p>
         </div>
       </footer>
     </div>
