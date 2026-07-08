@@ -193,35 +193,32 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#09090b] text-neutral-100 overflow-x-clip">
+    <div className="min-h-screen bg-[#fbf9f5] text-neutral-900 overflow-x-clip">
       <title>Davis Sneed — Software Engineer</title>
-
-      {/* Film grain */}
-      <div className="noise pointer-events-none fixed inset-0 z-[60]" aria-hidden />
 
       {/* Top Nav */}
       <nav
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-[#09090b]/75 backdrop-blur-xl border-b border-white/[0.06]' : 'bg-transparent'
+          scrolled ? 'bg-[#fbf9f5]/80 backdrop-blur-xl border-b border-neutral-200/80' : 'bg-transparent'
         }`}
       >
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <button
             onClick={() => scrollTo('about')}
-            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-white hover:opacity-70 transition-opacity"
+            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight hover:opacity-70 transition-opacity"
           >
-            <span className="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(234,88,12,0.9)]" aria-hidden />
+            <span className="inline-block h-2 w-2 rounded-full bg-accent" aria-hidden />
             Davis Sneed
           </button>
-          <div className="hidden md:flex items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-xl px-1 py-1">
+          <div className="hidden md:flex items-center gap-0.5 rounded-full border border-neutral-200 bg-white/80 backdrop-blur-xl px-1 py-1 shadow-sm">
             {nav.map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
                 className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
                   activeSection === id
-                    ? 'text-neutral-900 bg-white shadow-[0_0_16px_rgba(255,255,255,0.25)]'
-                    : 'text-neutral-400 hover:text-white'
+                    ? 'text-white bg-accent shadow-sm'
+                    : 'text-neutral-500 hover:text-neutral-900'
                 }`}
               >
                 {label}
@@ -230,7 +227,7 @@ export default function Home() {
           </div>
           <a
             href="mailto:dlsneed1298@gmail.com"
-            className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-white text-neutral-900 hover:bg-accent hover:text-white transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-accent text-white hover:bg-orange-700 transition-colors duration-200 shadow-sm"
           >
             Get in touch
             <span aria-hidden className="text-[10px]">↗</span>
@@ -242,8 +239,9 @@ export default function Home() {
       <section id="about" className="relative pt-36 pb-24 px-6 overflow-hidden">
         <div className="dot-grid absolute inset-x-0 top-0 h-[480px] pointer-events-none" aria-hidden />
         <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="orb-a absolute -top-32 left-[8%] h-[440px] w-[440px] rounded-full bg-orange-600/25 blur-[140px]" />
-          <div className="orb-b absolute top-24 right-[2%] h-[380px] w-[380px] rounded-full bg-amber-400/10 blur-[130px]" />
+          <div className="orb-a absolute -top-32 left-[8%] h-[440px] w-[440px] rounded-full bg-orange-300/40 blur-[130px]" />
+          <div className="orb-b absolute top-24 right-[2%] h-[380px] w-[380px] rounded-full bg-amber-200/50 blur-[120px]" />
+          <div className="absolute top-64 left-[45%] h-[300px] w-[300px] rounded-full bg-sky-200/30 blur-[120px]" />
         </div>
 
         <div className="relative max-w-3xl mx-auto">
@@ -253,12 +251,12 @@ export default function Home() {
               alt="Davis Sneed"
               width={64}
               height={64}
-              className="rounded-full object-cover ring-2 ring-white/15 shadow-[0_0_30px_rgba(234,88,12,0.25)]"
+              className="rounded-full object-cover ring-2 ring-white shadow-lg"
             />
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 rounded-full px-3.5 py-1.5">
+            <div className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3.5 py-1.5 shadow-sm">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
               </span>
               Available for new work
             </div>
@@ -269,25 +267,22 @@ export default function Home() {
           </p>
 
           <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.02] mb-7" data-reveal>
-            <span className="bg-gradient-to-br from-white via-white to-neutral-400 bg-clip-text text-transparent">
-              Davis Sneed
-            </span>
-            <span className="text-accent">.</span>
-            <span className="block mt-3 text-neutral-400 text-3xl md:text-5xl leading-[1.12]">
+            Davis Sneed<span className="text-accent">.</span>
+            <span className="block mt-3 bg-gradient-to-r from-orange-600 via-amber-500 to-orange-500 bg-clip-text text-transparent text-3xl md:text-5xl leading-[1.12] pb-1">
               Building autonomous systems and clean products.
             </span>
           </h1>
 
-          <p className="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-2xl mb-10" data-reveal>
+          <p className="text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl mb-10" data-reveal>
             I&apos;m an engineer focused on agentic AI, full-stack development, and systems
-            programming. Currently building <span className="text-white font-medium">TARS</span> — an
+            programming. Currently building <span className="text-neutral-900 font-semibold">TARS</span> — an
             autonomous coding agent — and supporting pre-release AI technology at Amazon.
           </p>
 
           <div className="flex flex-wrap items-center gap-3" data-reveal>
             <a
               href="mailto:dlsneed1298@gmail.com"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-base font-medium hover:bg-accent hover:text-white transition-colors duration-200 shadow-[0_0_24px_rgba(255,255,255,0.15)]"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-white text-base font-medium hover:bg-orange-700 transition-colors duration-200 shadow-md shadow-orange-200"
             >
               Email me
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -296,7 +291,7 @@ export default function Home() {
               href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-base font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-base font-medium border border-neutral-200 hover:border-accent hover:text-accent transition-colors duration-200 shadow-sm"
             >
               Résumé
             </a>
@@ -304,7 +299,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/dsneedy"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-base font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-base font-medium border border-neutral-200 hover:border-accent hover:text-accent transition-colors duration-200 shadow-sm"
             >
               LinkedIn
             </a>
@@ -312,24 +307,24 @@ export default function Home() {
               href="https://github.com/dsneed123"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-base font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-base font-medium border border-neutral-200 hover:border-accent hover:text-accent transition-colors duration-200 shadow-sm"
             >
               GitHub
             </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/[0.08]" data-reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-8 border-t border-neutral-200" data-reveal>
             <div>
               <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Based in</div>
-              <div className="text-base font-medium text-white">Seattle, WA</div>
+              <div className="text-base font-medium">Seattle, WA</div>
             </div>
             <div>
               <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Education</div>
-              <div className="text-base font-medium text-white">Gonzaga, CS &apos;25</div>
+              <div className="text-base font-medium">Gonzaga, CS &apos;25</div>
             </div>
             <div>
               <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Currently</div>
-              <div className="text-base font-medium text-white">Amazon · Apex Systems</div>
+              <div className="text-base font-medium">Amazon · Apex Systems</div>
             </div>
           </div>
         </div>
@@ -338,7 +333,7 @@ export default function Home() {
       {/* Work / Experience */}
       <Section id="work" eyebrow="01 — Work" title="Experience">
         <div className="relative">
-          <div className="absolute left-[3px] md:left-[169px] top-3 bottom-3 w-px bg-white/[0.08] hidden sm:block" aria-hidden />
+          <div className="absolute left-[3px] md:left-[169px] top-3 bottom-3 w-px bg-neutral-200 hidden sm:block" aria-hidden />
           <div className="space-y-2">
             {experience.map((exp, i) => (
               <article
@@ -346,12 +341,10 @@ export default function Home() {
                 data-reveal
                 className="relative grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-10 py-6 group"
               >
-                <div className="relative text-sm text-neutral-400 md:pt-1">
+                <div className="relative text-sm text-neutral-500 md:pt-1">
                   <span
-                    className={`hidden sm:block absolute left-0 md:left-auto md:right-[-14.5px] top-[7px] h-[7px] w-[7px] rounded-full ring-4 ring-[#09090b] ${
-                      exp.current
-                        ? 'bg-accent shadow-[0_0_12px_rgba(234,88,12,0.9)]'
-                        : 'bg-neutral-600'
+                    className={`hidden sm:block absolute left-0 md:left-auto md:right-[-14.5px] top-[7px] h-[7px] w-[7px] rounded-full ring-4 ring-[#fbf9f5] ${
+                      exp.current ? 'bg-accent shadow-[0_0_10px_rgba(234,88,12,0.5)]' : 'bg-neutral-300'
                     }`}
                     aria-hidden
                   />
@@ -366,20 +359,20 @@ export default function Home() {
                         alt={`${exp.company} logo`}
                         width={28}
                         height={28}
-                        className="rounded-md object-contain border border-white/10 bg-white"
+                        className="rounded-md object-contain border border-neutral-200 bg-white"
                       />
                     )}
-                    <h3 className="text-lg font-semibold tracking-tight text-white">
+                    <h3 className="text-lg font-semibold tracking-tight">
                       {exp.title}
-                      <span className="text-neutral-500 font-normal"> · {exp.company}</span>
+                      <span className="text-neutral-400 font-normal"> · {exp.company}</span>
                     </h3>
                     {exp.current && (
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-accent bg-accent/10 border border-accent/30 rounded-full px-2 py-0.5">
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-white bg-accent rounded-full px-2.5 py-0.5 shadow-sm">
                         Now
                       </span>
                     )}
                   </div>
-                  <p className="text-base text-neutral-300 leading-relaxed mb-3 max-w-2xl">
+                  <p className="text-base text-neutral-600 leading-relaxed mb-3 max-w-2xl">
                     {exp.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -410,7 +403,7 @@ export default function Home() {
             <div
               key={s.group}
               data-reveal
-              className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 hover:border-white/20 transition-colors duration-300"
+              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300"
             >
               <div className="font-mono text-xs uppercase tracking-[0.18em] text-accent mb-4">
                 {s.group}
@@ -419,7 +412,7 @@ export default function Home() {
                 {s.items.map((it) => (
                   <span
                     key={it}
-                    className="inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium text-neutral-200 bg-white/[0.05] border border-white/10 hover:border-accent/50 hover:text-white transition-colors duration-200"
+                    className="inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium text-neutral-700 bg-orange-50/70 border border-orange-100 hover:border-accent/40 hover:text-accent transition-colors duration-200"
                   >
                     {it}
                   </span>
@@ -431,43 +424,49 @@ export default function Home() {
       </Section>
 
       {/* Contact */}
-      <section id="contact" className="relative px-6 py-32 border-t border-white/[0.06] mt-16 overflow-hidden">
+      <section id="contact" className="px-6 py-24 mt-8">
         <div
-          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-accent/[0.13] blur-[160px]"
-          aria-hidden
-        />
-        <div className="relative max-w-3xl mx-auto" data-reveal>
-          <div className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-4">
-            04 — Contact
-          </div>
-          <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.05]">
-            <span className="bg-gradient-to-br from-white via-white to-neutral-400 bg-clip-text text-transparent">
-              Let&apos;s build something
-            </span>
-            <span className="text-accent">.</span>
-          </h2>
-          <p className="text-lg text-neutral-300 leading-relaxed max-w-xl mb-10">
-            I&apos;m open to full-time and contract work in software engineering, agentic AI, and
-            AR/VR. The fastest way to reach me is email.
-          </p>
-          <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-            <a
-              href="mailto:dlsneed1298@gmail.com"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-neutral-900 text-base font-medium hover:bg-accent hover:text-white transition-colors duration-200 w-fit shadow-[0_0_32px_rgba(255,255,255,0.18)]"
-            >
-              dlsneed1298@gmail.com
-              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <div className="flex items-center gap-5 text-base text-neutral-400">
-              <a href="https://www.linkedin.com/in/dsneedy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
-              <a href="https://github.com/dsneed123" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
-              <a href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Résumé</a>
+          className="relative max-w-5xl mx-auto rounded-3xl bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500 px-8 py-16 md:px-16 md:py-20 overflow-hidden shadow-xl shadow-orange-200"
+          data-reveal
+        >
+          <div
+            className="pointer-events-none absolute -top-24 -right-24 h-[340px] w-[340px] rounded-full bg-amber-300/40 blur-[100px]"
+            aria-hidden
+          />
+          <div
+            className="pointer-events-none absolute -bottom-32 -left-16 h-[300px] w-[300px] rounded-full bg-orange-400/50 blur-[100px]"
+            aria-hidden
+          />
+          <div className="relative">
+            <div className="font-mono text-xs uppercase tracking-[0.25em] text-orange-100 mb-4">
+              04 — Contact
+            </div>
+            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.05] text-white">
+              Let&apos;s build something.
+            </h2>
+            <p className="text-lg text-orange-50 leading-relaxed max-w-xl mb-10">
+              I&apos;m open to full-time and contract work in software engineering, agentic AI, and
+              AR/VR. The fastest way to reach me is email.
+            </p>
+            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
+              <a
+                href="mailto:dlsneed1298@gmail.com"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-accent text-base font-semibold hover:bg-orange-50 transition-colors duration-200 w-fit shadow-md"
+              >
+                dlsneed1298@gmail.com
+                <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
+              </a>
+              <div className="flex items-center gap-5 text-base text-orange-100">
+                <a href="https://www.linkedin.com/in/dsneedy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline-offset-4 hover:underline">LinkedIn</a>
+                <a href="https://github.com/dsneed123" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline-offset-4 hover:underline">GitHub</a>
+                <a href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline-offset-4 hover:underline">Résumé</a>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <footer className="py-8 px-6 border-t border-white/[0.06]">
+      <footer className="py-8 px-6 border-t border-neutral-200">
         <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm font-mono text-neutral-500">
           <div>© {new Date().getFullYear()} Davis Sneed</div>
           <div>Seattle, WA — Built with Next.js & Tailwind</div>
@@ -487,21 +486,21 @@ function ProjectCard({
   const inner = (
     <>
       {p.featured && (
-        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent bg-accent/10 border border-accent/30 rounded-full px-2.5 py-1 w-fit mb-4">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white bg-accent rounded-full px-2.5 py-1 w-fit mb-4 shadow-sm">
           Flagship
         </span>
       )}
       <div className="flex items-start justify-between gap-4 mb-4">
         <div className="flex items-center gap-3 min-w-0">
-          <span className="font-mono text-xs text-neutral-500 group-hover:text-accent transition-colors">
+          <span className="font-mono text-xs text-neutral-400 group-hover:text-accent transition-colors">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <h3 className="text-xl font-semibold tracking-tight text-white group-hover:text-orange-400 transition-colors">
+          <h3 className="text-xl font-semibold tracking-tight group-hover:text-accent transition-colors">
             {p.title}
           </h3>
           {p.link && (
             <span
-              className="text-neutral-600 group-hover:text-accent transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-sm"
+              className="text-neutral-300 group-hover:text-accent transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-sm"
               aria-hidden
             >
               ↗
@@ -512,7 +511,7 @@ function ProjectCard({
           {p.type} · {p.year}
         </div>
       </div>
-      <p className="text-base text-neutral-300 leading-relaxed mb-5 flex-1 max-w-2xl">
+      <p className="text-base text-neutral-600 leading-relaxed mb-5 flex-1 max-w-2xl">
         {p.description}
       </p>
       <div className="flex flex-wrap gap-1.5">
@@ -525,8 +524,8 @@ function ProjectCard({
 
   const className = `group rounded-2xl p-6 md:p-7 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
     p.featured
-      ? 'md:col-span-2 border border-accent/25 bg-gradient-to-br from-accent/[0.09] via-white/[0.03] to-white/[0.02] shadow-[0_0_60px_-20px_rgba(234,88,12,0.35)] hover:border-accent/50 hover:shadow-[0_0_80px_-16px_rgba(234,88,12,0.5)]'
-      : 'border border-white/[0.08] bg-white/[0.03] hover:border-accent/40 hover:bg-white/[0.05] hover:shadow-[0_12px_48px_-12px_rgba(234,88,12,0.25)]'
+      ? 'md:col-span-2 border border-orange-200 bg-gradient-to-br from-orange-50 via-white to-amber-50 shadow-lg shadow-orange-100 hover:shadow-xl hover:shadow-orange-200/80 hover:border-orange-300'
+      : 'border border-neutral-200 bg-white shadow-sm hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/80'
   }`;
 
   if (p.link) {
@@ -555,13 +554,13 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="px-6 py-24 border-t border-white/[0.06]">
+    <section id={id} className="px-6 py-24 border-t border-neutral-200">
       <div className="max-w-5xl mx-auto">
         <div className="mb-14" data-reveal>
           <div className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-4">
             {eyebrow}
           </div>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">
             {title}
             <span className="text-accent">.</span>
           </h2>
@@ -574,7 +573,7 @@ function Section({
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium text-neutral-300 bg-white/[0.05] border border-white/[0.08]">
+    <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium text-neutral-600 bg-neutral-100 border border-neutral-200">
       {children}
     </span>
   );
