@@ -98,7 +98,7 @@ const experience = [
   {
     title: 'Graduate Engineer',
     company: 'Qualitest',
-    period: 'Feb 2026 — Present',
+    period: 'Feb 2026 — Jun 2026',
     location: 'Kirkland, WA',
     description: 'Structured testing and validation of AR/VR hardware and software systems. Collect, analyze, and document experimental data to ensure accuracy and compliance with research protocols. Collaborate cross-functionally to troubleshoot and improve product functionality.',
     technologies: ['AR/VR', 'QA Testing', 'Hardware Validation', 'Data Collection'],
@@ -135,6 +135,11 @@ const skills = [
   { group: 'Primary', items: ['Python', 'TypeScript', 'React', 'Next.js', 'Django'] },
   { group: 'Systems', items: ['Rust', 'C++', 'Go', 'Bash', 'SQL'] },
   { group: 'Tools', items: ['Claude API', 'Ollama', 'PostgreSQL', 'Docker', 'GitHub Actions'] }
+];
+
+const marqueeItems = [
+  'Python', 'TypeScript', 'Rust', 'React', 'Next.js', 'Django', 'Agentic AI',
+  'Claude API', 'Ollama', 'PostgreSQL', 'Docker', 'AR/VR', 'C++', 'Go'
 ];
 
 const nav = [
@@ -193,32 +198,35 @@ export default function Home() {
   };
 
   return (
-    <div className="min-h-screen bg-[#fafaf9] text-neutral-900">
+    <div className="min-h-screen bg-[#09090b] text-neutral-100 overflow-x-clip">
       <title>Davis Sneed — Software Engineer</title>
+
+      {/* Film grain */}
+      <div className="noise pointer-events-none fixed inset-0 z-[60]" aria-hidden />
 
       {/* Top Nav */}
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-200 ${
-          scrolled ? 'bg-[#fafaf9]/85 backdrop-blur-md border-b border-neutral-200/80' : 'bg-transparent'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          scrolled ? 'bg-[#09090b]/75 backdrop-blur-xl border-b border-white/[0.06]' : 'bg-transparent'
         }`}
       >
         <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
           <button
             onClick={() => scrollTo('about')}
-            className="flex items-center gap-2 text-sm font-semibold tracking-tight hover:opacity-70 transition-opacity"
+            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight text-white hover:opacity-70 transition-opacity"
           >
-            <span className="inline-block h-2 w-2 rounded-full bg-accent" aria-hidden />
+            <span className="inline-block h-2 w-2 rounded-full bg-accent shadow-[0_0_12px_rgba(234,88,12,0.9)]" aria-hidden />
             Davis Sneed
           </button>
-          <div className="hidden md:flex items-center gap-0.5 rounded-full border border-neutral-200 bg-white/70 backdrop-blur px-1 py-1">
+          <div className="hidden md:flex items-center gap-0.5 rounded-full border border-white/10 bg-white/[0.04] backdrop-blur-xl px-1 py-1">
             {nav.map(({ id, label }) => (
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all ${
+                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
                   activeSection === id
-                    ? 'text-white bg-neutral-900 shadow-sm'
-                    : 'text-neutral-500 hover:text-neutral-900'
+                    ? 'text-neutral-900 bg-white shadow-[0_0_16px_rgba(255,255,255,0.25)]'
+                    : 'text-neutral-400 hover:text-white'
                 }`}
               >
                 {label}
@@ -227,7 +235,7 @@ export default function Home() {
           </div>
           <a
             href="mailto:dlsneed1298@gmail.com"
-            className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-full bg-neutral-900 text-white hover:bg-accent transition-colors"
+            className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-full bg-white text-neutral-900 hover:bg-accent hover:text-white transition-colors duration-200"
           >
             Get in touch
             <span aria-hidden className="text-[10px]">↗</span>
@@ -236,8 +244,13 @@ export default function Home() {
       </nav>
 
       {/* Hero */}
-      <section id="about" className="relative pt-36 pb-28 px-6 overflow-hidden">
-        <div className="dot-grid absolute inset-x-0 top-0 h-[420px] pointer-events-none" aria-hidden />
+      <section id="about" className="relative pt-36 pb-24 px-6 overflow-hidden">
+        <div className="dot-grid absolute inset-x-0 top-0 h-[480px] pointer-events-none" aria-hidden />
+        <div className="pointer-events-none absolute inset-0" aria-hidden>
+          <div className="orb-a absolute -top-32 left-[8%] h-[440px] w-[440px] rounded-full bg-orange-600/25 blur-[140px]" />
+          <div className="orb-b absolute top-24 right-[2%] h-[380px] w-[380px] rounded-full bg-amber-400/10 blur-[130px]" />
+        </div>
+
         <div className="relative max-w-3xl mx-auto">
           <div className="flex items-center gap-4 mb-10" data-reveal>
             <Image
@@ -245,38 +258,41 @@ export default function Home() {
               alt="Davis Sneed"
               width={64}
               height={64}
-              className="rounded-full object-cover ring-2 ring-white shadow-md"
+              className="rounded-full object-cover ring-2 ring-white/15 shadow-[0_0_30px_rgba(234,88,12,0.25)]"
             />
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3 py-1.5">
+            <div className="inline-flex items-center gap-2 text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 rounded-full px-3 py-1.5">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
               </span>
               Available for new work
             </div>
           </div>
 
-          <p className="font-mono text-xs uppercase tracking-[0.2em] text-neutral-500 mb-5" data-reveal>
+          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-5" data-reveal>
             Software Engineer — Seattle, WA
           </p>
 
           <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.02] mb-7" data-reveal>
-            Davis Sneed<span className="text-accent">.</span>
-            <span className="block mt-2 text-neutral-400 text-3xl md:text-5xl leading-[1.1]">
+            <span className="bg-gradient-to-br from-white via-white to-neutral-400 bg-clip-text text-transparent">
+              Davis Sneed
+            </span>
+            <span className="text-accent">.</span>
+            <span className="block mt-3 text-neutral-500 text-3xl md:text-5xl leading-[1.12]">
               Building autonomous systems and clean products.
             </span>
           </h1>
 
-          <p className="text-base md:text-lg text-neutral-600 leading-relaxed max-w-2xl mb-10" data-reveal>
+          <p className="text-base md:text-lg text-neutral-400 leading-relaxed max-w-2xl mb-10" data-reveal>
             I&apos;m an engineer focused on agentic AI, full-stack development, and systems
-            programming. Currently building <span className="text-neutral-900 font-medium">TARS</span> — an
+            programming. Currently building <span className="text-white font-medium">TARS</span> — an
             autonomous coding agent — and supporting pre-release AI technology at Amazon.
           </p>
 
           <div className="flex flex-wrap items-center gap-3" data-reveal>
             <a
               href="mailto:dlsneed1298@gmail.com"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 text-white text-sm font-medium hover:bg-accent transition-colors"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-sm font-medium hover:bg-accent hover:text-white transition-colors duration-200 shadow-[0_0_24px_rgba(255,255,255,0.15)]"
             >
               Email me
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -285,7 +301,7 @@ export default function Home() {
               href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-sm font-medium border border-neutral-200 hover:border-neutral-900 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-sm font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
             >
               Résumé
             </a>
@@ -293,7 +309,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/dsneedy"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-sm font-medium border border-neutral-200 hover:border-neutral-900 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-sm font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
             >
               LinkedIn
             </a>
@@ -301,33 +317,54 @@ export default function Home() {
               href="https://github.com/dsneed123"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-sm font-medium border border-neutral-200 hover:border-neutral-900 transition-colors"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-sm font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
             >
               GitHub
             </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-8 border-t border-neutral-200" data-reveal>
+          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/[0.08]" data-reveal>
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-neutral-400 mb-1.5">Based in</div>
-              <div className="text-sm font-medium">Seattle, WA</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500 mb-1.5">Based in</div>
+              <div className="text-sm font-medium text-white">Seattle, WA</div>
             </div>
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-neutral-400 mb-1.5">Education</div>
-              <div className="text-sm font-medium">Gonzaga, CS &apos;25</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500 mb-1.5">Education</div>
+              <div className="text-sm font-medium text-white">Gonzaga, CS &apos;25</div>
             </div>
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-neutral-400 mb-1.5">Currently</div>
-              <div className="text-sm font-medium">Amazon · Apex Systems</div>
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500 mb-1.5">Currently</div>
+              <div className="text-sm font-medium text-white">Amazon · Apex Systems</div>
             </div>
           </div>
         </div>
       </section>
 
+      {/* Tech marquee */}
+      <div className="relative border-y border-white/[0.06] bg-white/[0.02] py-4 overflow-hidden" aria-hidden>
+        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#09090b] to-transparent z-10" />
+        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#09090b] to-transparent z-10" />
+        <div className="marquee-track">
+          {[0, 1].map((copy) => (
+            <div key={copy} className="flex shrink-0 items-center">
+              {marqueeItems.map((item) => (
+                <span
+                  key={`${copy}-${item}`}
+                  className="flex items-center font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500"
+                >
+                  <span className="px-6">{item}</span>
+                  <span className="text-accent/60 text-[8px]">✦</span>
+                </span>
+              ))}
+            </div>
+          ))}
+        </div>
+      </div>
+
       {/* Work / Experience */}
       <Section id="work" eyebrow="01 — Work" title="Experience">
         <div className="relative">
-          <div className="absolute left-[3px] md:left-[169px] top-3 bottom-3 w-px bg-neutral-200 hidden sm:block" aria-hidden />
+          <div className="absolute left-[3px] md:left-[169px] top-3 bottom-3 w-px bg-white/[0.08] hidden sm:block" aria-hidden />
           <div className="space-y-2">
             {experience.map((exp, i) => (
               <article
@@ -337,8 +374,10 @@ export default function Home() {
               >
                 <div className="relative text-xs text-neutral-500 md:pt-1.5">
                   <span
-                    className={`hidden sm:block absolute left-0 md:left-auto md:right-[-14.5px] top-[7px] h-[7px] w-[7px] rounded-full ring-4 ring-[#fafaf9] ${
-                      exp.current ? 'bg-accent' : 'bg-neutral-300'
+                    className={`hidden sm:block absolute left-0 md:left-auto md:right-[-14.5px] top-[7px] h-[7px] w-[7px] rounded-full ring-4 ring-[#09090b] ${
+                      exp.current
+                        ? 'bg-accent shadow-[0_0_12px_rgba(234,88,12,0.9)]'
+                        : 'bg-neutral-600'
                     }`}
                     aria-hidden
                   />
@@ -346,27 +385,27 @@ export default function Home() {
                   <div className="mt-1 sm:pl-4 md:pl-0">{exp.location}</div>
                 </div>
                 <div>
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex flex-wrap items-center gap-3 mb-2">
                     {exp.logo && (
                       <Image
                         src={exp.logo}
                         alt={`${exp.company} logo`}
                         width={28}
                         height={28}
-                        className="rounded-md object-contain border border-neutral-200 bg-white"
+                        className="rounded-md object-contain border border-white/10 bg-white"
                       />
                     )}
-                    <h3 className="text-base font-semibold tracking-tight">
+                    <h3 className="text-base font-semibold tracking-tight text-white">
                       {exp.title}
-                      <span className="text-neutral-400 font-normal"> · {exp.company}</span>
+                      <span className="text-neutral-500 font-normal"> · {exp.company}</span>
                     </h3>
                     {exp.current && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-accent bg-orange-50 border border-orange-200 rounded-full px-2 py-0.5">
+                      <span className="font-mono text-[10px] uppercase tracking-wider text-accent bg-accent/10 border border-accent/30 rounded-full px-2 py-0.5">
                         Now
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-neutral-600 leading-relaxed mb-3 max-w-2xl">
+                  <p className="text-sm text-neutral-400 leading-relaxed mb-3 max-w-2xl">
                     {exp.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -397,16 +436,16 @@ export default function Home() {
             <div
               key={s.group}
               data-reveal
-              className="rounded-2xl border border-neutral-200 bg-white p-6"
+              className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 hover:border-white/20 transition-colors duration-300"
             >
-              <div className="font-mono text-[10px] uppercase tracking-[0.15em] text-neutral-400 mb-4">
+              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent mb-4">
                 {s.group}
               </div>
               <div className="flex flex-wrap gap-2">
                 {s.items.map((it) => (
                   <span
                     key={it}
-                    className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium text-neutral-700 bg-neutral-100 border border-neutral-200 hover:border-neutral-400 transition-colors"
+                    className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium text-neutral-300 bg-white/[0.05] border border-white/10 hover:border-accent/50 hover:text-white transition-colors duration-200"
                   >
                     {it}
                   </span>
@@ -418,13 +457,20 @@ export default function Home() {
       </Section>
 
       {/* Contact */}
-      <section id="contact" className="px-6 py-28 border-t border-neutral-200 mt-16 bg-neutral-950 text-white">
-        <div className="max-w-3xl mx-auto" data-reveal>
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-500 mb-4">
+      <section id="contact" className="relative px-6 py-32 border-t border-white/[0.06] mt-16 overflow-hidden">
+        <div
+          className="pointer-events-none absolute left-1/2 top-0 -translate-x-1/2 h-[500px] w-[800px] rounded-full bg-accent/[0.13] blur-[160px]"
+          aria-hidden
+        />
+        <div className="relative max-w-3xl mx-auto" data-reveal>
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
             04 — Contact
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.05]">
-            Let&apos;s build something<span className="text-accent">.</span>
+            <span className="bg-gradient-to-br from-white via-white to-neutral-400 bg-clip-text text-transparent">
+              Let&apos;s build something
+            </span>
+            <span className="text-accent">.</span>
           </h2>
           <p className="text-base text-neutral-400 leading-relaxed max-w-xl mb-10">
             I&apos;m open to full-time and contract work in software engineering, agentic AI, and
@@ -433,12 +479,12 @@ export default function Home() {
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <a
               href="mailto:dlsneed1298@gmail.com"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-neutral-900 text-sm font-medium hover:bg-accent hover:text-white transition-colors w-fit"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-neutral-900 text-sm font-medium hover:bg-accent hover:text-white transition-colors duration-200 w-fit shadow-[0_0_32px_rgba(255,255,255,0.18)]"
             >
               dlsneed1298@gmail.com
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
-            <div className="flex items-center gap-5 text-sm text-neutral-400">
+            <div className="flex items-center gap-5 text-sm text-neutral-500">
               <a href="https://www.linkedin.com/in/dsneedy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
               <a href="https://github.com/dsneed123" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
               <a href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Résumé</a>
@@ -447,8 +493,8 @@ export default function Home() {
         </div>
       </section>
 
-      <footer className="py-8 px-6 bg-neutral-950 text-neutral-500 border-t border-neutral-800">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-xs font-mono">
+      <footer className="py-8 px-6 border-t border-white/[0.06]">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-xs font-mono text-neutral-600">
           <div>© {new Date().getFullYear()} Davis Sneed</div>
           <div>Seattle, WA — Built with Next.js & Tailwind</div>
         </div>
@@ -466,28 +512,33 @@ function ProjectCard({
 }) {
   const inner = (
     <>
-      <div className="flex items-start justify-between mb-4">
-        <div className="flex items-center gap-3">
-          <span className="font-mono text-[11px] text-neutral-300 group-hover:text-accent transition-colors">
+      {p.featured && (
+        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent bg-accent/10 border border-accent/30 rounded-full px-2.5 py-1 w-fit mb-4">
+          Flagship
+        </span>
+      )}
+      <div className="flex items-start justify-between gap-4 mb-4">
+        <div className="flex items-center gap-3 min-w-0">
+          <span className="font-mono text-[11px] text-neutral-600 group-hover:text-accent transition-colors">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <h3 className="text-lg font-semibold tracking-tight group-hover:text-accent transition-colors">
+          <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-orange-400 transition-colors">
             {p.title}
           </h3>
           {p.link && (
             <span
-              className="text-neutral-300 group-hover:text-accent transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-sm"
+              className="text-neutral-600 group-hover:text-accent transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-sm"
               aria-hidden
             >
               ↗
             </span>
           )}
         </div>
-        <div className="font-mono text-[10px] uppercase tracking-wider text-neutral-400 pt-1.5 shrink-0">
+        <div className="font-mono text-[10px] uppercase tracking-wider text-neutral-500 pt-1.5 shrink-0">
           {p.type} · {p.year}
         </div>
       </div>
-      <p className="text-sm text-neutral-600 leading-relaxed mb-5 flex-1 max-w-2xl">
+      <p className="text-sm text-neutral-400 leading-relaxed mb-5 flex-1 max-w-2xl">
         {p.description}
       </p>
       <div className="flex flex-wrap gap-1.5">
@@ -498,8 +549,10 @@ function ProjectCard({
     </>
   );
 
-  const className = `group rounded-2xl border border-neutral-200 bg-white p-6 md:p-7 flex flex-col transition-all duration-200 hover:shadow-lg hover:shadow-neutral-200/60 hover:-translate-y-0.5 hover:border-neutral-300 ${
-    p.featured ? 'md:col-span-2 bg-gradient-to-br from-white to-orange-50/40' : ''
+  const className = `group rounded-2xl p-6 md:p-7 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
+    p.featured
+      ? 'md:col-span-2 border border-accent/25 bg-gradient-to-br from-accent/[0.09] via-white/[0.03] to-white/[0.02] shadow-[0_0_60px_-20px_rgba(234,88,12,0.35)] hover:border-accent/50 hover:shadow-[0_0_80px_-16px_rgba(234,88,12,0.5)]'
+      : 'border border-white/[0.08] bg-white/[0.03] hover:border-accent/40 hover:bg-white/[0.05] hover:shadow-[0_12px_48px_-12px_rgba(234,88,12,0.25)]'
   }`;
 
   if (p.link) {
@@ -528,13 +581,13 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section id={id} className="px-6 py-24 border-t border-neutral-200">
+    <section id={id} className="px-6 py-24 border-t border-white/[0.06]">
       <div className="max-w-5xl mx-auto">
         <div className="mb-14" data-reveal>
-          <div className="font-mono text-[10px] uppercase tracking-[0.2em] text-neutral-400 mb-4">
+          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
             {eyebrow}
           </div>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">
+          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
             {title}
             <span className="text-accent">.</span>
           </h2>
@@ -547,7 +600,7 @@ function Section({
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-medium text-neutral-600 bg-neutral-100 border border-neutral-200">
+    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-medium text-neutral-400 bg-white/[0.05] border border-white/[0.08]">
       {children}
     </span>
   );
