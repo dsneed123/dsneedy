@@ -77,19 +77,7 @@ body {
 .orb-a { animation: float-a 16s ease-in-out infinite; }
 .orb-b { animation: float-b 20s ease-in-out infinite; }
 
-/* Tech marquee */
-.marquee-track {
-  display: flex;
-  width: max-content;
-  animation: marquee 48s linear infinite;
-}
-
-@keyframes marquee {
-  to { transform: translateX(-50%); }
-}
-
 @media (prefers-reduced-motion: reduce) {
-  .marquee-track,
   .orb-a,
   .orb-b {
     animation: none;

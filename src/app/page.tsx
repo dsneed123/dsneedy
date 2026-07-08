@@ -137,11 +137,6 @@ const skills = [
   { group: 'Tools', items: ['Claude API', 'Ollama', 'PostgreSQL', 'Docker', 'GitHub Actions'] }
 ];
 
-const marqueeItems = [
-  'Python', 'TypeScript', 'Rust', 'React', 'Next.js', 'Django', 'Agentic AI',
-  'Claude API', 'Ollama', 'PostgreSQL', 'Docker', 'AR/VR', 'C++', 'Go'
-];
-
 const nav = [
   { id: 'about', label: 'About' },
   { id: 'work', label: 'Work' },
@@ -223,7 +218,7 @@ export default function Home() {
               <button
                 key={id}
                 onClick={() => scrollTo(id)}
-                className={`px-3.5 py-1.5 text-xs font-medium rounded-full transition-all duration-200 ${
+                className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
                   activeSection === id
                     ? 'text-neutral-900 bg-white shadow-[0_0_16px_rgba(255,255,255,0.25)]'
                     : 'text-neutral-400 hover:text-white'
@@ -235,7 +230,7 @@ export default function Home() {
           </div>
           <a
             href="mailto:dlsneed1298@gmail.com"
-            className="inline-flex items-center gap-1.5 text-xs font-medium px-3.5 py-2 rounded-full bg-white text-neutral-900 hover:bg-accent hover:text-white transition-colors duration-200"
+            className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-white text-neutral-900 hover:bg-accent hover:text-white transition-colors duration-200"
           >
             Get in touch
             <span aria-hidden className="text-[10px]">↗</span>
@@ -260,7 +255,7 @@ export default function Home() {
               height={64}
               className="rounded-full object-cover ring-2 ring-white/15 shadow-[0_0_30px_rgba(234,88,12,0.25)]"
             />
-            <div className="inline-flex items-center gap-2 text-xs font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 rounded-full px-3 py-1.5">
+            <div className="inline-flex items-center gap-2 text-sm font-medium text-emerald-300 bg-emerald-500/10 border border-emerald-400/20 rounded-full px-3.5 py-1.5">
               <span className="relative flex h-2 w-2">
                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
                 <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-400"></span>
@@ -269,7 +264,7 @@ export default function Home() {
             </div>
           </div>
 
-          <p className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-5" data-reveal>
+          <p className="font-mono text-sm uppercase tracking-[0.25em] text-accent mb-5" data-reveal>
             Software Engineer — Seattle, WA
           </p>
 
@@ -278,12 +273,12 @@ export default function Home() {
               Davis Sneed
             </span>
             <span className="text-accent">.</span>
-            <span className="block mt-3 text-neutral-500 text-3xl md:text-5xl leading-[1.12]">
+            <span className="block mt-3 text-neutral-400 text-3xl md:text-5xl leading-[1.12]">
               Building autonomous systems and clean products.
             </span>
           </h1>
 
-          <p className="text-base md:text-lg text-neutral-400 leading-relaxed max-w-2xl mb-10" data-reveal>
+          <p className="text-lg md:text-xl text-neutral-300 leading-relaxed max-w-2xl mb-10" data-reveal>
             I&apos;m an engineer focused on agentic AI, full-stack development, and systems
             programming. Currently building <span className="text-white font-medium">TARS</span> — an
             autonomous coding agent — and supporting pre-release AI technology at Amazon.
@@ -292,7 +287,7 @@ export default function Home() {
           <div className="flex flex-wrap items-center gap-3" data-reveal>
             <a
               href="mailto:dlsneed1298@gmail.com"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-sm font-medium hover:bg-accent hover:text-white transition-colors duration-200 shadow-[0_0_24px_rgba(255,255,255,0.15)]"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-base font-medium hover:bg-accent hover:text-white transition-colors duration-200 shadow-[0_0_24px_rgba(255,255,255,0.15)]"
             >
               Email me
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
@@ -301,7 +296,7 @@ export default function Home() {
               href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-sm font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-base font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
             >
               Résumé
             </a>
@@ -309,7 +304,7 @@ export default function Home() {
               href="https://www.linkedin.com/in/dsneedy"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-sm font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-base font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
             >
               LinkedIn
             </a>
@@ -317,7 +312,7 @@ export default function Home() {
               href="https://github.com/dsneed123"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-sm font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
+              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white/[0.04] text-white text-base font-medium border border-white/10 hover:border-white/35 hover:bg-white/[0.08] transition-all duration-200"
             >
               GitHub
             </a>
@@ -325,41 +320,20 @@ export default function Home() {
 
           <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-8 border-t border-white/[0.08]" data-reveal>
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500 mb-1.5">Based in</div>
-              <div className="text-sm font-medium text-white">Seattle, WA</div>
+              <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Based in</div>
+              <div className="text-base font-medium text-white">Seattle, WA</div>
             </div>
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500 mb-1.5">Education</div>
-              <div className="text-sm font-medium text-white">Gonzaga, CS &apos;25</div>
+              <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Education</div>
+              <div className="text-base font-medium text-white">Gonzaga, CS &apos;25</div>
             </div>
             <div>
-              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-neutral-500 mb-1.5">Currently</div>
-              <div className="text-sm font-medium text-white">Amazon · Apex Systems</div>
+              <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Currently</div>
+              <div className="text-base font-medium text-white">Amazon · Apex Systems</div>
             </div>
           </div>
         </div>
       </section>
-
-      {/* Tech marquee */}
-      <div className="relative border-y border-white/[0.06] bg-white/[0.02] py-4 overflow-hidden" aria-hidden>
-        <div className="pointer-events-none absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[#09090b] to-transparent z-10" />
-        <div className="pointer-events-none absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[#09090b] to-transparent z-10" />
-        <div className="marquee-track">
-          {[0, 1].map((copy) => (
-            <div key={copy} className="flex shrink-0 items-center">
-              {marqueeItems.map((item) => (
-                <span
-                  key={`${copy}-${item}`}
-                  className="flex items-center font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500"
-                >
-                  <span className="px-6">{item}</span>
-                  <span className="text-accent/60 text-[8px]">✦</span>
-                </span>
-              ))}
-            </div>
-          ))}
-        </div>
-      </div>
 
       {/* Work / Experience */}
       <Section id="work" eyebrow="01 — Work" title="Experience">
@@ -372,7 +346,7 @@ export default function Home() {
                 data-reveal
                 className="relative grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-10 py-6 group"
               >
-                <div className="relative text-xs text-neutral-500 md:pt-1.5">
+                <div className="relative text-sm text-neutral-400 md:pt-1">
                   <span
                     className={`hidden sm:block absolute left-0 md:left-auto md:right-[-14.5px] top-[7px] h-[7px] w-[7px] rounded-full ring-4 ring-[#09090b] ${
                       exp.current
@@ -395,17 +369,17 @@ export default function Home() {
                         className="rounded-md object-contain border border-white/10 bg-white"
                       />
                     )}
-                    <h3 className="text-base font-semibold tracking-tight text-white">
+                    <h3 className="text-lg font-semibold tracking-tight text-white">
                       {exp.title}
                       <span className="text-neutral-500 font-normal"> · {exp.company}</span>
                     </h3>
                     {exp.current && (
-                      <span className="font-mono text-[10px] uppercase tracking-wider text-accent bg-accent/10 border border-accent/30 rounded-full px-2 py-0.5">
+                      <span className="font-mono text-[11px] uppercase tracking-wider text-accent bg-accent/10 border border-accent/30 rounded-full px-2 py-0.5">
                         Now
                       </span>
                     )}
                   </div>
-                  <p className="text-sm text-neutral-400 leading-relaxed mb-3 max-w-2xl">
+                  <p className="text-base text-neutral-300 leading-relaxed mb-3 max-w-2xl">
                     {exp.description}
                   </p>
                   <div className="flex flex-wrap gap-1.5">
@@ -438,14 +412,14 @@ export default function Home() {
               data-reveal
               className="rounded-2xl border border-white/[0.08] bg-white/[0.03] p-6 hover:border-white/20 transition-colors duration-300"
             >
-              <div className="font-mono text-[10px] uppercase tracking-[0.18em] text-accent mb-4">
+              <div className="font-mono text-xs uppercase tracking-[0.18em] text-accent mb-4">
                 {s.group}
               </div>
               <div className="flex flex-wrap gap-2">
                 {s.items.map((it) => (
                   <span
                     key={it}
-                    className="inline-flex items-center px-3 py-1.5 rounded-full text-xs font-medium text-neutral-300 bg-white/[0.05] border border-white/10 hover:border-accent/50 hover:text-white transition-colors duration-200"
+                    className="inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium text-neutral-200 bg-white/[0.05] border border-white/10 hover:border-accent/50 hover:text-white transition-colors duration-200"
                   >
                     {it}
                   </span>
@@ -463,7 +437,7 @@ export default function Home() {
           aria-hidden
         />
         <div className="relative max-w-3xl mx-auto" data-reveal>
-          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
+          <div className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-4">
             04 — Contact
           </div>
           <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.05]">
@@ -472,19 +446,19 @@ export default function Home() {
             </span>
             <span className="text-accent">.</span>
           </h2>
-          <p className="text-base text-neutral-400 leading-relaxed max-w-xl mb-10">
+          <p className="text-lg text-neutral-300 leading-relaxed max-w-xl mb-10">
             I&apos;m open to full-time and contract work in software engineering, agentic AI, and
             AR/VR. The fastest way to reach me is email.
           </p>
           <div className="flex flex-col sm:flex-row sm:items-center gap-6">
             <a
               href="mailto:dlsneed1298@gmail.com"
-              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-neutral-900 text-sm font-medium hover:bg-accent hover:text-white transition-colors duration-200 w-fit shadow-[0_0_32px_rgba(255,255,255,0.18)]"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-neutral-900 text-base font-medium hover:bg-accent hover:text-white transition-colors duration-200 w-fit shadow-[0_0_32px_rgba(255,255,255,0.18)]"
             >
               dlsneed1298@gmail.com
               <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
             </a>
-            <div className="flex items-center gap-5 text-sm text-neutral-500">
+            <div className="flex items-center gap-5 text-base text-neutral-400">
               <a href="https://www.linkedin.com/in/dsneedy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">LinkedIn</a>
               <a href="https://github.com/dsneed123" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">GitHub</a>
               <a href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">Résumé</a>
@@ -494,7 +468,7 @@ export default function Home() {
       </section>
 
       <footer className="py-8 px-6 border-t border-white/[0.06]">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-xs font-mono text-neutral-600">
+        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm font-mono text-neutral-500">
           <div>© {new Date().getFullYear()} Davis Sneed</div>
           <div>Seattle, WA — Built with Next.js & Tailwind</div>
         </div>
@@ -513,16 +487,16 @@ function ProjectCard({
   const inner = (
     <>
       {p.featured && (
-        <span className="font-mono text-[10px] uppercase tracking-[0.2em] text-accent bg-accent/10 border border-accent/30 rounded-full px-2.5 py-1 w-fit mb-4">
+        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-accent bg-accent/10 border border-accent/30 rounded-full px-2.5 py-1 w-fit mb-4">
           Flagship
         </span>
       )}
       <div className="flex items-start justify-between gap-4 mb-4">
         <div className="flex items-center gap-3 min-w-0">
-          <span className="font-mono text-[11px] text-neutral-600 group-hover:text-accent transition-colors">
+          <span className="font-mono text-xs text-neutral-500 group-hover:text-accent transition-colors">
             {String(index + 1).padStart(2, '0')}
           </span>
-          <h3 className="text-lg font-semibold tracking-tight text-white group-hover:text-orange-400 transition-colors">
+          <h3 className="text-xl font-semibold tracking-tight text-white group-hover:text-orange-400 transition-colors">
             {p.title}
           </h3>
           {p.link && (
@@ -534,11 +508,11 @@ function ProjectCard({
             </span>
           )}
         </div>
-        <div className="font-mono text-[10px] uppercase tracking-wider text-neutral-500 pt-1.5 shrink-0">
+        <div className="font-mono text-xs uppercase tracking-wider text-neutral-400 pt-1.5 shrink-0">
           {p.type} · {p.year}
         </div>
       </div>
-      <p className="text-sm text-neutral-400 leading-relaxed mb-5 flex-1 max-w-2xl">
+      <p className="text-base text-neutral-300 leading-relaxed mb-5 flex-1 max-w-2xl">
         {p.description}
       </p>
       <div className="flex flex-wrap gap-1.5">
@@ -584,7 +558,7 @@ function Section({
     <section id={id} className="px-6 py-24 border-t border-white/[0.06]">
       <div className="max-w-5xl mx-auto">
         <div className="mb-14" data-reveal>
-          <div className="font-mono text-[10px] uppercase tracking-[0.25em] text-accent mb-4">
+          <div className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-4">
             {eyebrow}
           </div>
           <h2 className="text-3xl md:text-5xl font-semibold tracking-tight text-white">
@@ -600,7 +574,7 @@ function Section({
 
 function Tag({ children }: { children: React.ReactNode }) {
   return (
-    <span className="inline-flex items-center px-2 py-0.5 rounded-md text-[11px] font-medium text-neutral-400 bg-white/[0.05] border border-white/[0.08]">
+    <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium text-neutral-300 bg-white/[0.05] border border-white/[0.08]">
       {children}
     </span>
   );
