@@ -12,6 +12,7 @@ type Project = {
   technologies: string[];
   link?: string;
   images?: { src: string; alt: string }[];
+  highlights?: string[];
 };
 
 const projects: Project[] = [
@@ -21,7 +22,13 @@ const projects: Project[] = [
     year: '2026',
     type: 'Product',
     featured: true,
-    description: 'Agentic Workflow Orchestrator — a local-first, no-code automation platform where AI decides what matters. Users watch Discord channels, prices, pages, or schedules and build event-driven workflow graphs from nine step types (AI queries, conditionals, loops, alerts, command execution, AI-written code). Model-agnostic — Ollama, OpenAI, or Anthropic — with AI-call batching that cuts costs ~80% on busy channels, 49 built-in recipes, and Project Autopilot, an agent that plans a repo goal and ships it one PR per phase. Runs entirely on-device with zero telemetry. Live in early access at awo.so with free and pro tiers.',
+    description: 'Agentic Workflow Orchestrator — a local-first, no-code automation platform where AI decides what matters. Watch Discord channels, prices, pages, or schedules and build event-driven workflow graphs from nine step types, running any model — Ollama, OpenAI, or Anthropic. Includes Project Autopilot, an agent that plans a repo goal and ships it one pull request per phase. Designed, built, and launched solo.',
+    highlights: [
+      'Live product — free & pro tiers',
+      '~80% fewer AI calls via batching',
+      '49 built-in workflow recipes',
+      'Zero telemetry, runs on-device'
+    ],
     technologies: ['AI Orchestration', 'Ollama', 'OpenAI', 'Anthropic', 'YAML', 'CLI'],
     link: 'https://awo.so',
     images: [
@@ -110,14 +117,29 @@ const projects: Project[] = [
   }
 ];
 
-const experience = [
+type Experience = {
+  title: string;
+  company: string;
+  period: string;
+  location: string;
+  current?: boolean;
+  bullets: string[];
+  technologies: string[];
+  logo?: string;
+};
+
+const experience: Experience[] = [
   {
     title: 'Quality Assurance Technician',
     company: 'Amazon',
     period: 'Jun 2026 — Present',
     location: 'Bellevue, WA',
     current: true,
-    description: 'Contracted through Apex Systems to support quality assurance and data operations in a fast-paced technical environment. Interact with experimental, pre-release technology and AI agents to collect, validate, and analyze data and document test results. Develop Python scripts and tooling to automate data collection, validation, and reporting workflows, improving efficiency and accuracy. Collaborate with cross-functional teams to identify issues and support product quality, all while maintaining strict confidentiality requirements.',
+    bullets: [
+      'Test and validate experimental, pre-release AI agents and technology, documenting results for engineering teams.',
+      'Develop Python scripts and tooling that automate data collection, validation, and reporting workflows.',
+      'Collaborate cross-functionally to surface issues early and drive product quality under strict confidentiality.'
+    ],
     technologies: ['Python', 'QA Testing', 'AI Agents', 'Data Operations', 'Automation']
   },
   {
@@ -125,7 +147,11 @@ const experience = [
     company: 'Qualitest',
     period: 'Feb 2026 — Jun 2026',
     location: 'Kirkland, WA',
-    description: 'Structured testing and validation of AR/VR hardware and software systems. Collect, analyze, and document experimental data to ensure accuracy and compliance with research protocols. Collaborate cross-functionally to troubleshoot and improve product functionality.',
+    bullets: [
+      'Ran structured testing and validation of AR/VR hardware and software systems.',
+      'Collected, analyzed, and documented experimental data to ensure accuracy and research-protocol compliance.',
+      'Partnered cross-functionally to troubleshoot and improve product functionality.'
+    ],
     technologies: ['AR/VR', 'QA Testing', 'Hardware Validation', 'Data Collection'],
     logo: '/media/qualitest-logo.jpg'
   },
@@ -134,7 +160,10 @@ const experience = [
     company: 'Insight Global',
     period: 'Nov 2025 — Dec 2025',
     location: 'Seattle, WA',
-    description: 'Field-based data collection across diverse Seattle environments, including dense urban canyon areas, supporting AR/VR research. Followed standardized procedures to maintain accuracy, reliability, and consistency.',
+    bullets: [
+      'Field-based data collection supporting AR/VR research across diverse Seattle environments, including dense urban-canyon areas.',
+      'Followed standardized procedures to keep data accurate, reliable, and consistent.'
+    ],
     technologies: ['AR/VR Research', 'Field Operations', 'QA'],
     logo: '/media/insightglobal-logo.png'
   },
@@ -143,7 +172,10 @@ const experience = [
     company: 'Pivot Politics',
     period: 'Oct 2025 — Jan 2026',
     location: 'Remote',
-    description: 'Designed and built the front-end for a social media platform. High-fidelity UI in Figma; responsive features in JavaScript, HTML, and CSS against a Python back-end.',
+    bullets: [
+      'Designed and shipped the front-end for a social media platform — high-fidelity UI in Figma, built in React and JavaScript.',
+      'Delivered responsive features integrated against a Python back-end.'
+    ],
     technologies: ['JavaScript', 'React', 'Figma', 'UI/UX']
   },
   {
@@ -151,7 +183,10 @@ const experience = [
     company: 'ProfoundSports',
     period: '2024',
     location: 'Remote',
-    description: 'Automated athlete social-media data collection across 10,000+ profiles. Python scraper with BeautifulSoup and Excel/CSV pipelines cut manual entry by 90%.',
+    bullets: [
+      'Automated athlete social-media data collection across 10,000+ profiles with a Python and BeautifulSoup scraper.',
+      'Built Excel/CSV pipelines that cut manual data entry by 90%.'
+    ],
     technologies: ['Python', 'BeautifulSoup', 'Data Pipelines']
   }
 ];
@@ -319,9 +354,10 @@ export default function Home() {
               href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-base font-medium border border-neutral-200 hover:border-accent hover:text-accent transition-colors duration-200 shadow-sm"
+              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 text-white text-base font-medium hover:bg-neutral-700 transition-colors duration-200 shadow-md"
             >
               Résumé
+              <span aria-hidden className="text-[10px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
             </a>
             <a
               href="https://www.linkedin.com/in/dsneedy"
@@ -341,7 +377,7 @@ export default function Home() {
             </a>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6 mt-16 pt-8 border-t border-neutral-200" data-reveal>
+          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-8 border-t border-neutral-200" data-reveal>
             <div>
               <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Based in</div>
               <div className="text-base font-medium">Seattle, WA</div>
@@ -353,6 +389,19 @@ export default function Home() {
             <div>
               <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Currently</div>
               <div className="text-base font-medium">Amazon · Apex Systems</div>
+            </div>
+            <div>
+              <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Latest ship</div>
+              <div className="text-base font-medium">
+                <a
+                  href="https://awo.so"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-accent transition-colors"
+                >
+                  AWO — early access ↗
+                </a>
+              </div>
             </div>
           </div>
         </div>
@@ -400,9 +449,14 @@ export default function Home() {
                       </span>
                     )}
                   </div>
-                  <p className="text-base text-neutral-600 leading-relaxed mb-3 max-w-2xl">
-                    {exp.description}
-                  </p>
+                  <ul className="space-y-1.5 mb-3 max-w-2xl">
+                    {exp.bullets.map((b) => (
+                      <li key={b} className="flex gap-2.5 text-base text-neutral-600 leading-relaxed">
+                        <span className="text-accent mt-[3px] shrink-0" aria-hidden>—</span>
+                        {b}
+                      </li>
+                    ))}
+                  </ul>
                   <div className="flex flex-wrap gap-1.5">
                     {exp.technologies.map((tech) => (
                       <Tag key={tech}>{tech}</Tag>
@@ -560,6 +614,19 @@ function ProjectCard({
       <p className="text-base text-neutral-600 leading-relaxed mb-5 flex-1 max-w-2xl">
         {p.description}
       </p>
+      {p.highlights && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
+          {p.highlights.map((h) => (
+            <div
+              key={h}
+              className="flex items-center gap-2.5 rounded-lg border border-orange-100 bg-white/70 px-3.5 py-2.5 text-sm font-medium text-neutral-700"
+            >
+              <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" aria-hidden />
+              {h}
+            </div>
+          ))}
+        </div>
+      )}
       <div className="flex flex-wrap gap-1.5">
         {p.technologies.map((tech) => (
           <Tag key={tech}>{tech}</Tag>
