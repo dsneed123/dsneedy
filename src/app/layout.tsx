@@ -14,8 +14,9 @@ const geistMono = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Davis Sneed",
-  description: "Personal website of Davis Sneed",
+  title: "Davis Sneed — Software Engineer",
+  description:
+    "Software engineer in Seattle focused on agentic AI, full-stack development, and systems programming. Founder of AWO (awo.so), an agentic workflow orchestrator. Open to full-time engineering roles.",
 };
 
 export default function RootLayout({

@@ -2,13 +2,38 @@
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 
-const projects = [
+type Project = {
+  title: string;
+  role: string;
+  year: string;
+  type: string;
+  featured?: boolean;
+  description: string;
+  technologies: string[];
+  link?: string;
+  images?: { src: string; alt: string }[];
+};
+
+const projects: Project[] = [
+  {
+    title: 'AWO',
+    role: 'Founder & Sole Engineer',
+    year: '2026',
+    type: 'Product',
+    featured: true,
+    description: 'Agentic Workflow Orchestrator — a local-first, no-code automation platform where AI decides what matters. Users watch Discord channels, prices, pages, or schedules and build event-driven workflow graphs from nine step types (AI queries, conditionals, loops, alerts, command execution, AI-written code). Model-agnostic — Ollama, OpenAI, or Anthropic — with AI-call batching that cuts costs ~80% on busy channels, 49 built-in recipes, and Project Autopilot, an agent that plans a repo goal and ships it one PR per phase. Runs entirely on-device with zero telemetry. Live in early access at awo.so with free and pro tiers.',
+    technologies: ['AI Orchestration', 'Ollama', 'OpenAI', 'Anthropic', 'YAML', 'CLI'],
+    link: 'https://awo.so',
+    images: [
+      { src: '/media/awo-hero.png', alt: 'AWO landing page — Stop checking things. Let AWO watch them for you.' },
+      { src: '/media/awo-builder.png', alt: 'AWO Studio — visual workflow builder with a page-watch workflow on the canvas' }
+    ]
+  },
   {
     title: 'TARS',
     role: 'Creator',
     year: '2026',
     type: 'Systems',
-    featured: true,
     description: 'Autonomous coding agent running locally on NVIDIA Grace Blackwell hardware in a continuous self-improvement loop. Discovers tasks from GitHub issues and a web platform, plans and writes code via Claude CLI in headless mode, runs tests, opens PRs, and reports to Discord — all without human intervention.',
     technologies: ['Python', 'Bash', 'Claude CLI', 'GitHub API', 'Discord'],
     link: 'https://tarsai.dev'
@@ -275,8 +300,11 @@ export default function Home() {
 
           <p className="text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl mb-10" data-reveal>
             I&apos;m an engineer focused on agentic AI, full-stack development, and systems
-            programming. Currently building <span className="text-neutral-900 font-semibold">TARS</span> — an
-            autonomous coding agent — and supporting pre-release AI technology at Amazon.
+            programming. I ship my own products — most recently{' '}
+            <a href="https://awo.so" target="_blank" rel="noopener noreferrer" className="text-neutral-900 font-semibold underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-colors">AWO</a>, a
+            local-first agentic automation platform, and{' '}
+            <span className="text-neutral-900 font-semibold">TARS</span>, an autonomous coding
+            agent — while supporting pre-release AI technology at Amazon.
           </p>
 
           <div className="flex flex-wrap items-center gap-3" data-reveal>
@@ -511,6 +539,24 @@ function ProjectCard({
           {p.type} · {p.year}
         </div>
       </div>
+      {p.images && (
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+          {p.images.map((img) => (
+            <div
+              key={img.src}
+              className="rounded-xl overflow-hidden border border-neutral-200 bg-white shadow-sm"
+            >
+              <Image
+                src={img.src}
+                alt={img.alt}
+                width={1600}
+                height={1000}
+                className="w-full h-auto aspect-[16/10] object-cover object-top"
+              />
+            </div>
+          ))}
+        </div>
+      )}
       <p className="text-base text-neutral-600 leading-relaxed mb-5 flex-1 max-w-2xl">
         {p.description}
       </p>
