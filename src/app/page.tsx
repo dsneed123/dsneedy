@@ -54,6 +54,24 @@ const projects: Project[] = [
     technologies: ['Python', 'Bash', 'Ollama', 'CodeLlama'],
   },
   {
+    title: 'Lighter',
+    role: 'Creator',
+    year: '2026',
+    type: 'Systems',
+    description: 'Lightweight AI agent suite built around inference efficiency — smaller prompts, minimal context, fewer tools, and the right-sized model per task. Benchmarked against larger models to quantify the compute, token, latency, and cost savings.',
+    technologies: ['Python', 'LLM Benchmarking', 'Prompt Engineering'],
+    link: 'https://github.com/dsneed123/Lighter'
+  },
+  {
+    title: 'local-agents',
+    role: 'Creator',
+    year: '2026',
+    type: 'Systems',
+    description: 'CLI suite of 28 specialized agents that run entirely on your own machine via Ollama — no API keys, no config. Detects installed models, assigns a sensible one to each role, and ships research, coding, review, and SQL agents with a scaffold command for building your own.',
+    technologies: ['Python', 'Ollama', 'CLI', 'Local LLMs'],
+    link: 'https://github.com/dsneed123/local-agents'
+  },
+  {
     title: 'Hive',
     role: 'Creator',
     year: '2026',
@@ -184,10 +202,9 @@ const experience: Experience[] = [
     period: '2024',
     location: 'Remote',
     bullets: [
-      'Automated athlete social-media data collection across 10,000+ profiles with a Python and BeautifulSoup scraper.',
-      'Built Excel/CSV pipelines that cut manual data entry by 90%.'
+      'Automated athlete social-media data collection across 10,000+ profiles with a Python and BeautifulSoup scraper.'
     ],
-    technologies: ['Python', 'BeautifulSoup', 'Data Pipelines']
+    technologies: []
   }
 ];
 
@@ -323,7 +340,7 @@ export default function Home() {
           </div>
 
           <p className="font-mono text-sm uppercase tracking-[0.25em] text-accent mb-5" data-reveal>
-            Software Engineer — Seattle, WA
+            AI &amp; Software Engineer — Seattle, WA
           </p>
 
           <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.02] mb-7" data-reveal>
@@ -334,12 +351,11 @@ export default function Home() {
           </h1>
 
           <p className="text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl mb-10" data-reveal>
-            I&apos;m an engineer focused on agentic AI, full-stack development, and systems
-            programming. I ship my own products — most recently{' '}
-            <a href="https://awo.so" target="_blank" rel="noopener noreferrer" className="text-neutral-900 font-semibold underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-colors">AWO</a>, a
-            local-first agentic automation platform, and{' '}
-            <span className="text-neutral-900 font-semibold">TARS</span>, an autonomous coding
-            agent — while supporting pre-release AI technology at Amazon.
+            AI and software engineer building <span className="text-neutral-900 font-semibold">agentic
+            LLM systems</span>, full-stack web applications, and machine learning data infrastructure in
+            Python, JavaScript/React, and PostgreSQL. I design multi-step LLM orchestration pipelines on the
+            Anthropic Claude and OpenAI APIs, with a background spanning startup software engineering, Agile
+            team leadership, and quality assurance for robotics machine learning programs.
           </p>
 
           <div className="flex flex-wrap items-center gap-3" data-reveal>
