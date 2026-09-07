@@ -37,23 +37,6 @@ const projects: Project[] = [
     ]
   },
   {
-    title: 'TARS',
-    role: 'Creator',
-    year: '2026',
-    type: 'Systems',
-    description: 'Autonomous coding agent running locally on NVIDIA Grace Blackwell hardware in a continuous self-improvement loop. Discovers tasks from GitHub issues and a web platform, plans and writes code via Claude CLI in headless mode, runs tests, opens PRs, and reports to Discord — all without human intervention.',
-    technologies: ['Python', 'Bash', 'Claude CLI', 'GitHub API', 'Discord'],
-    link: 'https://tarsai.dev'
-  },
-  {
-    title: 'TARS-Lite',
-    role: 'Creator',
-    year: '2026',
-    type: 'Systems',
-    description: 'Local-only variant of TARS powered by Ollama. Same autonomous task → plan → code → PR loop, but runs fully offline with zero API costs using CodeLlama and similar open models.',
-    technologies: ['Python', 'Bash', 'Ollama', 'CodeLlama'],
-  },
-  {
     title: 'Lighter',
     role: 'Creator',
     year: '2026',
@@ -70,6 +53,23 @@ const projects: Project[] = [
     description: 'CLI suite of 28 specialized agents that run entirely on your own machine via Ollama — no API keys, no config. Detects installed models, assigns a sensible one to each role, and ships research, coding, review, and SQL agents with a scaffold command for building your own.',
     technologies: ['Python', 'Ollama', 'CLI', 'Local LLMs'],
     link: 'https://github.com/dsneed123/local-agents'
+  },
+  {
+    title: 'TARS',
+    role: 'Creator',
+    year: '2026',
+    type: 'Systems',
+    description: 'Autonomous coding agent running locally on NVIDIA Grace Blackwell hardware in a continuous self-improvement loop. Discovers tasks from GitHub issues and a web platform, plans and writes code via Claude CLI in headless mode, runs tests, opens PRs, and reports to Discord — all without human intervention.',
+    technologies: ['Python', 'Bash', 'Claude CLI', 'GitHub API', 'Discord'],
+    link: 'https://tarsai.dev'
+  },
+  {
+    title: 'TARS-Lite',
+    role: 'Creator',
+    year: '2026',
+    type: 'Systems',
+    description: 'Local-only variant of TARS powered by Ollama. Same autonomous task → plan → code → PR loop, but runs fully offline with zero API costs using CodeLlama and similar open models.',
+    technologies: ['Python', 'Bash', 'Ollama', 'CodeLlama'],
   },
   {
     title: 'Hive',
@@ -186,7 +186,7 @@ const experience: Experience[] = [
     logo: '/media/insightglobal-logo.png'
   },
   {
-    title: 'Contract Front-end Developer',
+    title: 'Software Engineer',
     company: 'Pivot Politics',
     period: 'Oct 2025 — Jan 2026',
     location: 'Remote',
@@ -197,7 +197,7 @@ const experience: Experience[] = [
     technologies: ['JavaScript', 'React', 'Figma', 'UI/UX']
   },
   {
-    title: 'Contract Developer',
+    title: 'Software Engineer',
     company: 'ProfoundSports',
     period: '2024',
     location: 'Remote',
