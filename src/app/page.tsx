@@ -169,13 +169,6 @@ const skills = [
   { group: 'Tools', items: ['Claude API', 'Ollama', 'PostgreSQL', 'Docker', 'GitHub Actions'] }
 ];
 
-const readouts = [
-  { label: 'AI calls cut', value: '~80%', note: 'AWO · request batching' },
-  { label: 'Workflow recipes', value: '49', note: 'AWO · built in, ready to run' },
-  { label: 'Profiles automated', value: '10,000+', note: 'ProfoundSports · Python scraper' },
-  { label: 'Local agents shipped', value: '28', note: 'local-agents · runs via Ollama' }
-];
-
 const nav = [
   { id: 'spec', label: 'Spec' },
   { id: 'work', label: 'Work' },
@@ -323,21 +316,6 @@ export default function Home() {
                 </dd>
               </div>
             </dl>
-
-            <section aria-label="Measured results" className="readouts">
-              {readouts.map((r) => (
-                <div className="readout" key={r.label}>
-                  <span className="eyebrow">{r.label}</span>
-                  <div className="readout-value">{r.value}</div>
-                  <div className="readout-foot">
-                    <span>{r.note}</span>
-                    <svg width="34" height="8" viewBox="0 0 34 8" aria-hidden>
-                      <rect x="0" y="3" width="34" height="2" fill="var(--accent)" />
-                    </svg>
-                  </div>
-                </div>
-              ))}
-            </section>
           </div>
         </section>
 
