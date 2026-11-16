@@ -22,12 +22,12 @@ const projects: Project[] = [
     year: '2025 – now',
     type: 'Product',
     featured: true,
-    description: 'AI agent orchestration platform I founded and built. It is a deployment console for agentic workflows, with a DAG orchestrator that handles loops, branching and parallel execution. FastAPI, PostgreSQL and Redis on the back end, React Flow for the builder.',
+    description: 'Agentic workflow orchestrator I founded and built, now in early access. It watches a page, a price or a chat channel, lets AI decide when something matters, and sends you a message where you already look. Workflows are graphs run by a DAG orchestrator with branches, merges and parallel steps, on FastAPI, PostgreSQL, Redis and React Flow.',
     highlights: [
-      'DAG runs with loops, branches, parallel steps',
+      'Discord, Telegram, webhook, page and schedule inputs',
+      'Batching: many events, one model call',
       'Autopilot agents plan, execute and commit code',
-      'Push and poll-diff triggers',
-      'Any model: local Grace Blackwell or hosted APIs'
+      'Any model: Ollama, OpenAI, Anthropic, your own'
     ],
     technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'React Flow'],
     link: 'https://awo.so',
@@ -61,7 +61,7 @@ const alsoBuilt: Brief[] = [
   { title: 'TARS', note: 'Coding agent that turns GitHub issues into tested pull requests', meta: 'Python · 2026', link: 'https://tarsai.dev' },
   { title: 'Lighter', note: 'Agent suite tuned for the smallest model that gets the job done', meta: 'Python · 2026', link: 'https://github.com/dsneed123/Lighter' },
   { title: 'HygGeo', note: 'Travel platform for eco-friendly stays, co-founded', meta: 'Django · 2025', link: 'https://HygGeo.com' },
-  { title: 'Centrebyte', note: 'Crypto marketplace with wallet and instant payments', meta: 'Django · 2025', link: 'http://centrebyte.com' },
+  { title: 'Centrebyte', note: 'Crypto marketplace with wallet and instant payments', meta: 'Django · 2025' },
   { title: 'Physics Engine', note: '2D collision and particle simulation in Rust', meta: 'Rust · 2024', link: 'https://github.com/dsneed123/Bouncing_balls_rust' },
   { title: 'Shamir Secret Sharing', note: 'Threshold key splitting over finite fields', meta: 'Python · 2024', link: 'https://github.com/dsneed123/shamir_secret_sharing' }
 ];
@@ -196,7 +196,7 @@ export default function Home() {
 
       <main id="main">
         <section id="top" className="hero" aria-labelledby="hero-title">
-          <div className="graph-paper" style={{ position: 'absolute', inset: '0 0 auto 0', height: 760, pointerEvents: 'none' }} aria-hidden />
+          <div className="graph-paper" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }} aria-hidden />
           <div className="wrap" style={{ position: 'relative' }}>
             <p className="doc-control">
               <span>Davis Sneed</span> <i aria-hidden>·</i>
