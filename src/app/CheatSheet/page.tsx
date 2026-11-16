@@ -1,5 +1,6 @@
 "use client";
 import React, { useState, useMemo } from 'react';
+import Link from 'next/link';
 
 // Type definitions for cheat sheet data
 interface Topic {
@@ -1593,21 +1594,30 @@ export default function CheatSheets() {
   const [activeLanguage, setActiveLanguage] = useState<keyof CheatSheets>('Python');
   const [activeSection, setActiveSection] = useState<string>('Basic Syntax');
   const [searchTerm, setSearchTerm] = useState('');
+  const [copied, setCopied] = useState<string | null>(null);
 
-  const copyToClipboard = async (code: string) => {
+  const copyToClipboard = async (key: string, code: string) => {
     try {
       await navigator.clipboard.writeText(code);
-      // Simple feedback - you could implement a toast notification here
-      alert('Code copied to clipboard!');
+      setCopied(key);
+      window.setTimeout(() => setCopied(null), 1600);
     } catch (error) {
       console.error('Failed to copy:', error);
     }
   };
 
+  const blurbs: Record<string, string> = {
+    Python: 'General-purpose language with clear syntax and extensive libraries.',
+    JavaScript: 'Dynamic language for web development and modern applications.',
+    Java: 'Object-oriented language for enterprise and cross-platform applications.',
+    'C++': 'Systems programming language with high performance and control.',
+    SQL: 'Declarative language for managing and querying relational databases.'
+  };
+
   // Filter sections based on search term
   const filteredSections = useMemo(() => {
     if (!searchTerm) return Object.entries(cheatSheets[activeLanguage].sections);
-    
+
     return Object.entries(cheatSheets[activeLanguage].sections).filter(
       ([sectionName, topics]) =>
         sectionName.toLowerCase().includes(searchTerm.toLowerCase()) ||
@@ -1618,213 +1628,162 @@ export default function CheatSheets() {
   }, [activeLanguage, searchTerm]);
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-white to-slate-100">
-      {/* Header */}
-      <header className="bg-white shadow-lg sticky top-0 z-40">
-        <div className="max-w-7xl mx-auto px-4 py-6">
-          <div className="flex items-center justify-between">
-            <div className="flex items-center space-x-4">
-              <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-3 rounded-xl">
-                <CodeIcon />
-              </div>
-              <div>
-                <h1 className="text-3xl font-bold text-gray-900">Comprehensive Programming Cheat Sheets</h1>
-                <p className="text-gray-600">Complete reference for essential programming concepts</p>
-              </div>
-            </div>
-
-            {/* Search */}
-            <div className="relative">
-              <div className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400">
-                <SearchIcon />
-              </div>
-              <input
-                type="text"
-                placeholder="Search topics..."
-                value={searchTerm}
-                onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-              />
-            </div>
-          </div>
+    <div className="sf cs-page">
+      <header className="site-header">
+        <div className="wrap">
+          <Link className="wordmark plain" href="/" aria-label="Davis Sneed — portfolio home">
+            <span className="wordmark-block" aria-hidden />
+            <span className="wordmark-name">Davis Sneed</span>
+          </Link>
+          <label className="cs-search">
+            <span className="cs-search-icon" aria-hidden><SearchIcon /></span>
+            <span className="sr-only">Search topics</span>
+            <input
+              type="search"
+              placeholder="Search topics"
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
+          </label>
+          <Link className="btn" href="/">Portfolio</Link>
         </div>
       </header>
 
-      <div className="max-w-7xl mx-auto px-4 py-8">
-        <div className="grid lg:grid-cols-4 gap-8">
-          {/* Language Sidebar */}
-          <div className="lg:col-span-1">
-            <div className="bg-white rounded-xl shadow-lg p-6 sticky top-28">
-              <h3 className="font-bold text-lg mb-4 text-gray-900">Languages</h3>
-              <div className="space-y-2">
-                {Object.keys(cheatSheets).map((language) => (
-                  <button
-                    key={language}
-                    onClick={() => {
-                      setActiveLanguage(language as keyof CheatSheets);
-                      setActiveSection(Object.keys(cheatSheets[language as keyof CheatSheets].sections)[0]);
-                    }}
-                    className={`w-full text-left px-4 py-3 rounded-lg transition-all duration-300 ${
-                      activeLanguage === language
-                        ? `bg-gradient-to-r ${cheatSheets[language].color} text-white shadow-lg`
-                        : 'text-gray-700 hover:bg-gray-100'
-                    }`}
-                  >
-                    <div className="flex items-center space-x-3">
-                      <DatabaseIcon />
-                      <span className="font-medium">{language}</span>
-                    </div>
-                  </button>
-                ))}
-              </div>
+      <main className="wrap cs-main">
+        <p className="doc-control">
+          <span>Reference</span> <i aria-hidden>·</i>
+          <span>Programming cheat sheets</span> <i aria-hidden>·</i>
+          <span>Rev 2026.11</span>
+        </p>
 
-              {/* Section Navigation */}
-              <div className="mt-6">
-                <h4 className="font-semibold text-gray-900 mb-3">Sections</h4>
-                <div className="space-y-1">
-                  {Object.keys(cheatSheets[activeLanguage].sections).map((section) => (
-                    <button
-                      key={section}
-                      onClick={() => setActiveSection(section)}
-                      className={`w-full text-left px-3 py-2 rounded text-sm transition-all ${
-                        activeSection === section
-                          ? 'bg-blue-100 text-blue-700 font-medium'
-                          : 'text-gray-600 hover:text-blue-600 hover:bg-blue-50'
-                      }`}
-                    >
-                      {section}
-                    </button>
-                  ))}
-                </div>
+        <div className="cs-head">
+          <span className="eyebrow">Reference sheets</span>
+          <h1>Programming cheat sheets</h1>
+          <p className="lede">
+            Syntax, idioms, and copy-paste snippets for Python, JavaScript, Java, C++ and SQL —
+            with a note on when each one is the right tool.
+          </p>
+        </div>
+
+        <div className="cs-grid">
+          <aside className="cs-side" aria-label="Languages and sections">
+            <span className="eyebrow">Languages</span>
+            <div className="cs-list">
+              {Object.keys(cheatSheets).map((language) => (
+                <button
+                  key={language}
+                  type="button"
+                  onClick={() => {
+                    setActiveLanguage(language as keyof CheatSheets);
+                    setActiveSection(Object.keys(cheatSheets[language as keyof CheatSheets].sections)[0]);
+                  }}
+                  className={`cs-item${activeLanguage === language ? ' is-active' : ''}`}
+                  aria-pressed={activeLanguage === language}
+                >
+                  <span className="cs-item-icon" aria-hidden><DatabaseIcon /></span>
+                  {language}
+                </button>
+              ))}
+            </div>
+
+            <span className="eyebrow cs-side-label">Sections</span>
+            <div className="cs-list">
+              {Object.keys(cheatSheets[activeLanguage].sections).map((section) => (
+                <button
+                  key={section}
+                  type="button"
+                  onClick={() => setActiveSection(section)}
+                  className={`cs-item cs-item-sm${activeSection === section ? ' is-active' : ''}`}
+                  aria-pressed={activeSection === section}
+                >
+                  {section}
+                </button>
+              ))}
+            </div>
+          </aside>
+
+          <div className="cs-content">
+            <div className="cs-lang">
+              <span className="cs-lang-icon" aria-hidden><CodeIcon /></span>
+              <div>
+                <h2>{activeLanguage}</h2>
+                <p className="muted">{blurbs[activeLanguage as string]}</p>
               </div>
             </div>
-          </div>
 
-          {/* Content Area */}
-          <div className="lg:col-span-3">
-            <div className="bg-white rounded-xl shadow-lg overflow-hidden">
-              {/* Language Header */}
-              <div className={`bg-gradient-to-r ${cheatSheets[activeLanguage].color} p-6 text-white`}>
-                <h2 className="text-2xl font-bold mb-2">{activeLanguage}</h2>
-                <p className="text-white/90">
-                  {activeLanguage === 'Python' && 'General-purpose language with clear syntax and extensive libraries'}
-                  {activeLanguage === 'JavaScript' && 'Dynamic language for web development and modern applications'}
-                  {activeLanguage === 'Java' && 'Object-oriented language for enterprise and cross-platform applications'}
-                  {activeLanguage === 'C++' && 'Systems programming language with high performance and control'}
-                  {activeLanguage === 'SQL' && 'Declarative language for managing and querying relational databases'}
-                </p>
-              </div>
-
-              {/* Topics */}
-              <div className="p-6">
-                {filteredSections.length === 0 ? (
-                  <div className="text-center py-8 bg-gray-50 rounded-lg">
-                    <div className="w-12 h-12 text-gray-400 mx-auto mb-4">
-                      <SearchIcon />
-                    </div>
-                    <p className="text-gray-500 text-lg">
-                      No topics found matching &quot;<strong>{searchTerm}</strong>&quot;
-                    </p>
-                  </div>
-                ) : (
-                  <div className="space-y-8">
-                    {filteredSections.map(([sectionName, topics]) => (
-                      <div key={sectionName}>
-                        <h3 className="text-xl font-bold text-gray-900 mb-4 pb-2 border-b border-gray-200">
-                          {sectionName}
-                        </h3>
-                        <div className="space-y-6">
-                          {Object.entries(topics).map(([topicName, topicData]) => (
-                            <div
-                              key={topicName}
-                              className={`border rounded-lg p-5 ${cheatSheets[activeLanguage].borderColor} ${cheatSheets[activeLanguage].bgColor}`}
-                            >
-                              <div className="flex items-start justify-between mb-3">
-                                <h4 className="text-lg font-semibold text-gray-900">{topicName}</h4>
-                                <button
-                                  onClick={() => copyToClipboard(topicData.code)}
-                                  className="p-2 text-gray-500 hover:text-blue-600 hover:bg-white rounded-lg transition-colors"
-                                  title="Copy code"
-                                >
-                                  <CopyIcon />
-                                </button>
-                              </div>
-
-                              <div className="bg-gray-900 rounded-lg p-4 mb-4 overflow-x-auto">
-                                <pre className="text-green-400 text-sm font-mono whitespace-pre">
-                                  <code>{topicData.code}</code>
-                                </pre>
-                              </div>
-
-                              <div className="flex items-start space-x-3">
-                                <div className="bg-blue-100 p-2 rounded-lg mt-0.5">
-                                  <ZapIcon />
-                                </div>
-                                <div>
-                                  <p className="text-sm text-gray-700 leading-relaxed">
-                                    <strong>When to use:</strong> {topicData.use}
-                                  </p>
-                                </div>
-                              </div>
-                            </div>
-                          ))}
+            {filteredSections.length === 0 ? (
+              <p className="cs-empty mono">
+                No topics match &quot;{searchTerm}&quot;.
+              </p>
+            ) : (
+              filteredSections.map(([sectionName, topics]) => (
+                <section className="cs-section" key={sectionName}>
+                  <h3 className="eyebrow">{sectionName}</h3>
+                  {Object.entries(topics).map(([topicName, topicData]) => {
+                    const key = `${activeLanguage}/${sectionName}/${topicName}`;
+                    return (
+                      <article className="cs-topic" key={topicName}>
+                        <div className="cs-topic-head">
+                          <h4>{topicName}</h4>
+                          <button
+                            type="button"
+                            className="btn cs-copy"
+                            onClick={() => copyToClipboard(key, topicData.code)}
+                          >
+                            <CopyIcon />
+                            {copied === key ? 'Copied' : 'Copy'}
+                          </button>
                         </div>
-                      </div>
-                    ))}
-                  </div>
-                )}
-              </div>
-            </div>
+                        <pre className="cs-code"><code>{topicData.code}</code></pre>
+                        <p className="cs-use">
+                          <span className="cs-use-icon" aria-hidden><ZapIcon /></span>
+                          <span><strong>When to use:</strong> {topicData.use}</span>
+                        </p>
+                      </article>
+                    );
+                  })}
+                </section>
+              ))
+            )}
 
-            {/* Quick Reference Cards */}
-            <div className="mt-8 grid md:grid-cols-3 gap-4">
-              <div className="bg-white rounded-lg p-4 shadow-md border border-green-200">
-                <div className="flex items-center space-x-2 mb-2">
-                  <ZapIcon />
-                  <h4 className="font-semibold text-gray-900">Time Complexity</h4>
-                </div>
-                <div className="text-sm text-gray-700 space-y-1">
-                  <div>O(1) - Constant time</div>
-                  <div>O(log n) - Logarithmic</div>
-                  <div>O(n) - Linear time</div>
-                  <div>O(n²) - Quadratic time</div>
-                </div>
+            <div className="columns cs-quick">
+              <div className="column">
+                <span className="eyebrow"><ZapIcon /> Time complexity</span>
+                <ul>
+                  <li>O(1) — constant time</li>
+                  <li>O(log n) — logarithmic</li>
+                  <li>O(n) — linear time</li>
+                  <li>O(n²) — quadratic time</li>
+                </ul>
               </div>
-
-              <div className="bg-white rounded-lg p-4 shadow-md border border-blue-200">
-                <div className="flex items-center space-x-2 mb-2">
-                  <DatabaseIcon />
-                  <h4 className="font-semibold text-gray-900">Data Structure Guide</h4>
-                </div>
-                <div className="text-sm text-gray-700 space-y-1">
-                  <div>Arrays: Fast indexed access</div>
-                  <div>Hash Tables: O(1) lookups</div>
-                  <div>Trees: Hierarchical data</div>
-                  <div>Graphs: Network relationships</div>
-                </div>
+              <div className="column">
+                <span className="eyebrow"><DatabaseIcon /> Data structures</span>
+                <ul>
+                  <li>Arrays — fast indexed access</li>
+                  <li>Hash tables — O(1) lookups</li>
+                  <li>Trees — hierarchical data</li>
+                  <li>Graphs — network relationships</li>
+                </ul>
               </div>
-
-              <div className="bg-white rounded-lg p-4 shadow-md border border-purple-200">
-                <div className="flex items-center space-x-2 mb-2">
-                  <AlertCircleIcon />
-                  <h4 className="font-semibold text-gray-900">Best Practices</h4>
-                </div>
-                <div className="text-sm text-gray-700 space-y-1">
-                  <div>Write clear, readable code</div>
-                  <div>Handle errors gracefully</div>
-                  <div>Use meaningful variable names</div>
-                  <div>Comment complex logic</div>
-                </div>
+              <div className="column">
+                <span className="eyebrow"><AlertCircleIcon /> Best practices</span>
+                <ul>
+                  <li>Write clear, readable code</li>
+                  <li>Handle errors gracefully</li>
+                  <li>Use meaningful names</li>
+                  <li>Comment complex logic</li>
+                </ul>
               </div>
             </div>
           </div>
         </div>
-      </div>
+      </main>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-gray-400 py-8 mt-16">
-        <div className="max-w-7xl mx-auto px-4 text-center">
-          <p className="text-sm">© 2025 Comprehensive Programming Cheat Sheets - Essential reference for developers</p>
+      <footer className="site-footer">
+        <div className="wrap">
+          <span>© {new Date().getFullYear()} Davis Sneed</span>
+          <span>Programming cheat sheets</span>
+          <span>Rev 2026.11</span>
         </div>
       </footer>
     </div>

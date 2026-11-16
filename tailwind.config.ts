@@ -13,11 +13,11 @@ const config: Config = {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        accent: "#ea580c",
+        accent: "#e8541a",
       },
       fontFamily: {
-        sans: ["var(--font-geist-sans)", "ui-sans-serif", "system-ui", "sans-serif"],
-        mono: ["var(--font-geist-mono)", "ui-monospace", "SFMono-Regular", "monospace"],
+        sans: ["var(--font-plex-sans)", "system-ui", "-apple-system", "Segoe UI", "Arial", "sans-serif"],
+        mono: ["var(--font-plex-mono)", "SFMono-Regular", "Menlo", "Consolas", "monospace"],
       },
     },
   },

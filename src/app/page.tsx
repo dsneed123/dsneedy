@@ -11,7 +11,7 @@ type Project = {
   description: string;
   technologies: string[];
   link?: string;
-  images?: { src: string; alt: string }[];
+  images?: { src: string; alt: string; caption: string }[];
   highlights?: string[];
 };
 
@@ -32,8 +32,16 @@ const projects: Project[] = [
     technologies: ['AI Orchestration', 'Ollama', 'OpenAI', 'Anthropic', 'YAML', 'CLI'],
     link: 'https://awo.so',
     images: [
-      { src: '/media/awo-hero.png', alt: 'AWO landing page — Stop checking things. Let AWO watch them for you.' },
-      { src: '/media/awo-builder.png', alt: 'AWO Studio — visual workflow builder with a page-watch workflow on the canvas' }
+      {
+        src: '/media/awo-hero.png',
+        alt: 'AWO landing page — Stop checking things. Let AWO watch them for you.',
+        caption: 'Fig. 1 — awo.so landing'
+      },
+      {
+        src: '/media/awo-builder.png',
+        alt: 'AWO Studio — visual workflow builder with a page-watch workflow on the canvas',
+        caption: 'Fig. 2 — Studio workflow builder'
+      }
     ]
   },
   {
@@ -197,16 +205,26 @@ const skills = [
   { group: 'Tools', items: ['Claude API', 'Ollama', 'PostgreSQL', 'Docker', 'GitHub Actions'] }
 ];
 
+const readouts = [
+  { label: 'AI calls cut', value: '~80%', note: 'AWO — request batching' },
+  { label: 'Workflow recipes', value: '49', note: 'AWO — built in, ready to run' },
+  { label: 'Profiles automated', value: '10,000+', note: 'ProfoundSports — Python scraper' },
+  { label: 'Manual entry cut', value: '90%', note: 'ProfoundSports — CSV pipelines' }
+];
+
 const nav = [
-  { id: 'about', label: 'About' },
+  { id: 'spec', label: 'Spec' },
   { id: 'work', label: 'Work' },
   { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
+  { id: 'stack', label: 'Stack' },
   { id: 'contact', label: 'Contact' }
 ];
 
+const RESUME = 'https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing';
+const EMAIL = 'dlsneed1298@gmail.com';
+
 export default function Home() {
-  const [activeSection, setActiveSection] = useState('about');
+  const [activeSection, setActiveSection] = useState('spec');
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
@@ -232,462 +250,365 @@ export default function Home() {
     return () => observer.disconnect();
   }, []);
 
-  useEffect(() => {
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add('in-view');
-            revealObserver.unobserve(e.target);
-          }
-        });
-      },
-      { threshold: 0.1, rootMargin: '0px 0px -40px 0px' }
-    );
-    document.querySelectorAll('[data-reveal]').forEach((el) => revealObserver.observe(el));
-    return () => revealObserver.disconnect();
-  }, []);
-
-  const scrollTo = (id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
-    <div className="min-h-screen bg-[#fbf9f5] text-neutral-900 overflow-x-clip">
-      <title>Davis Sneed — Software Engineer</title>
+    <div className="sf">
+      <a href="#main" className="sr-only">Skip to content</a>
 
-      {/* Top Nav */}
-      <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          scrolled ? 'bg-[#fbf9f5]/80 backdrop-blur-xl border-b border-neutral-200/80' : 'bg-transparent'
-        }`}
-      >
-        <div className="max-w-5xl mx-auto px-6 h-16 flex items-center justify-between">
-          <button
-            onClick={() => scrollTo('about')}
-            className="flex items-center gap-2.5 text-sm font-semibold tracking-tight hover:opacity-70 transition-opacity"
-          >
-            <span className="inline-block h-2 w-2 rounded-full bg-accent" aria-hidden />
-            Davis Sneed
-          </button>
-          <div className="hidden md:flex items-center gap-0.5 rounded-full border border-neutral-200 bg-white/80 backdrop-blur-xl px-1 py-1 shadow-sm">
+      <header className="site-header" data-scrolled={scrolled}>
+        <div className="wrap">
+          <a href="#top" className="wordmark plain" aria-label="Davis Sneed — home">
+            <span className="wordmark-block" aria-hidden />
+            <span className="wordmark-name">Davis Sneed</span>
+          </a>
+          <nav className="site-nav" aria-label="Sections">
             {nav.map(({ id, label }) => (
-              <button
-                key={id}
-                onClick={() => scrollTo(id)}
-                className={`px-4 py-1.5 text-sm font-medium rounded-full transition-all duration-200 ${
-                  activeSection === id
-                    ? 'text-white bg-accent shadow-sm'
-                    : 'text-neutral-500 hover:text-neutral-900'
-                }`}
-              >
+              <a key={id} href={`#${id}`} aria-current={activeSection === id ? 'true' : undefined}>
                 {label}
-              </button>
+              </a>
             ))}
-          </div>
+          </nav>
           <a
-            href="mailto:dlsneed1298@gmail.com"
-            className="inline-flex items-center gap-1.5 text-sm font-medium px-4 py-2 rounded-full bg-accent text-white hover:bg-orange-700 transition-colors duration-200 shadow-sm"
+            className="btn btn-primary"
+            href={RESUME}
+            target="_blank"
+            rel="noopener noreferrer"
           >
-            Get in touch
-            <span aria-hidden className="text-[10px]">↗</span>
+            Résumé — PDF
           </a>
         </div>
-      </nav>
+      </header>
 
-      {/* Hero */}
-      <section id="about" className="relative pt-36 pb-24 px-6 overflow-hidden">
-        <div className="dot-grid absolute inset-x-0 top-0 h-[480px] pointer-events-none" aria-hidden />
-        <div className="pointer-events-none absolute inset-0" aria-hidden>
-          <div className="orb-a absolute -top-32 left-[8%] h-[440px] w-[440px] rounded-full bg-orange-300/40 blur-[130px]" />
-          <div className="orb-b absolute top-24 right-[2%] h-[380px] w-[380px] rounded-full bg-amber-200/50 blur-[120px]" />
-          <div className="absolute top-64 left-[45%] h-[300px] w-[300px] rounded-full bg-sky-200/30 blur-[120px]" />
-        </div>
+      <main id="main">
+        <section id="top" className="hero" aria-labelledby="hero-title">
+          <div className="graph-paper" style={{ position: 'absolute', inset: '0 0 auto 0', height: 760, pointerEvents: 'none' }} aria-hidden />
+          <div className="wrap" style={{ position: 'relative' }}>
+            <p className="doc-control">
+              <span>Davis Sneed</span> <i aria-hidden>·</i>
+              <span>Software Engineer</span> <i aria-hidden>·</i>
+              <span>Seattle, WA</span> <i aria-hidden>·</i>
+              <span>Rev 2026.11</span> <i aria-hidden>·</i>
+              <span>Sheet 1 of 1</span>
+            </p>
 
-        <div className="relative max-w-3xl mx-auto">
-          <div className="flex items-center gap-4 mb-10" data-reveal>
-            <Image
-              src="/media/headshot.png"
-              alt="Davis Sneed"
-              width={64}
-              height={64}
-              className="rounded-full object-cover ring-2 ring-white shadow-lg"
-            />
-            <div className="inline-flex items-center gap-2 text-sm font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-3.5 py-1.5 shadow-sm">
-              <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
-              </span>
-              Available for new work
-            </div>
-          </div>
+            <div className="hero-grid">
+              <div>
+                <p className="eyebrow" style={{ marginBottom: 'var(--s4)' }}>
+                  Agentic AI · Full-stack · Systems
+                </p>
+                <h1 id="hero-title">
+                  Davis Sneed — software engineer who ships whole systems.
+                </h1>
+                <p className="lede" style={{ marginTop: 'var(--s5)' }}>
+                  I build agentic AI and full-stack products end to end. Most recently{' '}
+                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>, a
+                  local-first agentic workflow orchestrator I designed, built, and launched solo,
+                  and <strong>TARS</strong>, an autonomous coding agent that opens its own pull
+                  requests. By day I test pre-release AI agents at Amazon.
+                </p>
 
-          <p className="font-mono text-sm uppercase tracking-[0.25em] text-accent mb-5" data-reveal>
-            Software Engineer — Seattle, WA
-          </p>
-
-          <h1 className="text-5xl md:text-7xl font-semibold tracking-tight leading-[1.02] mb-7" data-reveal>
-            Davis Sneed<span className="text-accent">.</span>
-            <span className="block mt-3 bg-gradient-to-r from-orange-600 via-amber-500 to-orange-500 bg-clip-text text-transparent text-3xl md:text-5xl leading-[1.12] pb-1">
-              Building autonomous systems and clean products.
-            </span>
-          </h1>
-
-          <p className="text-lg md:text-xl text-neutral-600 leading-relaxed max-w-2xl mb-10" data-reveal>
-            I&apos;m an engineer focused on agentic AI, full-stack development, and systems
-            programming. I ship my own products — most recently{' '}
-            <a href="https://awo.so" target="_blank" rel="noopener noreferrer" className="text-neutral-900 font-semibold underline decoration-accent/40 underline-offset-4 hover:decoration-accent transition-colors">AWO</a>, a
-            local-first agentic automation platform, and{' '}
-            <span className="text-neutral-900 font-semibold">TARS</span>, an autonomous coding
-            agent — while supporting pre-release AI technology at Amazon.
-          </p>
-
-          <div className="flex flex-wrap items-center gap-3" data-reveal>
-            <a
-              href="mailto:dlsneed1298@gmail.com"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-accent text-white text-base font-medium hover:bg-orange-700 transition-colors duration-200 shadow-md shadow-orange-200"
-            >
-              Email me
-              <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-            </a>
-            <a
-              href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="group inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-neutral-900 text-white text-base font-medium hover:bg-neutral-700 transition-colors duration-200 shadow-md"
-            >
-              Résumé
-              <span aria-hidden className="text-[10px] transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5">↗</span>
-            </a>
-            <a
-              href="https://www.linkedin.com/in/dsneedy"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-base font-medium border border-neutral-200 hover:border-accent hover:text-accent transition-colors duration-200 shadow-sm"
-            >
-              LinkedIn
-            </a>
-            <a
-              href="https://github.com/dsneed123"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-5 py-2.5 rounded-full bg-white text-neutral-900 text-base font-medium border border-neutral-200 hover:border-accent hover:text-accent transition-colors duration-200 shadow-sm"
-            >
-              GitHub
-            </a>
-          </div>
-
-          <div className="grid grid-cols-2 sm:grid-cols-4 gap-6 mt-16 pt-8 border-t border-neutral-200" data-reveal>
-            <div>
-              <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Based in</div>
-              <div className="text-base font-medium">Seattle, WA</div>
-            </div>
-            <div>
-              <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Education</div>
-              <div className="text-base font-medium">Gonzaga, CS &apos;25</div>
-            </div>
-            <div>
-              <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Currently</div>
-              <div className="text-base font-medium">Amazon · Apex Systems</div>
-            </div>
-            <div>
-              <div className="font-mono text-xs uppercase tracking-[0.18em] text-neutral-400 mb-1.5">Latest ship</div>
-              <div className="text-base font-medium">
-                <a
-                  href="https://awo.so"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-accent transition-colors"
-                >
-                  AWO — early access ↗
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Work / Experience */}
-      <Section id="work" eyebrow="01 — Work" title="Experience">
-        <div className="relative">
-          <div className="absolute left-[3px] md:left-[169px] top-3 bottom-3 w-px bg-neutral-200 hidden sm:block" aria-hidden />
-          <div className="space-y-2">
-            {experience.map((exp, i) => (
-              <article
-                key={i}
-                data-reveal
-                className="relative grid grid-cols-1 md:grid-cols-[160px_1fr] gap-2 md:gap-10 py-6 group"
-              >
-                <div className="relative text-sm text-neutral-500 md:pt-1">
-                  <span
-                    className={`hidden sm:block absolute left-0 md:left-auto md:right-[-14.5px] top-[7px] h-[7px] w-[7px] rounded-full ring-4 ring-[#fbf9f5] ${
-                      exp.current ? 'bg-accent shadow-[0_0_10px_rgba(234,88,12,0.5)]' : 'bg-neutral-300'
-                    }`}
-                    aria-hidden
-                  />
-                  <div className="font-mono sm:pl-4 md:pl-0">{exp.period}</div>
-                  <div className="mt-1 sm:pl-4 md:pl-0">{exp.location}</div>
+                <div className="hero-actions">
+                  <a className="btn btn-primary btn-lg" href={RESUME} target="_blank" rel="noopener noreferrer">
+                    Download résumé
+                  </a>
+                  <a className="btn btn-lg" href={`mailto:${EMAIL}`}>Email me</a>
+                  <a className="btn btn-lg" href="https://www.linkedin.com/in/dsneedy" target="_blank" rel="noopener noreferrer">
+                    LinkedIn
+                  </a>
+                  <a className="btn btn-lg" href="https://github.com/dsneed123" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                  </a>
                 </div>
-                <div>
-                  <div className="flex flex-wrap items-center gap-3 mb-2">
-                    {exp.logo && (
-                      <Image
-                        src={exp.logo}
-                        alt={`${exp.company} logo`}
-                        width={28}
-                        height={28}
-                        className="rounded-md object-contain border border-neutral-200 bg-white"
-                      />
-                    )}
-                    <h3 className="text-lg font-semibold tracking-tight">
-                      {exp.title}
-                      <span className="text-neutral-400 font-normal"> · {exp.company}</span>
-                    </h3>
+
+                <p style={{ marginTop: 'var(--s5)' }}>
+                  <span className="availability">
+                    <span aria-hidden />
+                    Open to full-time engineering roles
+                  </span>
+                </p>
+              </div>
+
+              <figure className="portrait">
+                <Image
+                  src="/media/headshot.png"
+                  alt="Portrait of Davis Sneed, software engineer based in Seattle, Washington."
+                  width={520}
+                  height={520}
+                  priority
+                />
+                <figcaption>Davis Sneed · Seattle, WA</figcaption>
+              </figure>
+            </div>
+
+            <dl className="spec" id="spec">
+              <div>
+                <dt>Based in</dt>
+                <dd>Seattle, WA</dd>
+              </div>
+              <div>
+                <dt>Education</dt>
+                <dd>Gonzaga University, BS Computer Science &apos;25</dd>
+              </div>
+              <div>
+                <dt>Currently</dt>
+                <dd>QA Technician — Amazon</dd>
+              </div>
+              <div>
+                <dt>Latest ship</dt>
+                <dd>
+                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO — early access</a>
+                </dd>
+              </div>
+            </dl>
+
+            <section aria-label="Measured results" className="readouts">
+              {readouts.map((r) => (
+                <div className="readout" key={r.label}>
+                  <span className="eyebrow">{r.label}</span>
+                  <div className="readout-value">{r.value}</div>
+                  <div className="readout-foot">
+                    <span>{r.note}</span>
+                    <svg width="34" height="8" viewBox="0 0 34 8" aria-hidden>
+                      <rect x="0" y="3" width="34" height="2" fill="var(--accent)" />
+                    </svg>
+                  </div>
+                </div>
+              ))}
+            </section>
+          </div>
+        </section>
+
+        <section id="work" className="section" aria-labelledby="work-title">
+          <div className="wrap">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">01 — Experience</span>
+                <h2 id="work-title">Where I&apos;ve worked</h2>
+              </div>
+              <span className="eyebrow">5 roles · 2024 — present</span>
+            </div>
+
+            <div className="roles">
+              {experience.map((exp) => (
+                <article className="role" key={`${exp.company}-${exp.period}`}>
+                  <div className="role-when">
+                    <span>{exp.period}</span>
+                    <span>{exp.location}</span>
                     {exp.current && (
-                      <span className="font-mono text-[11px] uppercase tracking-wider text-white bg-accent rounded-full px-2.5 py-0.5 shadow-sm">
+                      <span className="availability" style={{ width: 'fit-content', marginTop: 'var(--s1)' }}>
+                        <span aria-hidden />
                         Now
                       </span>
                     )}
                   </div>
-                  <ul className="space-y-1.5 mb-3 max-w-2xl">
-                    {exp.bullets.map((b) => (
-                      <li key={b} className="flex gap-2.5 text-base text-neutral-600 leading-relaxed">
-                        <span className="text-accent mt-[3px] shrink-0" aria-hidden>—</span>
-                        {b}
-                      </li>
+                  <div>
+                    <div className="role-title">
+                      {exp.logo && (
+                        <Image
+                          className="role-logo"
+                          src={exp.logo}
+                          alt={`${exp.company} logo`}
+                          width={26}
+                          height={26}
+                        />
+                      )}
+                      <h3>
+                        {exp.title}
+                        <span className="role-company"> · {exp.company}</span>
+                      </h3>
+                    </div>
+                    <ul className="bullets">
+                      {exp.bullets.map((b) => (
+                        <li key={b}>{b}</li>
+                      ))}
+                    </ul>
+                    <ul className="tags">
+                      {exp.technologies.map((t) => (
+                        <li className="tag" key={t}>{t}</li>
+                      ))}
+                    </ul>
+                  </div>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="projects" className="section" aria-labelledby="projects-title">
+          <div className="wrap">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">02 — Projects</span>
+                <h2 id="projects-title">Things I built and shipped</h2>
+              </div>
+              <span className="eyebrow">{projects.length} entries · 2024 — 2026</span>
+            </div>
+
+            <div className="projects">
+              {projects.map((p, i) => (
+                <ProjectPanel key={p.title} project={p} index={i} />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="stack" className="section" aria-labelledby="stack-title">
+          <div className="wrap">
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">03 — Stack</span>
+                <h2 id="stack-title">Tools I reach for</h2>
+              </div>
+              <span className="eyebrow">Languages · Systems · Infra</span>
+            </div>
+
+            <div className="columns">
+              {skills.map((s) => (
+                <div className="column" key={s.group}>
+                  <span className="eyebrow">{s.group}</span>
+                  <ul>
+                    {s.items.map((it) => (
+                      <li key={it}>{it}</li>
                     ))}
                   </ul>
-                  <div className="flex flex-wrap gap-1.5">
-                    {exp.technologies.map((tech) => (
-                      <Tag key={tech}>{tech}</Tag>
-                    ))}
-                  </div>
                 </div>
-              </article>
-            ))}
+              ))}
+            </div>
           </div>
-        </div>
-      </Section>
+        </section>
 
-      {/* Projects */}
-      <Section id="projects" eyebrow="02 — Projects" title="Selected work">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-          {projects.map((p, i) => (
-            <ProjectCard key={p.title} project={p} index={i} />
-          ))}
-        </div>
-      </Section>
-
-      {/* Skills */}
-      <Section id="skills" eyebrow="03 — Stack" title="Tools I use">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {skills.map((s) => (
-            <div
-              key={s.group}
-              data-reveal
-              className="rounded-2xl border border-neutral-200 bg-white p-6 shadow-sm hover:shadow-md hover:border-orange-200 transition-all duration-300"
-            >
-              <div className="font-mono text-xs uppercase tracking-[0.18em] text-accent mb-4">
-                {s.group}
+        <section id="contact" className="sheet-invert" aria-labelledby="contact-title">
+          <div className="wrap">
+            <div className="contact-grid">
+              <div>
+                <span className="eyebrow">04 — Contact</span>
+                <h2 id="contact-title" style={{ marginTop: 'var(--s2)' }}>
+                  Hiring? Let&apos;s talk.
+                </h2>
+                <p className="lede" style={{ marginTop: 'var(--s4)' }}>
+                  I&apos;m open to full-time and contract software engineering work — agentic AI,
+                  full-stack product, AR/VR tooling. Email is fastest; I answer the same day.
+                </p>
+                <div className="hero-actions">
+                  <a className="btn btn-primary btn-lg" href={`mailto:${EMAIL}`}>
+                    {EMAIL}
+                  </a>
+                  <a className="btn btn-lg btn-invert" href={RESUME} target="_blank" rel="noopener noreferrer">
+                    Résumé — PDF
+                  </a>
+                </div>
+                <div className="transcript" aria-hidden>
+                  <div><b>$</b> <span>whoami</span></div>
+                  <div>davis sneed — software engineer, seattle wa</div>
+                  <div><b>$</b> <span>status</span></div>
+                  <div>open to work · responds same day · relocation ok</div>
+                </div>
               </div>
-              <div className="flex flex-wrap gap-2">
-                {s.items.map((it) => (
-                  <span
-                    key={it}
-                    className="inline-flex items-center px-3.5 py-1.5 rounded-full text-sm font-medium text-neutral-700 bg-orange-50/70 border border-orange-100 hover:border-accent/40 hover:text-accent transition-colors duration-200"
-                  >
-                    {it}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </Section>
 
-      {/* Contact */}
-      <section id="contact" className="px-6 py-24 mt-8">
-        <div
-          className="relative max-w-5xl mx-auto rounded-3xl bg-gradient-to-br from-orange-600 via-orange-500 to-amber-500 px-8 py-16 md:px-16 md:py-20 overflow-hidden shadow-xl shadow-orange-200"
-          data-reveal
-        >
-          <div
-            className="pointer-events-none absolute -top-24 -right-24 h-[340px] w-[340px] rounded-full bg-amber-300/40 blur-[100px]"
-            aria-hidden
-          />
-          <div
-            className="pointer-events-none absolute -bottom-32 -left-16 h-[300px] w-[300px] rounded-full bg-orange-400/50 blur-[100px]"
-            aria-hidden
-          />
-          <div className="relative">
-            <div className="font-mono text-xs uppercase tracking-[0.25em] text-orange-100 mb-4">
-              04 — Contact
-            </div>
-            <h2 className="text-4xl md:text-6xl font-semibold tracking-tight mb-6 leading-[1.05] text-white">
-              Let&apos;s build something.
-            </h2>
-            <p className="text-lg text-orange-50 leading-relaxed max-w-xl mb-10">
-              I&apos;m open to full-time and contract work in software engineering, agentic AI, and
-              AR/VR. The fastest way to reach me is email.
-            </p>
-            <div className="flex flex-col sm:flex-row sm:items-center gap-6">
-              <a
-                href="mailto:dlsneed1298@gmail.com"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-full bg-white text-accent text-base font-semibold hover:bg-orange-50 transition-colors duration-200 w-fit shadow-md"
-              >
-                dlsneed1298@gmail.com
-                <span aria-hidden className="transition-transform group-hover:translate-x-0.5">→</span>
-              </a>
-              <div className="flex items-center gap-5 text-base text-orange-100">
-                <a href="https://www.linkedin.com/in/dsneedy" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline-offset-4 hover:underline">LinkedIn</a>
-                <a href="https://github.com/dsneed123" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline-offset-4 hover:underline">GitHub</a>
-                <a href="https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors underline-offset-4 hover:underline">Résumé</a>
+              <div className="contact-lines">
+                <a href={`mailto:${EMAIL}`}>
+                  <em>Email</em>
+                  <span>{EMAIL}</span>
+                </a>
+                <a href="https://www.linkedin.com/in/dsneedy" target="_blank" rel="noopener noreferrer">
+                  <em>LinkedIn</em>
+                  <span>in/dsneedy</span>
+                </a>
+                <a href="https://github.com/dsneed123" target="_blank" rel="noopener noreferrer">
+                  <em>GitHub</em>
+                  <span>dsneed123</span>
+                </a>
+                <a href="https://awo.so" target="_blank" rel="noopener noreferrer">
+                  <em>Product</em>
+                  <span>awo.so</span>
+                </a>
+                <div>
+                  <em>Location</em>
+                  <span>Seattle, WA — US</span>
+                </div>
+                <div>
+                  <em>Notice</em>
+                  <span>Available now</span>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      </section>
+        </section>
+      </main>
 
-      <footer className="py-8 px-6 border-t border-neutral-200">
-        <div className="max-w-5xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-2 text-sm font-mono text-neutral-500">
-          <div>© {new Date().getFullYear()} Davis Sneed</div>
-          <div>Seattle, WA — Built with Next.js & Tailwind</div>
+      <footer className="site-footer">
+        <div className="wrap">
+          <span>© {new Date().getFullYear()} Davis Sneed</span>
+          <span>Seattle, WA — Built with Next.js</span>
+          <span>Rev 2026.11 — Sheet 1 of 1</span>
         </div>
       </footer>
     </div>
   );
 }
 
-function ProjectCard({
-  project: p,
-  index
-}: {
-  project: (typeof projects)[number];
-  index: number;
-}) {
-  const inner = (
+function ProjectPanel({ project: p, index }: { project: Project; index: number }) {
+  const body = (
     <>
-      {p.featured && (
-        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-white bg-accent rounded-full px-2.5 py-1 w-fit mb-4 shadow-sm">
-          Flagship
-        </span>
-      )}
-      <div className="flex items-start justify-between gap-4 mb-4">
-        <div className="flex items-center gap-3 min-w-0">
-          <span className="font-mono text-xs text-neutral-400 group-hover:text-accent transition-colors">
-            {String(index + 1).padStart(2, '0')}
-          </span>
-          <h3 className="text-xl font-semibold tracking-tight group-hover:text-accent transition-colors">
-            {p.title}
-          </h3>
-          {p.link && (
-            <span
-              className="text-neutral-300 group-hover:text-accent transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 text-sm"
-              aria-hidden
-            >
-              ↗
-            </span>
-          )}
+      <div className="project-head">
+        <div className="project-id">
+          <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
+          <h3>{p.title}</h3>
         </div>
-        <div className="font-mono text-xs uppercase tracking-wider text-neutral-400 pt-1.5 shrink-0">
+        <span className="project-meta">
           {p.type} · {p.year}
-        </div>
+        </span>
       </div>
+
+      <p className="project-body">{p.description}</p>
+
       {p.images && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 mb-5">
+        <div className="shots">
           {p.images.map((img) => (
-            <div
-              key={img.src}
-              className="rounded-xl overflow-hidden border border-neutral-200 bg-white shadow-sm"
-            >
-              <Image
-                src={img.src}
-                alt={img.alt}
-                width={1600}
-                height={1000}
-                className="w-full h-auto aspect-[16/10] object-cover object-top"
-              />
-            </div>
+            <figure className="shot" key={img.src}>
+              <Image src={img.src} alt={img.alt} width={1600} height={1000} />
+              <figcaption>{img.caption}</figcaption>
+            </figure>
           ))}
         </div>
       )}
-      <p className="text-base text-neutral-600 leading-relaxed mb-5 flex-1 max-w-2xl">
-        {p.description}
-      </p>
+
       {p.highlights && (
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 mb-5">
+        <div className="facts">
           {p.highlights.map((h) => (
-            <div
-              key={h}
-              className="flex items-center gap-2.5 rounded-lg border border-orange-100 bg-white/70 px-3.5 py-2.5 text-sm font-medium text-neutral-700"
-            >
-              <span className="h-1.5 w-1.5 rounded-full bg-accent shrink-0" aria-hidden />
-              {h}
-            </div>
+            <div key={h}>{h}</div>
           ))}
         </div>
       )}
-      <div className="flex flex-wrap gap-1.5">
-        {p.technologies.map((tech) => (
-          <Tag key={tech}>{tech}</Tag>
+
+      <ul className="tags">
+        <li className="tag">{p.role}</li>
+        {p.technologies.map((t) => (
+          <li className="tag" key={t}>{t}</li>
         ))}
-      </div>
+      </ul>
     </>
   );
 
-  const className = `group rounded-2xl p-6 md:p-7 flex flex-col transition-all duration-300 hover:-translate-y-1 ${
-    p.featured
-      ? 'md:col-span-2 border border-orange-200 bg-gradient-to-br from-orange-50 via-white to-amber-50 shadow-lg shadow-orange-100 hover:shadow-xl hover:shadow-orange-200/80 hover:border-orange-300'
-      : 'border border-neutral-200 bg-white shadow-sm hover:border-orange-200 hover:shadow-lg hover:shadow-orange-100/80'
-  }`;
+  const className = `panel${p.featured ? ' project-featured' : ''}`;
 
   if (p.link) {
     return (
-      <a href={p.link} target="_blank" rel="noopener noreferrer" className={className} data-reveal>
-        {inner}
+      <a
+        className={className}
+        href={p.link}
+        target="_blank"
+        rel="noopener noreferrer"
+       
+        aria-label={`${p.title} — open project`}
+      >
+        {body}
       </a>
     );
   }
-  return (
-    <div className={className} data-reveal>
-      {inner}
-    </div>
-  );
-}
 
-function Section({
-  id,
-  eyebrow,
-  title,
-  children
-}: {
-  id: string;
-  eyebrow: string;
-  title: string;
-  children: React.ReactNode;
-}) {
   return (
-    <section id={id} className="px-6 py-24 border-t border-neutral-200">
-      <div className="max-w-5xl mx-auto">
-        <div className="mb-14" data-reveal>
-          <div className="font-mono text-xs uppercase tracking-[0.25em] text-accent mb-4">
-            {eyebrow}
-          </div>
-          <h2 className="text-3xl md:text-5xl font-semibold tracking-tight">
-            {title}
-            <span className="text-accent">.</span>
-          </h2>
-        </div>
-        {children}
-      </div>
-    </section>
-  );
-}
-
-function Tag({ children }: { children: React.ReactNode }) {
-  return (
-    <span className="inline-flex items-center px-2.5 py-1 rounded-md text-xs font-medium text-neutral-600 bg-neutral-100 border border-neutral-200">
-      {children}
-    </span>
+    <article className={className}>
+      {body}
+    </article>
   );
 }

@@ -1,4 +1,3 @@
-"use client";
 import React from 'react';
 
 type LinkCardProps = {
@@ -9,36 +8,15 @@ type LinkCardProps = {
 };
 
 const LinkCard = ({ title, url, description, icon }: LinkCardProps) => {
+  const shown = url.replace('https://', '').replace('mailto:', '');
   return (
-    <a
-      href={url}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="group block p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-xl hover:bg-white/10 hover:border-white/20 transition-all duration-300 hover:translate-y-[-2px] hover:shadow-xl hover:shadow-slate-900/20"
-    >
-      <div className="flex items-start justify-between">
-        <div className="flex items-center space-x-4 flex-1">
-          <div className="w-12 h-12 bg-gradient-to-br from-slate-700 to-slate-800 rounded-lg flex items-center justify-center text-white group-hover:from-slate-600 group-hover:to-slate-700 transition-all duration-300">
-            {icon}
-          </div>
-          <div className="flex-1">
-            <h3 className="text-lg font-semibold text-white mb-1 group-hover:text-slate-200 transition-colors duration-300">
-              {title}
-            </h3>
-            <p className="text-slate-400 text-sm leading-relaxed group-hover:text-slate-300 transition-colors duration-300">
-              {description}
-            </p>
-            <p className="text-slate-500 text-xs mt-2 font-mono group-hover:text-slate-400 transition-colors duration-300">
-              {url.replace('https://', '').replace('mailto:', '')}
-            </p>
-          </div>
-        </div>
-        <div className="w-5 h-5 text-slate-500 group-hover:text-slate-400 group-hover:translate-x-1 transition-all duration-300 flex-shrink-0 ml-4">
-          <svg fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-          </svg>
-        </div>
-      </div>
+    <a className="link-row plain" href={url} target="_blank" rel="noopener noreferrer">
+      <span className="link-icon" aria-hidden>{icon}</span>
+      <span className="link-text">
+        <span className="link-title">{title}</span>
+        <span className="link-desc">{description}</span>
+      </span>
+      <span className="link-url mono">{shown}</span>
     </a>
   );
 };
@@ -141,77 +119,47 @@ const LinksPage = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 relative">
-      {/* Subtle background pattern */}
-      <div className="absolute inset-0 bg-grid-slate-700/25 bg-grid-32 opacity-20"></div>
-      
-      {/* Minimal accent elements */}
-      <div className="absolute top-20 left-10 w-32 h-32 bg-slate-700 rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
-      <div className="absolute bottom-20 right-10 w-32 h-32 bg-slate-600 rounded-full mix-blend-multiply filter blur-xl opacity-10"></div>
-      
-      <div className="relative z-10 min-h-screen flex flex-col items-center justify-center p-6">
-        <div className="max-w-2xl w-full">
-          {/* Professional header */}
-          <div className="text-center mb-12">
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-3">
-              Davis&#39;s Links
-            </h1>
-            <div className="w-24 h-0.5 bg-slate-600 mx-auto mb-4"></div>
-            <p className="text-slate-400 text-lg">
-              Professional connections and resources
-            </p>
-          </div>
-          
-          {/* Links */}
-          <div className="space-y-3">
-            {links.map((link, index) => (
-              <div
-                key={index}
-                className="opacity-0 animate-fade-in-up"
-                style={{ animationDelay: `${index * 0.1}s`, animationFillMode: 'forwards' }}
-              >
-                <LinkCard
-                  title={link.title}
-                  url={link.url}
-                  description={link.description}
-                  icon={link.icon}
-                />
-              </div>
-            ))}
-          </div>
-          
-          {/* Footer */}
-          <div className="text-center mt-12">
-            <p className="text-slate-500 text-sm">
-              © 2025 Davis Sneed
-            </p>
-          </div>
+    <div className="sf links-page">
+      <main className="wrap">
+        <p className="doc-control">
+          <span>Davis Sneed</span> <i aria-hidden>·</i>
+          <span>Index of links</span> <i aria-hidden>·</i>
+          <span>Seattle, WA</span> <i aria-hidden>·</i>
+          <span>Rev 2026.11</span>
+        </p>
+
+        <header className="links-head">
+          <span className="eyebrow">Directory</span>
+          <h1>Davis Sneed — every link in one place.</h1>
+          <p className="lede">
+            Software engineer in Seattle. Code, writing, products, and the fastest ways to
+            reach me.
+          </p>
+          <p className="links-actions">
+            <a className="btn btn-primary" href="https://dsneedy.com">Full portfolio</a>
+          </p>
+        </header>
+
+        <nav className="link-list" aria-label="Links">
+          {links.map((link) => (
+            <LinkCard
+              key={link.title}
+              title={link.title}
+              url={link.url}
+              description={link.description}
+              icon={link.icon}
+            />
+          ))}
+        </nav>
+      </main>
+
+      <footer className="site-footer">
+        <div className="wrap">
+          <span>© {new Date().getFullYear()} Davis Sneed</span>
+          <span>Seattle, WA</span>
         </div>
-      </div>
-      
-      <style jsx>{`
-        @keyframes fade-in-up {
-          from { 
-            opacity: 0; 
-            transform: translateY(20px); 
-          }
-          to { 
-            opacity: 1; 
-            transform: translateY(0); 
-          }
-        }
-        
-        .animate-fade-in-up {
-          animation: fade-in-up 0.6s ease-out;
-        }
-        
-        .bg-grid-32 {
-          background-image: radial-gradient(circle, rgba(148, 163, 184, 0.1) 1px, transparent 1px);
-          background-size: 32px 32px;
-        }
-      `}</style>
+      </footer>
     </div>
   );
 };
-
 export default LinksPage;
