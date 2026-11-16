@@ -45,6 +45,24 @@ const projects: Project[] = [
     ]
   },
   {
+    title: 'Lighter',
+    role: 'Creator',
+    year: '2026',
+    type: 'Systems',
+    description: 'Lightweight AI agent suite built around inference efficiency — smaller prompts, minimal context, fewer tools, and the right-sized model per task. Benchmarked against larger models to quantify the compute, token, latency, and cost savings.',
+    technologies: ['Python', 'LLM Benchmarking', 'Prompt Engineering'],
+    link: 'https://github.com/dsneed123/Lighter'
+  },
+  {
+    title: 'local-agents',
+    role: 'Creator',
+    year: '2026',
+    type: 'Systems',
+    description: 'CLI suite of 28 specialized agents that run entirely on your own machine via Ollama — no API keys, no config. Detects installed models, assigns a sensible one to each role, and ships research, coding, review, and SQL agents with a scaffold command for building your own.',
+    technologies: ['Python', 'Ollama', 'CLI', 'Local LLMs'],
+    link: 'https://github.com/dsneed123/local-agents'
+  },
+  {
     title: 'TARS',
     role: 'Creator',
     year: '2026',
@@ -176,7 +194,7 @@ const experience: Experience[] = [
     logo: '/media/insightglobal-logo.png'
   },
   {
-    title: 'Contract Front-end Developer',
+    title: 'Software Engineer',
     company: 'Pivot Politics',
     period: 'Oct 2025 — Jan 2026',
     location: 'Remote',
@@ -187,13 +205,12 @@ const experience: Experience[] = [
     technologies: ['JavaScript', 'React', 'Figma', 'UI/UX']
   },
   {
-    title: 'Contract Developer',
+    title: 'Software Engineer',
     company: 'ProfoundSports',
     period: '2024',
     location: 'Remote',
     bullets: [
-      'Automated athlete social-media data collection across 10,000+ profiles with a Python and BeautifulSoup scraper.',
-      'Built Excel/CSV pipelines that cut manual data entry by 90%.'
+      'Automated athlete social-media data collection across 10,000+ profiles with a Python and BeautifulSoup scraper.'
     ],
     technologies: ['Python', 'BeautifulSoup', 'Data Pipelines']
   }
@@ -209,7 +226,7 @@ const readouts = [
   { label: 'AI calls cut', value: '~80%', note: 'AWO — request batching' },
   { label: 'Workflow recipes', value: '49', note: 'AWO — built in, ready to run' },
   { label: 'Profiles automated', value: '10,000+', note: 'ProfoundSports — Python scraper' },
-  { label: 'Manual entry cut', value: '90%', note: 'ProfoundSports — CSV pipelines' }
+  { label: 'Local agents shipped', value: '28', note: 'local-agents — runs via Ollama' }
 ];
 
 const nav = [
@@ -293,17 +310,18 @@ export default function Home() {
             <div className="hero-grid">
               <div>
                 <p className="eyebrow" style={{ marginBottom: 'var(--s4)' }}>
-                  Agentic AI · Full-stack · Systems
+                  AI &amp; Software Engineer — Seattle, WA
                 </p>
                 <h1 id="hero-title">
                   Davis Sneed — software engineer who ships whole systems.
                 </h1>
                 <p className="lede" style={{ marginTop: 'var(--s5)' }}>
-                  I build agentic AI and full-stack products end to end. Most recently{' '}
+                  AI and software engineer building <strong>agentic LLM systems</strong>, full-stack
+                  web applications, and machine learning data infrastructure in Python,
+                  JavaScript/React, and PostgreSQL. I design multi-step LLM orchestration pipelines
+                  on the Anthropic Claude and OpenAI APIs, and ship my own products — most recently{' '}
                   <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>, a
-                  local-first agentic workflow orchestrator I designed, built, and launched solo,
-                  and <strong>TARS</strong>, an autonomous coding agent that opens its own pull
-                  requests. By day I test pre-release AI agents at Amazon.
+                  local-first agentic workflow orchestrator.
                 </p>
 
                 <div className="hero-actions">
