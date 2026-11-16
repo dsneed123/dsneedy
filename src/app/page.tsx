@@ -22,14 +22,14 @@ const projects: Project[] = [
     year: '2026',
     type: 'Product',
     featured: true,
-    description: 'Agentic Workflow Orchestrator — a local-first, no-code automation platform where AI decides what matters. Watch Discord channels, prices, pages, or schedules and build event-driven workflow graphs from nine step types, running any model — Ollama, OpenAI, or Anthropic. Includes Project Autopilot, an agent that plans a repo goal and ships it one pull request per phase. Designed, built, and launched solo.',
+    description: 'Local-first agentic automation platform. Watch Discord channels, prices, pages or schedules, then run event-driven workflow graphs on any model — Ollama, OpenAI or Anthropic. Designed, built and launched solo; live today with free and pro tiers.',
     highlights: [
-      'Live product — free & pro tiers',
       '~80% fewer AI calls via batching',
       '49 built-in workflow recipes',
-      'Zero telemetry, runs on-device'
+      'Runs on-device, zero telemetry',
+      'Autopilot ships one PR per phase'
     ],
-    technologies: ['AI Orchestration', 'Ollama', 'OpenAI', 'Anthropic', 'YAML', 'CLI'],
+    technologies: ['Python', 'LLM Orchestration', 'Ollama', 'Anthropic', 'OpenAI'],
     link: 'https://awo.so',
     images: [
       {
@@ -45,102 +45,53 @@ const projects: Project[] = [
     ]
   },
   {
-    title: 'Lighter',
+    title: 'TARS',
     role: 'Creator',
     year: '2026',
     type: 'Systems',
-    description: 'Lightweight AI agent suite built around inference efficiency — smaller prompts, minimal context, fewer tools, and the right-sized model per task. Benchmarked against larger models to quantify the compute, token, latency, and cost savings.',
-    technologies: ['Python', 'LLM Benchmarking', 'Prompt Engineering'],
-    link: 'https://github.com/dsneed123/Lighter'
+    description: 'Autonomous coding agent on local NVIDIA Grace Blackwell hardware. Pulls tasks from GitHub issues, plans and writes the code with Claude CLI, runs the tests, and opens its own pull requests.',
+    technologies: ['Python', 'Claude API', 'GitHub API', 'Bash'],
+    link: 'https://tarsai.dev'
   },
   {
     title: 'local-agents',
     role: 'Creator',
     year: '2026',
     type: 'Systems',
-    description: 'CLI suite of 28 specialized agents that run entirely on your own machine via Ollama — no API keys, no config. Detects installed models, assigns a sensible one to each role, and ships research, coding, review, and SQL agents with a scaffold command for building your own.',
+    description: '28 specialized CLI agents that run entirely on your own machine through Ollama — no API keys, no config. Detects installed models, assigns one per role, and ships research, coding, review and SQL agents.',
     technologies: ['Python', 'Ollama', 'CLI', 'Local LLMs'],
     link: 'https://github.com/dsneed123/local-agents'
   },
   {
-    title: 'TARS',
+    title: 'Lighter',
     role: 'Creator',
     year: '2026',
     type: 'Systems',
-    description: 'Autonomous coding agent running locally on NVIDIA Grace Blackwell hardware in a continuous self-improvement loop. Discovers tasks from GitHub issues and a web platform, plans and writes code via Claude CLI in headless mode, runs tests, opens PRs, and reports to Discord — all without human intervention.',
-    technologies: ['Python', 'Bash', 'Claude CLI', 'GitHub API', 'Discord'],
-    link: 'https://tarsai.dev'
-  },
-  {
-    title: 'TARS-Lite',
-    role: 'Creator',
-    year: '2026',
-    type: 'Systems',
-    description: 'Local-only variant of TARS powered by Ollama. Same autonomous task → plan → code → PR loop, but runs fully offline with zero API costs using CodeLlama and similar open models.',
-    technologies: ['Python', 'Bash', 'Ollama', 'CodeLlama'],
-  },
-  {
-    title: 'Hive',
-    role: 'Creator',
-    year: '2026',
-    type: 'Personal',
-    description: 'AI-powered personal assistant for outreach automation, email campaigns, and social-media growth. Includes an RGB LED matrix for live status display and a React dashboard for monitoring and control.',
-    technologies: ['Python', 'React', 'LED Matrix', 'Automation'],
+    description: 'AI agent suite tuned for inference efficiency — smaller prompts, minimal context, right-sized model per task. Benchmarked against larger models to quantify token, latency and cost savings.',
+    technologies: ['Python', 'LLM Benchmarking', 'Prompt Engineering'],
+    link: 'https://github.com/dsneed123/Lighter'
   },
   {
     title: 'HygGeo',
     role: 'Co-Founder & Lead Developer',
     year: '2025',
     type: 'Professional',
-    description: 'Sustainable travel platform promoting eco-friendly stays and activities through geolocation and community reviews. Built end-to-end with Django on the backend and a custom frontend.',
-    technologies: ['Python', 'Django', 'JavaScript', 'PostgreSQL'],
+    description: 'Sustainable travel platform, co-founded and built end to end: Django back end, custom front end, geolocation search and community reviews.',
+    technologies: ['Python', 'Django', 'PostgreSQL', 'JavaScript'],
     link: 'https://HygGeo.com'
-  },
-  {
-    title: 'Centrebyte Marketplace',
-    role: 'Founder & Full-Stack Developer',
-    year: '2025',
-    type: 'Personal',
-    description: 'Cryptocurrency marketplace with integrated wallet, instant payments, and secure trading infrastructure.',
-    technologies: ['Python', 'Django', 'JavaScript', 'Crypto APIs'],
-    link: 'http://centrebyte.com'
-  },
-  {
-    title: 'Core Roulette',
-    role: 'Creator & Developer',
-    year: '2024',
-    type: 'Personal',
-    description: 'Fitness platform with workout randomization, progress tracking, and safety-focused training tailored to multiple levels.',
-    technologies: ['React', 'Next.js', 'JavaScript'],
-    link: 'http://www.core-roulette.com/'
-  },
-  {
-    title: 'Physics Engine',
-    role: 'Developer',
-    year: '2024',
-    type: 'Academic',
-    description: 'Real-time 2D physics simulation in Rust with collision detection, particle systems, and interactive mechanics.',
-    technologies: ['Rust', 'minifb'],
-    link: 'https://github.com/dsneed123/Bouncing_balls_rust'
-  },
-  {
-    title: 'Shamir Secret Sharing',
-    role: 'Developer',
-    year: '2024',
-    type: 'Academic',
-    description: 'Implementation of Shamir\'s Secret Sharing for distributed key management using Lagrange interpolation over finite fields.',
-    technologies: ['Python', 'Cryptography'],
-    link: 'https://github.com/dsneed123/shamir_secret_sharing'
-  },
-  {
-    title: 'Solar System Sim',
-    role: 'Developer',
-    year: '2024',
-    type: 'Academic',
-    description: 'Interactive astronomical simulation in Rust with realistic orbital mechanics, scalable distances, and dynamic zoom.',
-    technologies: ['Rust', 'Graphics'],
-    link: 'https://github.com/dsneed123/solar-system-rust'
   }
+];
+
+type Brief = { title: string; note: string; meta: string; link?: string };
+
+const alsoBuilt: Brief[] = [
+  { title: 'Centrebyte', note: 'Crypto marketplace with wallet and instant payments', meta: 'Django · 2025', link: 'http://centrebyte.com' },
+  { title: 'TARS-Lite', note: 'Offline variant of TARS on Ollama, zero API cost', meta: 'Python · 2026' },
+  { title: 'Hive', note: 'Outreach automation assistant with a React dashboard', meta: 'Python · 2026' },
+  { title: 'Core Roulette', note: 'Fitness app with workout randomization and tracking', meta: 'Next.js · 2024', link: 'http://www.core-roulette.com/' },
+  { title: 'Physics Engine', note: '2D collision and particle simulation in Rust', meta: 'Rust · 2024', link: 'https://github.com/dsneed123/Bouncing_balls_rust' },
+  { title: 'Shamir Secret Sharing', note: 'Threshold key splitting over finite fields', meta: 'Python · 2024', link: 'https://github.com/dsneed123/shamir_secret_sharing' },
+  { title: 'Solar System Sim', note: 'Orbital mechanics simulation in Rust', meta: 'Rust · 2024', link: 'https://github.com/dsneed123/solar-system-rust' }
 ];
 
 type Experience = {
@@ -162,11 +113,10 @@ const experience: Experience[] = [
     location: 'Bellevue, WA',
     current: true,
     bullets: [
-      'Test and validate experimental, pre-release AI agents and technology, documenting results for engineering teams.',
-      'Develop Python scripts and tooling that automate data collection, validation, and reporting workflows.',
-      'Collaborate cross-functionally to surface issues early and drive product quality under strict confidentiality.'
+      'Test and validate experimental, pre-release AI agents, documenting results for engineering teams.',
+      'Build Python tooling that automates data collection, validation and reporting.'
     ],
-    technologies: ['Python', 'QA Testing', 'AI Agents', 'Data Operations', 'Automation']
+    technologies: ['Python', 'AI Agents', 'Automation', 'QA']
   },
   {
     title: 'Graduate Engineer',
@@ -175,10 +125,9 @@ const experience: Experience[] = [
     location: 'Kirkland, WA',
     bullets: [
       'Ran structured testing and validation of AR/VR hardware and software systems.',
-      'Collected, analyzed, and documented experimental data to ensure accuracy and research-protocol compliance.',
-      'Partnered cross-functionally to troubleshoot and improve product functionality.'
+      'Analyzed and documented experimental data against research-protocol requirements.'
     ],
-    technologies: ['AR/VR', 'QA Testing', 'Hardware Validation', 'Data Collection'],
+    technologies: ['AR/VR', 'QA Testing', 'Hardware Validation'],
     logo: '/media/qualitest-logo.jpg'
   },
   {
@@ -187,10 +136,9 @@ const experience: Experience[] = [
     period: 'Nov 2025 — Dec 2025',
     location: 'Seattle, WA',
     bullets: [
-      'Field-based data collection supporting AR/VR research across diverse Seattle environments, including dense urban-canyon areas.',
-      'Followed standardized procedures to keep data accurate, reliable, and consistent.'
+      'Field data collection for Meta AR/VR research across dense urban Seattle environments.'
     ],
-    technologies: ['AR/VR Research', 'Field Operations', 'QA'],
+    technologies: ['AR/VR Research', 'Field Operations'],
     logo: '/media/insightglobal-logo.png'
   },
   {
@@ -199,8 +147,7 @@ const experience: Experience[] = [
     period: 'Oct 2025 — Jan 2026',
     location: 'Remote',
     bullets: [
-      'Designed and shipped the front-end for a social media platform — high-fidelity UI in Figma, built in React and JavaScript.',
-      'Delivered responsive features integrated against a Python back-end.'
+      'Designed and shipped the front end of a social platform — Figma to React, integrated against a Python back end.'
     ],
     technologies: ['JavaScript', 'React', 'Figma', 'UI/UX']
   },
@@ -316,12 +263,11 @@ export default function Home() {
                   Davis Sneed — software engineer who ships whole systems.
                 </h1>
                 <p className="lede" style={{ marginTop: 'var(--s5)' }}>
-                  AI and software engineer building <strong>agentic LLM systems</strong>, full-stack
-                  web applications, and machine learning data infrastructure in Python,
-                  JavaScript/React, and PostgreSQL. I design multi-step LLM orchestration pipelines
-                  on the Anthropic Claude and OpenAI APIs, and ship my own products — most recently{' '}
-                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>, a
-                  local-first agentic workflow orchestrator.
+                  AI and software engineer building <strong>agentic LLM systems</strong> and
+                  full-stack products in Python, TypeScript/React and PostgreSQL. I design
+                  multi-step orchestration on the Claude and OpenAI APIs, and ship my own
+                  products — most recently{' '}
+                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>.
                 </p>
 
                 <div className="hero-actions">
@@ -458,13 +404,32 @@ export default function Home() {
                 <span className="eyebrow">02 — Projects</span>
                 <h2 id="projects-title">Things I built and shipped</h2>
               </div>
-              <span className="eyebrow">{projects.length} entries · 2024 — 2026</span>
+              <span className="eyebrow">Selected · 2024 — 2026</span>
             </div>
 
             <div className="projects">
               {projects.map((p, i) => (
                 <ProjectPanel key={p.title} project={p} index={i} />
               ))}
+            </div>
+
+            <div className="also">
+              <span className="eyebrow">Also built</span>
+              <ul className="also-list">
+                {alsoBuilt.map((b) => (
+                  <li className="also-row" key={b.title}>
+                    <span className="also-title">
+                      {b.link ? (
+                        <a href={b.link} target="_blank" rel="noopener noreferrer">{b.title}</a>
+                      ) : (
+                        b.title
+                      )}
+                    </span>
+                    <span className="also-note">{b.note}</span>
+                    <span className="also-meta mono">{b.meta}</span>
+                  </li>
+                ))}
+              </ul>
             </div>
           </div>
         </section>
@@ -543,10 +508,6 @@ export default function Home() {
                   <em>Location</em>
                   <span>Seattle, WA — US</span>
                 </div>
-                <div>
-                  <em>Notice</em>
-                  <span>Available now</span>
-                </div>
               </div>
             </div>
           </div>
@@ -557,7 +518,6 @@ export default function Home() {
         <div className="wrap">
           <span>© {new Date().getFullYear()} Davis Sneed</span>
           <span>Seattle, WA — Built with Next.js</span>
-          <span>Rev 2026.11 — Sheet 1 of 1</span>
         </div>
       </footer>
     </div>
