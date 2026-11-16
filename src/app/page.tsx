@@ -241,7 +241,7 @@ export default function Home() {
           <div className="wrap" style={{ position: 'relative' }}>
             <p className="doc-control">
               <span>Davis Sneed</span> <i aria-hidden>·</i>
-              <span>Robotics Data Collection Researcher III</span> <i aria-hidden>·</i>
+              <span>AI Automation Engineer</span> <i aria-hidden>·</i>
               <span>Seattle, WA</span> <i aria-hidden>·</i>
               <span>Rev 2026.11</span> <i aria-hidden>·</i>
               <span>Sheet 1 of 1</span>
@@ -250,18 +250,18 @@ export default function Home() {
             <div className="hero-grid">
               <div>
                 <p className="eyebrow" style={{ marginBottom: 'var(--s4)' }}>
-                  Robotics · AI agents · Python
+                  AI agents · Automation · Python
                 </p>
                 <h1 id="hero-title">
-                  Davis Sneed, robotics researcher and AI engineer in Seattle.
+                  Davis Sneed, AI automation engineer in Seattle.
                 </h1>
                 <p className="lede" style={{ marginTop: 'var(--s5)' }}>
-                  At Amazon Fauna I train humanoid robots through teleoperation and build RAG-based
-                  agents for on-site robotics debugging. Before that I worked on Meta&apos;s humanoid
-                  robotics program and shipped full-stack features alongside a startup CEO. I also
-                  founded{' '}
-                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>, where
-                  agents plan, execute and commit multi-step software tasks on local or cloud models.
+                  I build AI agents and the automation around them. At Amazon Fauna that means RAG
+                  agents that run shell commands to diagnose robotics hardware, plus Python and ROS 2
+                  tooling that feeds ML pipelines. On my own I founded{' '}
+                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>, a workflow
+                  orchestrator where agents watch inputs, decide what matters, and plan, execute and
+                  commit multi-step software tasks on local or cloud models.
                 </p>
 
                 <div className="hero-actions">
@@ -280,7 +280,7 @@ export default function Home() {
                 <p style={{ marginTop: 'var(--s5)' }}>
                   <span className="availability">
                     <span aria-hidden />
-                    Open to full-time engineering roles
+                    Open to AI automation roles
                   </span>
                 </p>
               </div>
@@ -288,7 +288,7 @@ export default function Home() {
               <figure className="portrait">
                 <Image
                   src="/media/headshot.png"
-                  alt="Portrait of Davis Sneed, robotics researcher and AI engineer based in Seattle, Washington."
+                  alt="Portrait of Davis Sneed, AI automation engineer based in Seattle, Washington."
                   width={520}
                   height={520}
                   priority
@@ -457,8 +457,9 @@ export default function Home() {
                   Hiring? Let&apos;s talk.
                 </h2>
                 <p className="lede" style={{ marginTop: 'var(--s4)' }}>
-                  I&apos;m interested in engineering work on AI agents, robotics tooling and
-                  ML data systems. Email gets the fastest answer, usually the same day.
+                  I&apos;m looking for engineering work on AI agents and automation: building
+                  them, wiring them into real workflows and keeping them reliable. Email gets the
+                  fastest answer, usually the same day.
                 </p>
                 <div className="hero-actions">
                   <a className="btn btn-primary btn-lg" href={`mailto:${EMAIL}`}>
@@ -470,7 +471,7 @@ export default function Home() {
                 </div>
                 <div className="transcript" aria-hidden>
                   <div><b>$</b> <span>whoami</span></div>
-                  <div>davis sneed, robotics data collection researcher iii + ai engineer, seattle wa</div>
+                  <div>davis sneed, ai automation engineer, seattle wa</div>
                   <div><b>$</b> <span>status</span></div>
                   <div>open to work · same-day reply</div>
                 </div>

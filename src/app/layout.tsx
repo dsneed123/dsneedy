@@ -27,9 +27,9 @@ const plexMono = localFont({
 });
 
 const SITE = "https://dsneedy.com";
-const TITLE = "Davis Sneed | Robotics Researcher and AI Engineer in Seattle";
+const TITLE = "Davis Sneed | AI Automation Engineer in Seattle";
 const DESCRIPTION =
-  "I'm Davis Sneed, a Robotics Data Collection Researcher III at Amazon Fauna in Seattle. I build RAG-based robotics debugging agents, Python and ROS 2 tooling, and AWO, an AI agent orchestration platform.";
+  "I'm Davis Sneed, an AI automation engineer in Seattle. I build AI agents and agentic workflows: RAG debugging agents at Amazon Fauna, and AWO, my agent workflow orchestrator.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
@@ -46,7 +46,10 @@ export const metadata: Metadata = {
     "Davis Sneed",
     "software engineer",
     "Seattle software engineer",
-    "robotics researcher",
+    "AI automation engineer",
+    "AI agents",
+    "agentic workflows",
+    "workflow automation",
     "Amazon Fauna",
     "ROS 2",
     "humanoid robotics",
@@ -87,7 +90,7 @@ export const metadata: Metadata = {
         url: "/media/og-card.png",
         width: 1200,
         height: 630,
-        alt: "Davis Sneed — robotics researcher and AI engineer in Seattle.",
+        alt: "Davis Sneed — AI automation engineer in Seattle.",
       },
     ],
   },
@@ -125,7 +128,7 @@ const personSchema = {
   image: `${SITE}/media/headshot.png`,
   jobTitle: "Robotics Data Collection Researcher III",
   description:
-    "Robotics Data Collection Researcher III at Amazon Fauna in Seattle. Trains humanoid robots through teleoperation and builds RAG-based debugging agents and Python/ROS 2 tooling. Founder of AWO.",
+    "AI automation engineer in Seattle. Builds AI agents, RAG systems and agentic workflow orchestration in Python. Robotics Data Collection Researcher III at Amazon Fauna and founder of AWO.",
   email: "mailto:dlsneed1298@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -168,7 +171,7 @@ const personSchema = {
   ],
   seeks: {
     "@type": "Demand",
-    name: "Engineering roles in AI agents and robotics",
+    name: "AI automation and AI agent engineering roles",
   },
 };
 
