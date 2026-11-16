@@ -54,16 +54,57 @@ const projects: Project[] = [
   }
 ];
 
-type Brief = { title: string; note: string; meta: string; link?: string };
+type Brief = { title: string; detail: string; stack: string[]; meta: string; link?: string };
 
 const alsoBuilt: Brief[] = [
-  { title: 'local-agents', note: '28+ open-source AI agents that run locally on Ollama', meta: 'Python · 2026', link: 'https://github.com/dsneed123/local-agents' },
-  { title: 'TARS', note: 'Coding agent that turns GitHub issues into tested pull requests', meta: 'Python · 2026', link: 'https://tarsai.dev' },
-  { title: 'Lighter', note: 'Agent suite tuned for the smallest model that gets the job done', meta: 'Python · 2026', link: 'https://github.com/dsneed123/Lighter' },
-  { title: 'HygGeo', note: 'Travel platform for eco-friendly stays, co-founded', meta: 'Django · 2025', link: 'https://HygGeo.com' },
-  { title: 'Centrebyte', note: 'Crypto marketplace with wallet and instant payments', meta: 'Django · 2025' },
-  { title: 'Physics Engine', note: '2D collision and particle simulation in Rust', meta: 'Rust · 2024', link: 'https://github.com/dsneed123/Bouncing_balls_rust' },
-  { title: 'Shamir Secret Sharing', note: 'Threshold key splitting over finite fields', meta: 'Python · 2024', link: 'https://github.com/dsneed123/shamir_secret_sharing' }
+  {
+    title: 'local-agents',
+    detail: '28 agents for coding, code review, SQL, data, research and writing that run entirely on your machine through Ollama. No API keys or config: it detects your installed models and scores the best one for each role. File tools are sandboxed to a workspace and destructive commands are blocked.',
+    stack: ['Python', 'Ollama', 'CLI'],
+    meta: 'Open source · 2026',
+    link: 'https://github.com/dsneed123/local-agents'
+  },
+  {
+    title: 'TARS',
+    detail: 'Autonomous coding agent that works while you are away. It pulls tasks from GitHub issues and a queue, plans and writes the change with Claude CLI, runs build, test and lint, retries failed fixes up to three times, reviews its own diff, then opens the pull request and reports to Discord. It paces itself against a token budget.',
+    stack: ['Python', 'Claude CLI', 'GitHub API'],
+    meta: 'Agent · 2026',
+    link: 'https://tarsai.dev'
+  },
+  {
+    title: 'Lighter',
+    detail: 'Agent suite built on the idea that most tasks don’t need your biggest model. A router sizes each query and sends it to the smallest local model that can handle it, and old conversation turns are summarized on disk instead of filling the prompt. A benchmark harness compares tokens, latency, cost and answer quality against a large-model baseline.',
+    stack: ['Python', 'Ollama', 'Benchmarking'],
+    meta: 'Open source · 2026',
+    link: 'https://github.com/dsneed123/Lighter'
+  },
+  {
+    title: 'HygGeo',
+    detail: 'Travel site I co-founded for eco-friendly stays and local experiences, built around the idea of hygge meeting sustainable travel. I built it end to end in Django: listings, geolocation search, accounts and reviews from people who stayed there.',
+    stack: ['Django', 'PostgreSQL', 'JavaScript'],
+    meta: 'Co-founder · 2025',
+    link: 'https://HygGeo.com'
+  },
+  {
+    title: 'Centrebyte',
+    detail: 'Proof-of-concept peer-to-peer marketplace settled in Bitcoin, like eBay without the middleman. Sellers list goods priced in BTC, buyers filter by category, price and seller reputation, and escrow holds payment until the deal closes.',
+    stack: ['Django', 'Bitcoin', 'Escrow'],
+    meta: 'Prototype · 2024'
+  },
+  {
+    title: 'Physics Engine',
+    detail: 'Rust simulation of balls that move independently, bounce off walls and collide elastically by exchanging velocities. Positions, speeds and colors are randomized, and frames render straight to a framebuffer with minifb.',
+    stack: ['Rust', 'minifb'],
+    meta: 'Simulation · 2024',
+    link: 'https://github.com/dsneed123/Bouncing_balls_rust'
+  },
+  {
+    title: 'Shamir Secret Sharing',
+    detail: 'Splits a secret into n shares with a random polynomial so any k of them rebuild it through Lagrange interpolation, while fewer reveal nothing. An optional flag graphs the polynomial and shares. Built for a cyber security course.',
+    stack: ['Python', 'Cryptography', 'matplotlib'],
+    meta: 'Coursework · 2024',
+    link: 'https://github.com/dsneed123/shamir_secret_sharing'
+  }
 ];
 
 type Experience = {
@@ -353,21 +394,31 @@ export default function Home() {
 
             <div className="also">
               <span className="eyebrow">Also built</span>
-              <ul className="also-list">
-                {alsoBuilt.map((b) => (
-                  <li className="also-row" key={b.title}>
-                    <span className="also-title">
-                      {b.link ? (
-                        <a href={b.link} target="_blank" rel="noopener noreferrer">{b.title}</a>
-                      ) : (
-                        b.title
-                      )}
-                    </span>
-                    <span className="also-note">{b.note}</span>
-                    <span className="also-meta mono">{b.meta}</span>
-                  </li>
-                ))}
-              </ul>
+              <div className="also-grid">
+                {alsoBuilt.map((b) => {
+                  const inner = (
+                    <>
+                      <div className="also-head">
+                        <h3 className="also-title">{b.title}</h3>
+                        <span className="also-meta mono">{b.meta}</span>
+                      </div>
+                      <p className="also-note">{b.detail}</p>
+                      <ul className="tags">
+                        {b.stack.map((t) => (
+                          <li className="tag" key={t}>{t}</li>
+                        ))}
+                      </ul>
+                    </>
+                  );
+                  return b.link ? (
+                    <a className="also-card" key={b.title} href={b.link} target="_blank" rel="noopener noreferrer" aria-label={`Open ${b.title}`}>
+                      {inner}
+                    </a>
+                  ) : (
+                    <article className="also-card" key={b.title}>{inner}</article>
+                  );
+                })}
+              </div>
             </div>
           </div>
         </section>
