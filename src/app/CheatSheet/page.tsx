@@ -1607,11 +1607,11 @@ export default function CheatSheets() {
   };
 
   const blurbs: Record<string, string> = {
-    Python: 'General-purpose language with clear syntax and extensive libraries.',
-    JavaScript: 'Dynamic language for web development and modern applications.',
-    Java: 'Object-oriented language for enterprise and cross-platform applications.',
-    'C++': 'Systems programming language with high performance and control.',
-    SQL: 'Declarative language for managing and querying relational databases.'
+    Python: 'Readable, batteries included, and the default for scripting and AI work.',
+    JavaScript: 'Runs in every browser and on the server through Node.',
+    Java: 'Static types and a huge standard library. Still what most large back ends run on.',
+    'C++': 'Manual memory and direct hardware access when speed is the requirement.',
+    SQL: 'You describe the result you want; the database works out how to get it.'
   };
 
   // Filter sections based on search term
@@ -1631,7 +1631,7 @@ export default function CheatSheets() {
     <div className="sf cs-page">
       <header className="site-header">
         <div className="wrap">
-          <Link className="wordmark plain" href="/" aria-label="Davis Sneed — portfolio home">
+          <Link className="wordmark plain" href="/" aria-label="Davis Sneed, portfolio home">
             <span className="wordmark-block" aria-hidden />
             <span className="wordmark-name">Davis Sneed</span>
           </Link>
@@ -1660,8 +1660,8 @@ export default function CheatSheets() {
           <span className="eyebrow">Reference sheets</span>
           <h1>Programming cheat sheets</h1>
           <p className="lede">
-            Syntax, idioms, and copy-paste snippets for Python, JavaScript, Java, C++ and SQL —
-            with a note on when each one is the right tool.
+            The syntax I keep looking up, for Python, JavaScript, Java, C++ and SQL. Every
+            entry is copy-paste ready and says when to reach for it.
           </p>
         </div>
 
@@ -1750,19 +1750,19 @@ export default function CheatSheets() {
               <div className="column">
                 <span className="eyebrow"><ZapIcon /> Time complexity</span>
                 <ul>
-                  <li>O(1) — constant time</li>
-                  <li>O(log n) — logarithmic</li>
-                  <li>O(n) — linear time</li>
-                  <li>O(n²) — quadratic time</li>
+                  <li>O(1) · constant time</li>
+                  <li>O(log n) · logarithmic</li>
+                  <li>O(n) · linear time</li>
+                  <li>O(n²) · quadratic time</li>
                 </ul>
               </div>
               <div className="column">
                 <span className="eyebrow"><DatabaseIcon /> Data structures</span>
                 <ul>
-                  <li>Arrays — fast indexed access</li>
-                  <li>Hash tables — O(1) lookups</li>
-                  <li>Trees — hierarchical data</li>
-                  <li>Graphs — network relationships</li>
+                  <li>Arrays · fast indexed access</li>
+                  <li>Hash tables · O(1) lookups</li>
+                  <li>Trees · hierarchical data</li>
+                  <li>Graphs · network relationships</li>
                 </ul>
               </div>
               <div className="column">

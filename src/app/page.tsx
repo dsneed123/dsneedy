@@ -22,7 +22,7 @@ const projects: Project[] = [
     year: '2026',
     type: 'Product',
     featured: true,
-    description: 'Local-first agentic automation platform. Watch Discord channels, prices, pages or schedules, then run event-driven workflow graphs on any model — Ollama, OpenAI or Anthropic. Designed, built and launched solo; live today with free and pro tiers.',
+    description: 'Local-first automation platform for AI agents. Point it at a Discord channel, a price, a page or a schedule, and it runs a workflow graph when something changes. Any model works: Ollama, OpenAI, Anthropic. I designed, built and launched it on my own, and it is live with free and pro tiers.',
     highlights: [
       '~80% fewer AI calls via batching',
       '49 built-in workflow recipes',
@@ -35,12 +35,12 @@ const projects: Project[] = [
       {
         src: '/media/awo-hero.png',
         alt: 'AWO landing page — Stop checking things. Let AWO watch them for you.',
-        caption: 'Fig. 1 — awo.so landing'
+        caption: 'Fig. 1 / awo.so landing'
       },
       {
         src: '/media/awo-builder.png',
         alt: 'AWO Studio — visual workflow builder with a page-watch workflow on the canvas',
-        caption: 'Fig. 2 — Studio workflow builder'
+        caption: 'Fig. 2 / Studio workflow builder'
       }
     ]
   },
@@ -49,7 +49,7 @@ const projects: Project[] = [
     role: 'Creator',
     year: '2026',
     type: 'Systems',
-    description: 'Autonomous coding agent on local NVIDIA Grace Blackwell hardware. Pulls tasks from GitHub issues, plans and writes the code with Claude CLI, runs the tests, and opens its own pull requests.',
+    description: 'Coding agent that works unattended on local NVIDIA Grace Blackwell hardware. It takes a GitHub issue, plans the change, writes it with Claude CLI, runs the tests and opens the pull request.',
     technologies: ['Python', 'Claude API', 'GitHub API', 'Bash'],
     link: 'https://tarsai.dev'
   },
@@ -58,7 +58,7 @@ const projects: Project[] = [
     role: 'Creator',
     year: '2026',
     type: 'Systems',
-    description: '28 specialized CLI agents that run entirely on your own machine through Ollama — no API keys, no config. Detects installed models, assigns one per role, and ships research, coding, review and SQL agents.',
+    description: '28 CLI agents that run on your own machine through Ollama, with no API keys to set up. It finds your installed models, assigns one to each role, and ships agents for research, coding, review and SQL.',
     technologies: ['Python', 'Ollama', 'CLI', 'Local LLMs'],
     link: 'https://github.com/dsneed123/local-agents'
   },
@@ -67,7 +67,7 @@ const projects: Project[] = [
     role: 'Creator',
     year: '2026',
     type: 'Systems',
-    description: 'AI agent suite tuned for inference efficiency — smaller prompts, minimal context, right-sized model per task. Benchmarked against larger models to quantify token, latency and cost savings.',
+    description: 'Agent suite tuned for cheap inference: shorter prompts, less context, and the smallest model that still gets the task right. Benchmarked against bigger models to measure what the tokens and the latency actually cost.',
     technologies: ['Python', 'LLM Benchmarking', 'Prompt Engineering'],
     link: 'https://github.com/dsneed123/Lighter'
   },
@@ -76,7 +76,7 @@ const projects: Project[] = [
     role: 'Co-Founder & Lead Developer',
     year: '2025',
     type: 'Professional',
-    description: 'Sustainable travel platform, co-founded and built end to end: Django back end, custom front end, geolocation search and community reviews.',
+    description: 'Travel platform for eco-friendly stays, co-founded and built end to end. Django on the back end, a custom front end, geolocation search and reviews from the people who stayed there.',
     technologies: ['Python', 'Django', 'PostgreSQL', 'JavaScript'],
     link: 'https://HygGeo.com'
   }
@@ -109,34 +109,34 @@ const experience: Experience[] = [
   {
     title: 'Quality Assurance Technician',
     company: 'Amazon',
-    period: 'Jun 2026 — Present',
+    period: 'Jun 2026 – Present',
     location: 'Bellevue, WA',
     current: true,
     bullets: [
-      'Test and validate experimental, pre-release AI agents, documenting results for engineering teams.',
-      'Build Python tooling that automates data collection, validation and reporting.'
+      'Test pre-release AI agents and write up what breaks for the teams that own them.',
+      'Write the Python tooling that collects and reports our test data.'
     ],
     technologies: ['Python', 'AI Agents', 'Automation', 'QA']
   },
   {
     title: 'Graduate Engineer',
     company: 'Qualitest',
-    period: 'Feb 2026 — Jun 2026',
+    period: 'Feb 2026 – Jun 2026',
     location: 'Kirkland, WA',
     bullets: [
-      'Ran structured testing and validation of AR/VR hardware and software systems.',
-      'Analyzed and documented experimental data against research-protocol requirements.'
+      'Tested AR/VR headsets and the software running on them.',
+      'Checked experimental data against the research protocol and documented what did not match.'
     ],
     technologies: ['AR/VR', 'QA Testing', 'Hardware Validation'],
     logo: '/media/qualitest-logo.jpg'
   },
   {
-    title: 'Data Collector — Meta Research',
+    title: 'Data Collector, Meta Research',
     company: 'Insight Global',
-    period: 'Nov 2025 — Dec 2025',
+    period: 'Nov 2025 – Dec 2025',
     location: 'Seattle, WA',
     bullets: [
-      'Field data collection for Meta AR/VR research across dense urban Seattle environments.'
+      'Collected field data for Meta AR/VR research around Seattle, including downtown blocks where GPS degrades.'
     ],
     technologies: ['AR/VR Research', 'Field Operations'],
     logo: '/media/insightglobal-logo.png'
@@ -144,10 +144,10 @@ const experience: Experience[] = [
   {
     title: 'Software Engineer',
     company: 'Pivot Politics',
-    period: 'Oct 2025 — Jan 2026',
+    period: 'Oct 2025 – Jan 2026',
     location: 'Remote',
     bullets: [
-      'Designed and shipped the front end of a social platform — Figma to React, integrated against a Python back end.'
+      'Designed a social platform front end in Figma, then built it in React against a Python back end.'
     ],
     technologies: ['JavaScript', 'React', 'Figma', 'UI/UX']
   },
@@ -157,7 +157,7 @@ const experience: Experience[] = [
     period: '2024',
     location: 'Remote',
     bullets: [
-      'Automated athlete social-media data collection across 10,000+ profiles with a Python and BeautifulSoup scraper.'
+      'Wrote a Python scraper that pulled social data on 10,000+ athletes and replaced the manual lookups.'
     ],
     technologies: ['Python', 'BeautifulSoup', 'Data Pipelines']
   }
@@ -170,10 +170,10 @@ const skills = [
 ];
 
 const readouts = [
-  { label: 'AI calls cut', value: '~80%', note: 'AWO — request batching' },
-  { label: 'Workflow recipes', value: '49', note: 'AWO — built in, ready to run' },
-  { label: 'Profiles automated', value: '10,000+', note: 'ProfoundSports — Python scraper' },
-  { label: 'Local agents shipped', value: '28', note: 'local-agents — runs via Ollama' }
+  { label: 'AI calls cut', value: '~80%', note: 'AWO · request batching' },
+  { label: 'Workflow recipes', value: '49', note: 'AWO · built in, ready to run' },
+  { label: 'Profiles automated', value: '10,000+', note: 'ProfoundSports · Python scraper' },
+  { label: 'Local agents shipped', value: '28', note: 'local-agents · runs via Ollama' }
 ];
 
 const nav = [
@@ -220,7 +220,7 @@ export default function Home() {
 
       <header className="site-header" data-scrolled={scrolled}>
         <div className="wrap">
-          <a href="#top" className="wordmark plain" aria-label="Davis Sneed — home">
+          <a href="#top" className="wordmark plain" aria-label="Davis Sneed, portfolio home">
             <span className="wordmark-block" aria-hidden />
             <span className="wordmark-name">Davis Sneed</span>
           </a>
@@ -237,7 +237,7 @@ export default function Home() {
             target="_blank"
             rel="noopener noreferrer"
           >
-            Résumé — PDF
+            Résumé (PDF)
           </a>
         </div>
       </header>
@@ -257,17 +257,17 @@ export default function Home() {
             <div className="hero-grid">
               <div>
                 <p className="eyebrow" style={{ marginBottom: 'var(--s4)' }}>
-                  AI &amp; Software Engineer — Seattle, WA
+                  LLM agents · Full-stack products
                 </p>
                 <h1 id="hero-title">
-                  Davis Sneed — software engineer who ships whole systems.
+                  Davis Sneed, AI and software engineer in Seattle.
                 </h1>
                 <p className="lede" style={{ marginTop: 'var(--s5)' }}>
-                  AI and software engineer building <strong>agentic LLM systems</strong> and
-                  full-stack products in Python, TypeScript/React and PostgreSQL. I design
-                  multi-step orchestration on the Claude and OpenAI APIs, and ship my own
-                  products — most recently{' '}
-                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>.
+                  I build LLM agents and the full-stack products they run inside.{' '}
+                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>, my
+                  workflow orchestrator, is live. TARS runs on local Grace Blackwell hardware and
+                  opens its own pull requests. Day to day that means Python, TypeScript, React and
+                  Postgres, with the Claude and OpenAI APIs underneath.
                 </p>
 
                 <div className="hero-actions">
@@ -314,12 +314,12 @@ export default function Home() {
               </div>
               <div>
                 <dt>Currently</dt>
-                <dd>QA Technician — Amazon</dd>
+                <dd>QA Technician, Amazon</dd>
               </div>
               <div>
                 <dt>Latest ship</dt>
                 <dd>
-                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO — early access</a>
+                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO, early access</a>
                 </dd>
               </div>
             </dl>
@@ -345,10 +345,10 @@ export default function Home() {
           <div className="wrap">
             <div className="section-head">
               <div>
-                <span className="eyebrow">01 — Experience</span>
+                <span className="eyebrow">01 / Experience</span>
                 <h2 id="work-title">Where I&apos;ve worked</h2>
               </div>
-              <span className="eyebrow">5 roles · 2024 — present</span>
+              <span className="eyebrow">5 roles · 2024 to now</span>
             </div>
 
             <div className="roles">
@@ -401,10 +401,10 @@ export default function Home() {
           <div className="wrap">
             <div className="section-head">
               <div>
-                <span className="eyebrow">02 — Projects</span>
-                <h2 id="projects-title">Things I built and shipped</h2>
+                <span className="eyebrow">02 / Projects</span>
+                <h2 id="projects-title">What I&apos;ve built</h2>
               </div>
-              <span className="eyebrow">Selected · 2024 — 2026</span>
+              <span className="eyebrow">Selected · 2024 to 2026</span>
             </div>
 
             <div className="projects">
@@ -438,8 +438,8 @@ export default function Home() {
           <div className="wrap">
             <div className="section-head">
               <div>
-                <span className="eyebrow">03 — Stack</span>
-                <h2 id="stack-title">Tools I reach for</h2>
+                <span className="eyebrow">03 / Stack</span>
+                <h2 id="stack-title">What I work in</h2>
               </div>
               <span className="eyebrow">Languages · Systems · Infra</span>
             </div>
@@ -463,27 +463,27 @@ export default function Home() {
           <div className="wrap">
             <div className="contact-grid">
               <div>
-                <span className="eyebrow">04 — Contact</span>
+                <span className="eyebrow">04 / Contact</span>
                 <h2 id="contact-title" style={{ marginTop: 'var(--s2)' }}>
                   Hiring? Let&apos;s talk.
                 </h2>
                 <p className="lede" style={{ marginTop: 'var(--s4)' }}>
-                  I&apos;m open to full-time and contract software engineering work — agentic AI,
-                  full-stack product, AR/VR tooling. Email is fastest; I answer the same day.
+                  I&apos;m looking for full-time or contract engineering work on AI agents and
+                  full-stack products. Email gets the fastest answer, usually the same day.
                 </p>
                 <div className="hero-actions">
                   <a className="btn btn-primary btn-lg" href={`mailto:${EMAIL}`}>
                     {EMAIL}
                   </a>
                   <a className="btn btn-lg btn-invert" href={RESUME} target="_blank" rel="noopener noreferrer">
-                    Résumé — PDF
+                    Résumé (PDF)
                   </a>
                 </div>
                 <div className="transcript" aria-hidden>
                   <div><b>$</b> <span>whoami</span></div>
-                  <div>davis sneed — software engineer, seattle wa</div>
+                  <div>davis sneed, ai + software engineer, seattle wa</div>
                   <div><b>$</b> <span>status</span></div>
-                  <div>open to work · responds same day · relocation ok</div>
+                  <div>open to work · same-day reply</div>
                 </div>
               </div>
 
@@ -506,7 +506,7 @@ export default function Home() {
                 </a>
                 <div>
                   <em>Location</em>
-                  <span>Seattle, WA — US</span>
+                  <span>Seattle, WA, US</span>
                 </div>
               </div>
             </div>
@@ -517,7 +517,7 @@ export default function Home() {
       <footer className="site-footer">
         <div className="wrap">
           <span>© {new Date().getFullYear()} Davis Sneed</span>
-          <span>Seattle, WA — Built with Next.js</span>
+          <span>Seattle, WA · Built with Next.js</span>
         </div>
       </footer>
     </div>
@@ -577,7 +577,7 @@ function ProjectPanel({ project: p, index }: { project: Project; index: number }
         target="_blank"
         rel="noopener noreferrer"
        
-        aria-label={`${p.title} — open project`}
+        aria-label={`Open the ${p.title} project`}
       >
         {body}
       </a>

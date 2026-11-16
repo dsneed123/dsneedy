@@ -130,10 +130,9 @@ const LinksPage = () => {
 
         <header className="links-head">
           <span className="eyebrow">Directory</span>
-          <h1>Davis Sneed — every link in one place.</h1>
+          <h1>Davis Sneed, AI and software engineer in Seattle.</h1>
           <p className="lede">
-            Software engineer in Seattle. Code, writing, products, and the fastest ways to
-            reach me.
+            Code, live products, and the fastest way to reach me.
           </p>
           <p className="links-actions">
             <a className="btn btn-primary" href="https://dsneedy.com">Full portfolio</a>

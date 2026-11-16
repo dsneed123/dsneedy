@@ -27,15 +27,15 @@ const plexMono = localFont({
 });
 
 const SITE = "https://dsneedy.com";
-const TITLE = "Davis Sneed — Software Engineer in Seattle | Agentic AI & Full-Stack";
+const TITLE = "Davis Sneed | AI and Software Engineer in Seattle";
 const DESCRIPTION =
-  "Davis Sneed is a software engineer in Seattle, WA building agentic AI systems, full-stack web products, and systems software in Python, TypeScript, React and Rust. Founder of AWO (awo.so), an agentic workflow orchestrator. Gonzaga CS '25. Open to full-time software engineering roles — résumé, projects, and contact details here.";
+  "I'm Davis Sneed, an AI and software engineer in Seattle. I build LLM agents and full-stack products in Python, TypeScript and React. Open to engineering roles.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
     default: TITLE,
-    template: "%s | Davis Sneed — Software Engineer",
+    template: "%s | Davis Sneed, Software Engineer",
   },
   description: DESCRIPTION,
   applicationName: "Davis Sneed — Portfolio",
@@ -122,7 +122,7 @@ const personSchema = {
   image: `${SITE}/media/headshot.png`,
   jobTitle: "Software Engineer",
   description:
-    "Software engineer in Seattle focused on agentic AI, full-stack development, and systems programming. Founder of AWO, an agentic workflow orchestrator.",
+    "AI and software engineer in Seattle. Builds LLM agents, agentic workflow orchestration and full-stack web products in Python, TypeScript and React. Founder of AWO.",
   email: "mailto:dlsneed1298@gmail.com",
   address: {
     "@type": "PostalAddress",
