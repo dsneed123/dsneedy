@@ -27,15 +27,15 @@ const plexMono = localFont({
 });
 
 const SITE = "https://dsneedy.com";
-const TITLE = "Davis Sneed | AI and Software Engineer in Seattle";
+const TITLE = "Davis Sneed | Robotics Researcher and AI Engineer in Seattle";
 const DESCRIPTION =
-  "I'm Davis Sneed, an AI and software engineer in Seattle. I build LLM agents and full-stack products in Python, TypeScript and React. Open to engineering roles.";
+  "I'm Davis Sneed, a Robotics Data Collection Researcher III at Amazon Fauna in Seattle. I build RAG-based robotics debugging agents, Python and ROS 2 tooling, and AWO, an AI agent orchestration platform.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE),
   title: {
     default: TITLE,
-    template: "%s | Davis Sneed, Software Engineer",
+    template: "%s | Davis Sneed",
   },
   description: DESCRIPTION,
   applicationName: "Davis Sneed — Portfolio",
@@ -46,14 +46,17 @@ export const metadata: Metadata = {
     "Davis Sneed",
     "software engineer",
     "Seattle software engineer",
+    "robotics researcher",
+    "Amazon Fauna",
+    "ROS 2",
+    "humanoid robotics",
+    "RAG agents",
     "agentic AI engineer",
     "AI engineer",
     "full-stack developer",
     "Python developer",
-    "TypeScript developer",
     "React developer",
     "Next.js developer",
-    "Rust developer",
     "Django developer",
     "LLM orchestration",
     "automation engineer",
@@ -72,7 +75,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "profile",
     url: SITE,
-    siteName: "Davis Sneed — Software Engineer",
+    siteName: "Davis Sneed",
     title: TITLE,
     description: DESCRIPTION,
     locale: "en_US",
@@ -84,7 +87,7 @@ export const metadata: Metadata = {
         url: "/media/og-card.png",
         width: 1200,
         height: 630,
-        alt: "Davis Sneed — software engineer in Seattle building agentic AI and full-stack products.",
+        alt: "Davis Sneed — robotics researcher and AI engineer in Seattle.",
       },
     ],
   },
@@ -120,9 +123,9 @@ const personSchema = {
   familyName: "Sneed",
   url: SITE,
   image: `${SITE}/media/headshot.png`,
-  jobTitle: "Software Engineer",
+  jobTitle: "Robotics Data Collection Researcher III",
   description:
-    "AI and software engineer in Seattle. Builds LLM agents, agentic workflow orchestration and full-stack web products in Python, TypeScript and React. Founder of AWO.",
+    "Robotics Data Collection Researcher III at Amazon Fauna in Seattle. Trains humanoid robots through teleoperation and builds RAG-based debugging agents and Python/ROS 2 tooling. Founder of AWO.",
   email: "mailto:dlsneed1298@gmail.com",
   address: {
     "@type": "PostalAddress",
@@ -137,24 +140,25 @@ const personSchema = {
   },
   worksFor: {
     "@type": "Organization",
-    name: "Amazon",
-    sameAs: "https://www.amazon.com/",
+    name: "Amazon Fauna",
   },
   knowsAbout: [
+    "Robotics",
+    "ROS 2",
+    "Humanoid robot teleoperation",
+    "Retrieval-augmented generation",
+    "ML data pipelines",
     "Agentic AI",
     "Large language model orchestration",
     "Full-stack web development",
     "Python",
-    "TypeScript",
     "React",
     "Next.js",
     "Django",
     "Rust",
-    "Go",
     "C++",
     "PostgreSQL",
-    "Docker",
-    "Quality assurance automation",
+    "FastAPI",
   ],
   sameAs: [
     "https://github.com/dsneed123",
@@ -164,14 +168,14 @@ const personSchema = {
   ],
   seeks: {
     "@type": "Demand",
-    name: "Full-time software engineering roles",
+    name: "Engineering roles in AI agents and robotics",
   },
 };
 
 const siteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  name: "Davis Sneed — Software Engineer",
+  name: "Davis Sneed",
   url: SITE,
   inLanguage: "en-US",
   author: { "@type": "Person", name: "Davis Sneed" },

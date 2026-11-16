@@ -18,18 +18,18 @@ type Project = {
 const projects: Project[] = [
   {
     title: 'AWO',
-    role: 'Founder & Sole Engineer',
-    year: '2026',
+    role: 'Founder',
+    year: '2025 – now',
     type: 'Product',
     featured: true,
-    description: 'Local-first automation platform for AI agents. Point it at a Discord channel, a price, a page or a schedule, and it runs a workflow graph when something changes. Any model works: Ollama, OpenAI, Anthropic. I designed, built and launched it on my own, and it is live with free and pro tiers.',
+    description: 'AI agent orchestration platform I founded and built. It is a deployment console for agentic workflows, with a DAG orchestrator that handles loops, branching and parallel execution. FastAPI, PostgreSQL and Redis on the back end, React Flow for the builder.',
     highlights: [
-      '~80% fewer AI calls via batching',
-      '49 built-in workflow recipes',
-      'Runs on-device, zero telemetry',
-      'Autopilot ships one PR per phase'
+      'DAG runs with loops, branches, parallel steps',
+      'Autopilot agents plan, execute and commit code',
+      'Push and poll-diff triggers',
+      'Any model: local Grace Blackwell or hosted APIs'
     ],
-    technologies: ['Python', 'LLM Orchestration', 'Ollama', 'Anthropic', 'OpenAI'],
+    technologies: ['Python', 'FastAPI', 'PostgreSQL', 'Redis', 'React Flow'],
     link: 'https://awo.so',
     images: [
       {
@@ -45,53 +45,25 @@ const projects: Project[] = [
     ]
   },
   {
-    title: 'TARS',
-    role: 'Creator',
-    year: '2026',
-    type: 'Systems',
-    description: 'Coding agent that works unattended on local NVIDIA Grace Blackwell hardware. It takes a GitHub issue, plans the change, writes it with Claude CLI, runs the tests and opens the pull request.',
-    technologies: ['Python', 'Claude API', 'GitHub API', 'Bash'],
-    link: 'https://tarsai.dev'
-  },
-  {
-    title: 'local-agents',
-    role: 'Creator',
-    year: '2026',
-    type: 'Systems',
-    description: '28 CLI agents that run on your own machine through Ollama, with no API keys to set up. It finds your installed models, assigns one to each role, and ships agents for research, coding, review and SQL.',
-    technologies: ['Python', 'Ollama', 'CLI', 'Local LLMs'],
-    link: 'https://github.com/dsneed123/local-agents'
-  },
-  {
-    title: 'Lighter',
-    role: 'Creator',
-    year: '2026',
-    type: 'Systems',
-    description: 'Agent suite tuned for cheap inference: shorter prompts, less context, and the smallest model that still gets the task right. Benchmarked against bigger models to measure what the tokens and the latency actually cost.',
-    technologies: ['Python', 'LLM Benchmarking', 'Prompt Engineering'],
-    link: 'https://github.com/dsneed123/Lighter'
-  },
-  {
-    title: 'HygGeo',
-    role: 'Co-Founder & Lead Developer',
-    year: '2025',
-    type: 'Professional',
-    description: 'Travel platform for eco-friendly stays, co-founded and built end to end. Django on the back end, a custom front end, geolocation search and reviews from the people who stayed there.',
-    technologies: ['Python', 'Django', 'PostgreSQL', 'JavaScript'],
-    link: 'https://HygGeo.com'
+    title: 'Timeline Visualization',
+    role: 'Scrum Master & Full-Stack Developer',
+    year: '2024 – 2025',
+    type: 'Capstone',
+    description: 'Year-long senior design project for R7D LLC, a SpaceX vendor. As Scrum Master I ran Agile sprints for a team of four engineers, and I built full-stack features: a drag-and-drop UI, dynamic visualizations and the SQL data models. Won Best Senior Design CS Project in 2025.',
+    technologies: ['React', 'Next.js', 'Python', 'PostgreSQL']
   }
 ];
 
 type Brief = { title: string; note: string; meta: string; link?: string };
 
 const alsoBuilt: Brief[] = [
+  { title: 'local-agents', note: '28+ open-source AI agents that run locally on Ollama', meta: 'Python · 2026', link: 'https://github.com/dsneed123/local-agents' },
+  { title: 'TARS', note: 'Coding agent that turns GitHub issues into tested pull requests', meta: 'Python · 2026', link: 'https://tarsai.dev' },
+  { title: 'Lighter', note: 'Agent suite tuned for the smallest model that gets the job done', meta: 'Python · 2026', link: 'https://github.com/dsneed123/Lighter' },
+  { title: 'HygGeo', note: 'Travel platform for eco-friendly stays, co-founded', meta: 'Django · 2025', link: 'https://HygGeo.com' },
   { title: 'Centrebyte', note: 'Crypto marketplace with wallet and instant payments', meta: 'Django · 2025', link: 'http://centrebyte.com' },
-  { title: 'TARS-Lite', note: 'Offline variant of TARS on Ollama, zero API cost', meta: 'Python · 2026' },
-  { title: 'Hive', note: 'Outreach automation assistant with a React dashboard', meta: 'Python · 2026' },
-  { title: 'Core Roulette', note: 'Fitness app with workout randomization and tracking', meta: 'Next.js · 2024', link: 'http://www.core-roulette.com/' },
   { title: 'Physics Engine', note: '2D collision and particle simulation in Rust', meta: 'Rust · 2024', link: 'https://github.com/dsneed123/Bouncing_balls_rust' },
-  { title: 'Shamir Secret Sharing', note: 'Threshold key splitting over finite fields', meta: 'Python · 2024', link: 'https://github.com/dsneed123/shamir_secret_sharing' },
-  { title: 'Solar System Sim', note: 'Orbital mechanics simulation in Rust', meta: 'Rust · 2024', link: 'https://github.com/dsneed123/solar-system-rust' }
+  { title: 'Shamir Secret Sharing', note: 'Threshold key splitting over finite fields', meta: 'Python · 2024', link: 'https://github.com/dsneed123/shamir_secret_sharing' }
 ];
 
 type Experience = {
@@ -107,66 +79,53 @@ type Experience = {
 
 const experience: Experience[] = [
   {
-    title: 'Quality Assurance Technician',
-    company: 'Amazon',
+    title: 'Robotics Data Collection Researcher III',
+    company: 'Amazon Fauna (via Apex Systems)',
     period: 'Jun 2026 – Present',
     location: 'Bellevue, WA',
     current: true,
     bullets: [
-      'Test pre-release AI agents and write up what breaks for the teams that own them.',
-      'Write the Python tooling that collects and reports our test data.'
+      'Promoted from Quality Assurance Technician, ML Ops in November 2026.',
+      'Train humanoid robots on complex tasks through teleoperation and write the data collection protocols used for ML training.',
+      'Build RAG-based AI agents that run shell commands to diagnose hardware and software problems on robotics systems.',
+      'Write Python and ROS 2 tooling that talks to robot hardware during testing and captures data for ML pipelines.',
+      'Hold a 98%+ quality pass rate on data collection and validation, working directly with Amazon stakeholders.'
     ],
-    technologies: ['Python', 'AI Agents', 'Automation', 'QA']
+    technologies: ['Python', 'ROS 2', 'RAG', 'AI Agents', 'Teleoperation']
   },
   {
     title: 'Graduate Engineer',
-    company: 'Qualitest',
+    company: 'Qualitest (client: Meta)',
     period: 'Feb 2026 – Jun 2026',
     location: 'Kirkland, WA',
     bullets: [
-      'Tested AR/VR headsets and the software running on them.',
-      'Checked experimental data against the research protocol and documented what did not match.'
+      'Collected and managed ML training data with AR/VR hardware for Meta humanoid robotics programs, working to strict client requirements and research protocols.',
+      'Site Lead for a 5-person data collection team across multiple sites, owning timelines, quality standards and compliance.',
+      'Kept the data pass rate above 95% through QA review, data validation and enforcing client collection standards.',
+      'Worked with research, engineering and operations teams to resolve data inconsistencies.'
     ],
-    technologies: ['AR/VR', 'QA Testing', 'Hardware Validation'],
+    technologies: ['AR/VR', 'Robotics Data', 'Data Validation', 'Site Lead'],
     logo: '/media/qualitest-logo.jpg'
   },
   {
-    title: 'Data Collector, Meta Research',
-    company: 'Insight Global',
-    period: 'Nov 2025 – Dec 2025',
-    location: 'Seattle, WA',
-    bullets: [
-      'Collected field data for Meta AR/VR research around Seattle, including downtown blocks where GPS degrades.'
-    ],
-    technologies: ['AR/VR Research', 'Field Operations'],
-    logo: '/media/insightglobal-logo.png'
-  },
-  {
     title: 'Software Engineer',
-    company: 'Pivot Politics',
-    period: 'Oct 2025 – Jan 2026',
+    company: 'PIVOT',
+    period: 'Sep 2025 – Jan 2026',
     location: 'Remote',
     bullets: [
-      'Designed a social platform front end in Figma, then built it in React against a Python back end.'
+      'Worked directly with the CEO to turn business requirements into full-stack features, owning delivery across a JavaScript front end, Django back end and PostgreSQL.',
+      'Designed the PostgreSQL data models and tuned the queries behind the app’s dynamic pages.',
+      'Built responsive front-end features in JavaScript, HTML and CSS wired to Django services.'
     ],
-    technologies: ['JavaScript', 'React', 'Figma', 'UI/UX']
-  },
-  {
-    title: 'Software Engineer',
-    company: 'ProfoundSports',
-    period: '2024',
-    location: 'Remote',
-    bullets: [
-      'Wrote a Python scraper that pulled social data on 10,000+ athletes and replaced the manual lookups.'
-    ],
-    technologies: ['Python', 'BeautifulSoup', 'Data Pipelines']
+    technologies: ['JavaScript', 'Python', 'Django', 'PostgreSQL']
   }
 ];
 
 const skills = [
-  { group: 'Primary', items: ['Python', 'TypeScript', 'React', 'Next.js', 'Django'] },
-  { group: 'Systems', items: ['Rust', 'C++', 'Go', 'Bash', 'SQL'] },
-  { group: 'Tools', items: ['Claude API', 'Ollama', 'PostgreSQL', 'Docker', 'GitHub Actions'] }
+  { group: 'AI & LLM', items: ['AI agents & orchestration', 'RAG & tool calling', 'Claude & OpenAI APIs', 'Ollama, local models', 'DAG workflows'] },
+  { group: 'Languages', items: ['Python', 'JavaScript', 'SQL', 'Rust', 'C++'] },
+  { group: 'Frameworks', items: ['React', 'Next.js', 'Django', 'FastAPI', 'ROS 2'] },
+  { group: 'Data & cloud', items: ['PostgreSQL', 'Redis', 'ML data pipelines', 'AWS', 'Git & pytest'] }
 ];
 
 const nav = [
@@ -177,7 +136,7 @@ const nav = [
   { id: 'contact', label: 'Contact' }
 ];
 
-const RESUME = 'https://drive.google.com/file/d/105ynAzOU3AioXaAJMbz7xe-ANgBUMcRC/view?usp=sharing';
+const RESUME = 'https://drive.google.com/file/d/1WV_ELuE6890F6jHvQhinrQz3Q0uGFg5F/view?usp=sharing';
 const EMAIL = 'dlsneed1298@gmail.com';
 
 export default function Home() {
@@ -241,7 +200,7 @@ export default function Home() {
           <div className="wrap" style={{ position: 'relative' }}>
             <p className="doc-control">
               <span>Davis Sneed</span> <i aria-hidden>·</i>
-              <span>Software Engineer</span> <i aria-hidden>·</i>
+              <span>Robotics Data Collection Researcher III</span> <i aria-hidden>·</i>
               <span>Seattle, WA</span> <i aria-hidden>·</i>
               <span>Rev 2026.11</span> <i aria-hidden>·</i>
               <span>Sheet 1 of 1</span>
@@ -250,17 +209,18 @@ export default function Home() {
             <div className="hero-grid">
               <div>
                 <p className="eyebrow" style={{ marginBottom: 'var(--s4)' }}>
-                  LLM agents · Full-stack products
+                  Robotics · AI agents · Python
                 </p>
                 <h1 id="hero-title">
-                  Davis Sneed, AI and software engineer in Seattle.
+                  Davis Sneed, robotics researcher and AI engineer in Seattle.
                 </h1>
                 <p className="lede" style={{ marginTop: 'var(--s5)' }}>
-                  I build LLM agents and the full-stack products they run inside.{' '}
-                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>, my
-                  workflow orchestrator, is live. TARS runs on local Grace Blackwell hardware and
-                  opens its own pull requests. Day to day that means Python, TypeScript, React and
-                  Postgres, with the Claude and OpenAI APIs underneath.
+                  At Amazon Fauna I train humanoid robots through teleoperation and build RAG-based
+                  agents for on-site robotics debugging. Before that I worked on Meta&apos;s humanoid
+                  robotics program and shipped full-stack features alongside a startup CEO. I also
+                  founded{' '}
+                  <a href="https://awo.so" target="_blank" rel="noopener noreferrer">AWO</a>, where
+                  agents plan, execute and commit multi-step software tasks on local or cloud models.
                 </p>
 
                 <div className="hero-actions">
@@ -287,7 +247,7 @@ export default function Home() {
               <figure className="portrait">
                 <Image
                   src="/media/headshot.png"
-                  alt="Portrait of Davis Sneed, software engineer based in Seattle, Washington."
+                  alt="Portrait of Davis Sneed, robotics researcher and AI engineer based in Seattle, Washington."
                   width={520}
                   height={520}
                   priority
@@ -303,11 +263,11 @@ export default function Home() {
               </div>
               <div>
                 <dt>Education</dt>
-                <dd>Gonzaga University, BS Computer Science &apos;25</dd>
+                <dd>Gonzaga University, BA Computer Science &apos;25</dd>
               </div>
               <div>
                 <dt>Currently</dt>
-                <dd>QA Technician, Amazon</dd>
+                <dd>Robotics Data Collection Researcher III, Amazon Fauna</dd>
               </div>
               <div>
                 <dt>Latest ship</dt>
@@ -326,7 +286,7 @@ export default function Home() {
                 <span className="eyebrow">01 / Experience</span>
                 <h2 id="work-title">Where I&apos;ve worked</h2>
               </div>
-              <span className="eyebrow">5 roles · 2024 to now</span>
+              <span className="eyebrow">3 roles · 2025 to now</span>
             </div>
 
             <div className="roles">
@@ -382,7 +342,7 @@ export default function Home() {
                 <span className="eyebrow">02 / Projects</span>
                 <h2 id="projects-title">What I&apos;ve built</h2>
               </div>
-              <span className="eyebrow">Selected · 2024 to 2026</span>
+              <span className="eyebrow">Selected · 2024 to now</span>
             </div>
 
             <div className="projects">
@@ -419,7 +379,7 @@ export default function Home() {
                 <span className="eyebrow">03 / Stack</span>
                 <h2 id="stack-title">What I work in</h2>
               </div>
-              <span className="eyebrow">Languages · Systems · Infra</span>
+              <span className="eyebrow">AI · Languages · Infra</span>
             </div>
 
             <div className="columns">
@@ -446,8 +406,8 @@ export default function Home() {
                   Hiring? Let&apos;s talk.
                 </h2>
                 <p className="lede" style={{ marginTop: 'var(--s4)' }}>
-                  I&apos;m looking for full-time or contract engineering work on AI agents and
-                  full-stack products. Email gets the fastest answer, usually the same day.
+                  I&apos;m interested in engineering work on AI agents, robotics tooling and
+                  ML data systems. Email gets the fastest answer, usually the same day.
                 </p>
                 <div className="hero-actions">
                   <a className="btn btn-primary btn-lg" href={`mailto:${EMAIL}`}>
@@ -459,7 +419,7 @@ export default function Home() {
                 </div>
                 <div className="transcript" aria-hidden>
                   <div><b>$</b> <span>whoami</span></div>
-                  <div>davis sneed, ai + software engineer, seattle wa</div>
+                  <div>davis sneed, robotics data collection researcher iii + ai engineer, seattle wa</div>
                   <div><b>$</b> <span>status</span></div>
                   <div>open to work · same-day reply</div>
                 </div>
