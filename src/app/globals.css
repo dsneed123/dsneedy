@@ -71,7 +71,7 @@
   --radius: 3px;
   --wrap: 1080px;
   --gutter: clamp(20px, 4vw, 40px);
-  --section: clamp(56px, 8vw, var(--s9));
+  --section: clamp(40px, 5vw, var(--s8));
   --control: 38px;
   --control-lg: 44px;
   --ease: cubic-bezier(0.2, 0, 0.2, 1);
@@ -432,7 +432,7 @@ body {
   align-items: baseline;
   justify-content: space-between;
   gap: var(--s3);
-  margin-bottom: var(--s6);
+  margin-bottom: var(--s5);
 }
 
 .section-head .eyebrow {
@@ -443,8 +443,8 @@ body {
 /* ── Hero ──────────────────────────────────────────────────────────── */
 .hero {
   position: relative;
-  padding-top: var(--s7);
-  padding-bottom: var(--s6);
+  padding-top: var(--s6);
+  padding-bottom: var(--s5);
 }
 
 .hero-grid {
@@ -577,9 +577,9 @@ a.panel:hover {
 
 .role {
   display: grid;
-  grid-template-columns: 220px minmax(0, 1fr);
-  gap: var(--s6);
-  padding: var(--s5) 0;
+  grid-template-columns: 150px minmax(0, 1fr);
+  gap: var(--s5);
+  padding: var(--s4) 0;
   border-top: 1px solid var(--line-faint);
 }
 
@@ -617,10 +617,10 @@ a.panel:hover {
 .bullets {
   list-style: none;
   padding: 0;
-  margin-top: var(--s3);
+  margin-top: var(--s2);
   display: grid;
-  gap: var(--s2);
-  max-width: var(--measure);
+  gap: var(--s1);
+  max-width: 88ch;
   color: var(--text-secondary);
   font-size: var(--text-md);
 }
@@ -652,7 +652,7 @@ a.panel:hover {
   display: flex;
   flex-wrap: wrap;
   gap: var(--s2);
-  margin-top: var(--s4);
+  margin-top: var(--s3);
   list-style: none;
   padding: 0;
 }
@@ -676,7 +676,8 @@ a.panel:hover {
   gap: var(--s5);
 }
 
-.project-featured {
+.project-featured,
+.project-featured ~ .panel:last-child:nth-child(even) {
   grid-column: 1 / -1;
 }
 
@@ -717,7 +718,7 @@ a.panel:hover {
   margin-top: var(--s3);
   color: var(--text-secondary);
   font-size: var(--text-md);
-  max-width: var(--measure);
+  max-width: 88ch;
 }
 
 .shots {
@@ -1325,7 +1326,7 @@ a.panel:hover {
 
 /* ── Also built: a compact index, not more panels ──────────────────── */
 .also {
-  margin-top: var(--s7);
+  margin-top: var(--s6);
 }
 
 .also .eyebrow {
