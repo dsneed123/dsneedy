@@ -51,7 +51,7 @@
   --text-base: 1rem;
   --text-lede: 1.1875rem;
   --text-h3: 1.0625rem;
-  --text-h2: clamp(1.5rem, 1.2rem + 1.2vw, 2rem);
+  --text-h2: clamp(1.75rem, 1.1rem + 2.2vw, 2.75rem);
   --text-h1: clamp(2.125rem, 1.4rem + 3vw, 3.25rem);
 
   --leading: 1.55;
@@ -134,10 +134,12 @@ body {
 }
 
 .sf h2 {
+  font-family: var(--font-display);
+  font-stretch: 112%;
   font-size: var(--text-h2);
-  font-weight: 600;
-  line-height: 1.2;
-  letter-spacing: -0.015em;
+  font-weight: 800;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
   max-width: 28ch;
   text-wrap: balance;
   margin: 0;
@@ -598,10 +600,41 @@ body {
   margin-bottom: var(--s2);
 }
 
-/* A drafting ruler under each section title: ticks every 8px, a long tick every 40px. */
+/* Big outlined index numeral + title + aside, over a drafting ruler. */
 .section-head.ruler {
   position: relative;
-  padding-bottom: var(--s4);
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  align-items: end;
+  gap: var(--s5);
+  padding-bottom: var(--s5);
+  margin-bottom: var(--s6);
+}
+
+.section-num {
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: clamp(3.5rem, 2.4rem + 4.2vw, 6.5rem);
+  line-height: 0.78;
+  letter-spacing: -0.04em;
+  color: transparent;
+  -webkit-text-stroke: 1.5px var(--ink);
+  background: linear-gradient(var(--accent), var(--accent)) 0 100% / 100% 0 no-repeat;
+  -webkit-background-clip: text;
+  background-clip: text;
+  transition: background-size 600ms var(--ease);
+}
+
+/* The numeral floods with accent once its section has been revealed. */
+.reveal[data-in="true"] .section-num,
+html:not(.js-reveal) .section-num {
+  background-size: 100% 42%;
+}
+
+.section-aside {
+  align-self: end;
+  padding-bottom: 4px;
 }
 
 .section-head.ruler::after {
@@ -907,14 +940,50 @@ a.also-card:hover .project-arrow {
 
 /* ── Experience rows ───────────────────────────────────────────────── */
 .roles {
+  position: relative;
   display: grid;
+  padding-left: 32px;
+}
+
+/* Timeline rail with a square node per role. */
+.roles::before {
+  content: "";
+  position: absolute;
+  left: 5px;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: repeating-linear-gradient(to bottom, var(--line) 0 4px, transparent 4px 8px);
+}
+
+.role {
+  position: relative;
+}
+
+.role-node {
+  position: absolute;
+  left: -32px;
+  top: calc(var(--s5) + 5px);
+  width: 11px;
+  height: 11px;
+  border: 1.5px solid var(--ink);
+  background: var(--paper);
+}
+
+.role-current .role-node {
+  background: var(--accent);
+  box-shadow: 0 0 0 3px var(--accent-soft);
+}
+
+.role-title h3 {
+  font-size: 1.1875rem;
 }
 
 .role {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
-  gap: var(--s5);
-  padding: var(--s4) 0;
+  gap: var(--s6);
+  padding: var(--s5) 0;
   border-top: 1px solid var(--line-faint);
 }
 
@@ -1195,6 +1264,11 @@ a.also-card:hover .project-arrow {
     grid-template-columns: 1fr;
     gap: var(--s5);
   }
+
+  .stack-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
 }
 
 /* ── Inverted block: the one dark element ──────────────────────────── */
@@ -1409,6 +1483,222 @@ a.also-card:hover .project-arrow {
   }
 }
 
+/* ── Readout: the numbers band under the hero ──────────────────────── */
+.readout {
+  margin-top: var(--s6);
+  background: var(--surface);
+  border-top: 2px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+}
+
+.readout-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+
+.readout-cell {
+  display: grid;
+  gap: var(--s2);
+  align-content: start;
+  padding: var(--s5) var(--s5) var(--s5) 0;
+}
+
+.readout-cell + .readout-cell {
+  padding-left: var(--s5);
+  border-left: 1px solid var(--line-faint);
+}
+
+.readout-value {
+  font-family: var(--font-display);
+  font-stretch: 112%;
+  font-weight: 800;
+  font-size: clamp(2.5rem, 1.6rem + 2.8vw, 4rem);
+  line-height: 0.9;
+  letter-spacing: -0.03em;
+  font-variant-numeric: tabular-nums;
+}
+
+.readout-value small {
+  margin-left: 2px;
+  font-size: 0.42em;
+  letter-spacing: 0;
+  color: var(--accent);
+  vertical-align: top;
+}
+
+.readout-label {
+  max-width: 24ch;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-tertiary);
+}
+
+@media (max-width: 860px) {
+  .readout-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .readout-cell,
+  .readout-cell + .readout-cell {
+    padding: var(--s4) var(--s4) var(--s4) 0;
+    border-left: 0;
+    border-bottom: 1px solid var(--line-faint);
+  }
+
+  .readout-cell:nth-child(even) {
+    border-left: 1px solid var(--line-faint);
+  }
+
+  .readout-cell:nth-last-child(-n + 2) {
+    border-bottom: 0;
+  }
+
+  .readout-cell:nth-child(even) {
+    padding-left: var(--s4);
+  }
+}
+
+/* ── Ticker: an ink tape of the stack ───────────────────────────────── */
+.ticker {
+  overflow: hidden;
+  background: var(--ink);
+  color: var(--invert-text);
+  border-bottom: 3px solid var(--accent);
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, #000 6%, #000 94%, transparent);
+}
+
+.ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker 48s linear infinite;
+}
+
+.ticker:hover .ticker-track {
+  animation-play-state: paused;
+}
+
+.ticker span {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--s5);
+  padding: var(--s3) 0 var(--s3) var(--s5);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.ticker i {
+  font-style: normal;
+  font-size: 0.6em;
+  color: var(--accent);
+}
+
+@keyframes ticker {
+  to { transform: translateX(-50%); }
+}
+
+.ticker + .section {
+  border-top: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .ticker-track {
+    animation: none;
+  }
+}
+
+/* ── Stack cards: datasheet tables ──────────────────────────────────── */
+.stack-grid {
+  gap: var(--s5);
+}
+
+.stack-card {
+  padding: 0;
+  border: 1px solid var(--ink);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+  transition: transform 160ms var(--ease), box-shadow 160ms var(--ease);
+}
+
+.stack-card:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 5px 5px 0 var(--accent);
+}
+
+.stack-card-head {
+  display: flex;
+  justify-content: space-between;
+  gap: var(--s2);
+  padding: var(--s2) var(--s3);
+  background: var(--ink);
+  color: var(--invert-text);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.stack-card-head span + span {
+  color: var(--accent);
+}
+
+.stack-card li {
+  display: flex;
+  align-items: baseline;
+  gap: var(--s3);
+  padding: var(--s2) var(--s3);
+  transition: background-color 120ms var(--ease);
+}
+
+.stack-card li:hover {
+  background: var(--accent-soft);
+}
+
+.stack-idx {
+  flex: none;
+  width: 2.5ch;
+  font-size: 10px;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+}
+
+/* ── Footer signature ───────────────────────────────────────────────── */
+.site-footer .footer-sig {
+  display: block;
+  container-type: inline-size;
+  overflow: hidden;
+  padding-top: var(--s5);
+  padding-bottom: var(--s5);
+  user-select: none;
+}
+
+/* Sized in container units so the name spans the column edge to edge. */
+.footer-sig span {
+  display: block;
+  font-family: var(--font-display);
+  font-stretch: 125%;
+  font-weight: 900;
+  font-size: 12.3cqw;
+  line-height: 0.82;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+  white-space: nowrap;
+  color: transparent;
+  -webkit-text-stroke: 1px var(--line);
+  transition: -webkit-text-stroke-color 200ms var(--ease);
+}
+
+.site-footer:hover .footer-sig span {
+  -webkit-text-stroke-color: var(--accent);
+}
+
 /* ── Phones ────────────────────────────────────────────────────────── */
 @media (max-width: 620px) {
   :root {
@@ -1497,6 +1787,34 @@ a.also-card:hover .project-arrow {
   .site-footer .wrap {
     flex-direction: column;
     gap: var(--s2);
+  }
+
+  .section-head.ruler {
+    grid-template-columns: auto minmax(0, 1fr);
+    gap: var(--s4);
+    margin-bottom: var(--s5);
+  }
+
+  .section-head .section-aside {
+    display: none;
+  }
+
+  .section-num {
+    font-size: 3.25rem;
+    -webkit-text-stroke-width: 1px;
+  }
+
+
+  .roles {
+    padding-left: 24px;
+  }
+
+  .role-node {
+    left: -24px;
+  }
+
+  .ticker span {
+    font-size: var(--text-xs);
   }
 }
 
