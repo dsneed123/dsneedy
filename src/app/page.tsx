@@ -169,18 +169,6 @@ const skills = [
   { group: 'Data & cloud', items: ['PostgreSQL', 'Redis', 'ML data pipelines', 'AWS', 'Git & pytest'] }
 ];
 
-const metrics = [
-  { value: '98', unit: '%+', label: 'Data quality pass rate at Amazon Fauna' },
-  { value: '28', unit: '', label: 'Local agents shipped in local-agents' },
-  { value: '#1', unit: '', label: 'Best Senior Design CS Project, 2025' },
-  { value: '5', unit: 'ppl', label: 'Data collection team led as Site Lead' }
-];
-
-const ticker = [
-  'AI agents', 'RAG', 'Tool calling', 'Python', 'FastAPI', 'PostgreSQL', 'Redis', 'ROS 2',
-  'React', 'Next.js', 'Django', 'Rust', 'Ollama', 'Claude', 'DAG orchestration', 'Teleoperation'
-];
-
 const nav = [
   { id: 'spec', label: 'Spec' },
   { id: 'work', label: 'Work' },
@@ -410,46 +398,19 @@ export default function Home() {
           </div>
         </section>
 
-        <section className="readout" aria-label="By the numbers">
-          <div className="wrap readout-grid">
-            {metrics.map((m) => (
-              <div className="readout-cell" key={m.label}>
-                <span className="readout-value">
-                  {m.value}
-                  {m.unit && <small>{m.unit}</small>}
-                </span>
-                <span className="readout-label">{m.label}</span>
-              </div>
-            ))}
-          </div>
-        </section>
-
-        <div className="ticker" aria-hidden>
-          <div className="ticker-track">
-            {[...ticker, ...ticker].map((t, i) => (
-              <span key={i}>
-                {t}
-                <i>■</i>
-              </span>
-            ))}
-          </div>
-        </div>
-
         <section id="work" className="section reveal" aria-labelledby="work-title">
           <div className="wrap">
             <div className="section-head ruler">
-              <span className="section-num" aria-hidden>01</span>
               <div>
                 <span className="eyebrow">01 / Experience</span>
                 <h2 id="work-title">Where I&apos;ve worked</h2>
               </div>
-              <span className="eyebrow section-aside">3 roles · 2025 to now</span>
+              <span className="eyebrow">3 roles · 2025 to now</span>
             </div>
 
             <div className="roles">
               {experience.map((exp) => (
-                <article className={`role${exp.current ? ' role-current' : ''}`} key={`${exp.company}-${exp.period}`}>
-                  <span className="role-node" aria-hidden />
+                <article className="role" key={`${exp.company}-${exp.period}`}>
                   <div className="role-when">
                     <span>{exp.period}</span>
                     <span>{exp.location}</span>
@@ -496,12 +457,11 @@ export default function Home() {
         <section id="projects" className="section reveal" aria-labelledby="projects-title">
           <div className="wrap">
             <div className="section-head ruler">
-              <span className="section-num" aria-hidden>02</span>
               <div>
                 <span className="eyebrow">02 / Projects</span>
                 <h2 id="projects-title">What I&apos;ve built</h2>
               </div>
-              <span className="eyebrow section-aside">Selected · 2024 to now</span>
+              <span className="eyebrow">Selected · 2024 to now</span>
             </div>
 
             <div className="projects">
@@ -547,27 +507,20 @@ export default function Home() {
         <section id="stack" className="section reveal" aria-labelledby="stack-title">
           <div className="wrap">
             <div className="section-head ruler">
-              <span className="section-num" aria-hidden>03</span>
               <div>
                 <span className="eyebrow">03 / Stack</span>
                 <h2 id="stack-title">What I work in</h2>
               </div>
-              <span className="eyebrow section-aside">AI · Languages · Infra</span>
+              <span className="eyebrow">AI · Languages · Infra</span>
             </div>
 
-            <div className="columns stack-grid">
-              {skills.map((s, gi) => (
-                <div className="column stack-card" key={s.group}>
-                  <div className="stack-card-head">
-                    <span>{s.group}</span>
-                    <span>{String.fromCharCode(65 + gi)}/{String(s.items.length).padStart(2, '0')}</span>
-                  </div>
+            <div className="columns">
+              {skills.map((s) => (
+                <div className="column" key={s.group}>
+                  <span className="eyebrow">{s.group}</span>
                   <ul>
-                    {s.items.map((it, i) => (
-                      <li key={it}>
-                        <span className="stack-idx">{String.fromCharCode(65 + gi)}{i + 1}</span>
-                        {it}
-                      </li>
+                    {s.items.map((it) => (
+                      <li key={it}>{it}</li>
                     ))}
                   </ul>
                 </div>
@@ -634,9 +587,6 @@ export default function Home() {
       </main>
 
       <footer className="site-footer">
-        <div className="wrap footer-sig" aria-hidden>
-          <span>Davis Sneed</span>
-        </div>
         <div className="wrap">
           <span>© {new Date().getFullYear()} Davis Sneed</span>
           <span>Seattle, WA · Built with Next.js</span>
