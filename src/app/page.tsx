@@ -183,12 +183,57 @@ const EMAIL = 'dlsneed1298@gmail.com';
 export default function Home() {
   const [activeSection, setActiveSection] = useState('spec');
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
+  // Header state + reading progress (drawn as the orange hairline under the header).
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 8);
+    const root = document.documentElement;
+    const onScroll = () => {
+      setScrolled(window.scrollY > 8);
+      const max = root.scrollHeight - window.innerHeight;
+      root.style.setProperty('--progress', String(max > 0 ? window.scrollY / max : 0));
+    };
     onScroll();
     window.addEventListener('scroll', onScroll, { passive: true });
-    return () => window.removeEventListener('scroll', onScroll);
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+    };
+  }, []);
+
+  // Close the mobile menu on Escape or when the viewport grows past the breakpoint.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setMenuOpen(false);
+    const mq = window.matchMedia('(min-width: 861px)');
+    const onMq = () => mq.matches && setMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    mq.addEventListener('change', onMq);
+    return () => {
+      window.removeEventListener('keydown', onKey);
+      mq.removeEventListener('change', onMq);
+    };
+  }, [menuOpen]);
+
+  // Sections ease in as they enter the viewport. Content is visible without JS.
+  useEffect(() => {
+    const els = Array.from(document.querySelectorAll<HTMLElement>('.reveal'));
+    if (!('IntersectionObserver' in window)) return;
+    document.documentElement.classList.add('js-reveal');
+    const io = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((e) => {
+          if (e.isIntersecting) {
+            e.target.setAttribute('data-in', 'true');
+            io.unobserve(e.target);
+          }
+        });
+      },
+      { rootMargin: '0px 0px -8% 0px' }
+    );
+    els.forEach((el) => io.observe(el));
+    return () => io.disconnect();
   }, []);
 
   useEffect(() => {
@@ -211,7 +256,7 @@ export default function Home() {
     <div className="sf">
       <a href="#main" className="sr-only">Skip to content</a>
 
-      <header className="site-header" data-scrolled={scrolled}>
+      <header className="site-header" data-scrolled={scrolled} data-menu={menuOpen}>
         <div className="wrap">
           <a href="#top" className="wordmark plain" aria-label="Davis Sneed, portfolio home">
             <span className="wordmark-block" aria-hidden />
@@ -224,21 +269,50 @@ export default function Home() {
               </a>
             ))}
           </nav>
-          <a
-            className="btn btn-primary"
-            href={RESUME}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Résumé (PDF)
-          </a>
+          <div className="header-actions">
+            <a
+              className="btn btn-primary btn-sm"
+              href={RESUME}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Résumé<span className="hide-sm">(PDF)</span>
+            </a>
+            <button
+              type="button"
+              className="menu-toggle"
+              aria-expanded={menuOpen}
+              aria-controls="mobile-menu"
+              onClick={() => setMenuOpen((o) => !o)}
+            >
+              <span className="sr-only">{menuOpen ? 'Close menu' : 'Open menu'}</span>
+              <span className="menu-bars" aria-hidden />
+            </button>
+          </div>
         </div>
+        <nav id="mobile-menu" className="mobile-menu" aria-label="Sections" hidden={!menuOpen}>
+          <div className="wrap">
+            {nav.map(({ id, label }, i) => (
+              <a
+                key={id}
+                href={`#${id}`}
+                aria-current={activeSection === id ? 'true' : undefined}
+                onClick={() => setMenuOpen(false)}
+              >
+                <span className="mobile-menu-index">{String(i).padStart(2, '0')}</span>
+                {label}
+                <span className="mobile-menu-arrow" aria-hidden>→</span>
+              </a>
+            ))}
+          </div>
+        </nav>
+        <span className="progress" aria-hidden />
       </header>
 
       <main id="main">
         <section id="top" className="hero" aria-labelledby="hero-title">
-          <div className="graph-paper" style={{ position: 'absolute', inset: 0, pointerEvents: 'none' }} aria-hidden />
-          <div className="wrap" style={{ position: 'relative' }}>
+          <div className="graph-paper hero-paper" aria-hidden />
+          <div className="wrap hero-wrap">
             <p className="doc-control">
               <span>Davis Sneed</span> <i aria-hidden>·</i>
               <span>AI Automation Engineer</span> <i aria-hidden>·</i>
@@ -249,13 +323,14 @@ export default function Home() {
 
             <div className="hero-grid">
               <div>
-                <p className="eyebrow" style={{ marginBottom: 'var(--s4)' }}>
+                <p className="eyebrow hero-eyebrow">
+                  <span className="eyebrow-tick" aria-hidden />
                   AI agents · Automation · Python
                 </p>
                 <h1 id="hero-title">
-                  Davis Sneed, AI automation engineer in Seattle.
+                  Davis Sneed, <span className="ink-mark">AI automation engineer</span> in Seattle.
                 </h1>
-                <p className="lede" style={{ marginTop: 'var(--s5)' }}>
+                <p className="lede hero-lede">
                   I build AI agents and the automation around them. At Amazon Fauna that means RAG
                   agents that run shell commands to diagnose robotics hardware, plus Python and ROS 2
                   tooling that feeds ML pipelines. On my own I founded{' '}
@@ -277,7 +352,7 @@ export default function Home() {
                   </a>
                 </div>
 
-                <p style={{ marginTop: 'var(--s5)' }}>
+                <p className="hero-status">
                   <span className="availability">
                     <span aria-hidden />
                     Open to AI automation roles
@@ -285,7 +360,7 @@ export default function Home() {
                 </p>
               </div>
 
-              <figure className="portrait">
+              <figure className="portrait reg-marks">
                 <Image
                   src="/media/headshot.png"
                   alt="Portrait of Davis Sneed, AI automation engineer based in Seattle, Washington."
@@ -293,7 +368,10 @@ export default function Home() {
                   height={520}
                   priority
                 />
-                <figcaption>Davis Sneed · Seattle, WA</figcaption>
+                <figcaption>
+                  <span>Davis Sneed · Seattle, WA</span>
+                  <span className="portrait-fig">Fig. 0</span>
+                </figcaption>
               </figure>
             </div>
 
@@ -320,9 +398,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="work" className="section" aria-labelledby="work-title">
+        <section id="work" className="section reveal" aria-labelledby="work-title">
           <div className="wrap">
-            <div className="section-head">
+            <div className="section-head ruler">
               <div>
                 <span className="eyebrow">01 / Experience</span>
                 <h2 id="work-title">Where I&apos;ve worked</h2>
@@ -337,7 +415,7 @@ export default function Home() {
                     <span>{exp.period}</span>
                     <span>{exp.location}</span>
                     {exp.current && (
-                      <span className="availability" style={{ width: 'fit-content', marginTop: 'var(--s1)' }}>
+                      <span className="availability availability-sm">
                         <span aria-hidden />
                         Now
                       </span>
@@ -376,9 +454,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="projects" className="section" aria-labelledby="projects-title">
+        <section id="projects" className="section reveal" aria-labelledby="projects-title">
           <div className="wrap">
-            <div className="section-head">
+            <div className="section-head ruler">
               <div>
                 <span className="eyebrow">02 / Projects</span>
                 <h2 id="projects-title">What I&apos;ve built</h2>
@@ -399,7 +477,10 @@ export default function Home() {
                   const inner = (
                     <>
                       <div className="also-head">
-                        <h3 className="also-title">{b.title}</h3>
+                        <h3 className="also-title">
+                          {b.title}
+                          {b.link && <span className="project-arrow" aria-hidden>↗</span>}
+                        </h3>
                         <span className="also-meta mono">{b.meta}</span>
                       </div>
                       <p className="also-note">{b.detail}</p>
@@ -423,9 +504,9 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="stack" className="section" aria-labelledby="stack-title">
+        <section id="stack" className="section reveal" aria-labelledby="stack-title">
           <div className="wrap">
-            <div className="section-head">
+            <div className="section-head ruler">
               <div>
                 <span className="eyebrow">03 / Stack</span>
                 <h2 id="stack-title">What I work in</h2>
@@ -448,21 +529,21 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="contact" className="sheet-invert" aria-labelledby="contact-title">
+        <section id="contact" className="sheet-invert reveal" aria-labelledby="contact-title">
           <div className="wrap">
             <div className="contact-grid">
               <div>
                 <span className="eyebrow">04 / Contact</span>
-                <h2 id="contact-title" style={{ marginTop: 'var(--s2)' }}>
+                <h2 id="contact-title">
                   Hiring? Let&apos;s talk.
                 </h2>
-                <p className="lede" style={{ marginTop: 'var(--s4)' }}>
+                <p className="lede contact-lede">
                   I&apos;m looking for engineering work on AI agents and automation: building
                   them, wiring them into real workflows and keeping them reliable. Email gets the
                   fastest answer, usually the same day.
                 </p>
                 <div className="hero-actions">
-                  <a className="btn btn-primary btn-lg" href={`mailto:${EMAIL}`}>
+                  <a className="btn btn-primary btn-lg btn-email" href={`mailto:${EMAIL}`}>
                     {EMAIL}
                   </a>
                   <a className="btn btn-lg btn-invert" href={RESUME} target="_blank" rel="noopener noreferrer">
@@ -474,6 +555,7 @@ export default function Home() {
                   <div>davis sneed, ai automation engineer, seattle wa</div>
                   <div><b>$</b> <span>status</span></div>
                   <div>open to work · same-day reply</div>
+                  <div><b>$</b> <span className="cursor" /></div>
                 </div>
               </div>
 
@@ -508,6 +590,7 @@ export default function Home() {
         <div className="wrap">
           <span>© {new Date().getFullYear()} Davis Sneed</span>
           <span>Seattle, WA · Built with Next.js</span>
+          <a className="plain to-top" href="#top">Back to top ↑</a>
         </div>
       </footer>
     </div>
@@ -521,6 +604,7 @@ function ProjectPanel({ project: p, index }: { project: Project; index: number }
         <div className="project-id">
           <span className="project-index">{String(index + 1).padStart(2, '0')}</span>
           <h3>{p.title}</h3>
+          {p.link && <span className="project-arrow" aria-hidden>↗</span>}
         </div>
         <span className="project-meta">
           {p.type} · {p.year}
@@ -566,7 +650,6 @@ function ProjectPanel({ project: p, index }: { project: Project; index: number }
         href={p.link}
         target="_blank"
         rel="noopener noreferrer"
-       
         aria-label={`Open the ${p.title} project`}
       >
         {body}
