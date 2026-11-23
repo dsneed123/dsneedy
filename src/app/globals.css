@@ -793,23 +793,28 @@ body {
 
 .spec {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
-  gap: 0;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
   margin-top: var(--s7);
-  border-top: 2px solid var(--ink);
+  background: var(--surface);
+  border: 1px solid var(--ink);
+  border-radius: 2px;
+  box-shadow: var(--shadow-sm);
+  counter-reset: spec;
 }
 
 .spec > div {
-  padding: var(--s4) var(--s4) var(--s4) 0;
-  border-bottom: 1px solid var(--line-faint);
+  padding: var(--s4) var(--s5);
+  counter-increment: spec;
 }
 
 .spec > div + div {
-  padding-left: var(--s4);
   border-left: 1px solid var(--line-faint);
 }
 
 .spec dt {
+  display: flex;
+  align-items: center;
+  gap: var(--s2);
   font-family: var(--font-mono);
   font-size: var(--text-xs);
   font-weight: 500;
@@ -818,10 +823,22 @@ body {
   color: var(--text-tertiary);
 }
 
+/* Small orange index before each label: 01, 02, … */
+.spec dt::before {
+  content: counter(spec, decimal-leading-zero);
+  color: var(--accent);
+  letter-spacing: 0.06em;
+}
+
 .spec dd {
   margin: var(--s2) 0 0;
   font-size: var(--text-md);
-  font-weight: 500;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.spec dd a {
+  text-decoration-color: var(--accent);
 }
 
 @media (max-width: 860px) {
@@ -836,22 +853,29 @@ body {
   }
 }
 
-/* Phones: two-up spec sheet with a centre rule. */
-@media (max-width: 620px) {
+/* Tablets and phones: two-up spec sheet with a centre rule. */
+@media (max-width: 860px) {
   .spec {
     grid-template-columns: 1fr 1fr;
     margin-top: var(--s6);
   }
 
-  .spec > div,
   .spec > div + div {
-    padding: var(--s3) var(--s3) var(--s3) 0;
     border-left: 0;
   }
 
   .spec > div:nth-child(even) {
-    padding-left: var(--s3);
     border-left: 1px solid var(--line-faint);
+  }
+
+  .spec > div:nth-child(n + 3) {
+    border-top: 1px solid var(--line-faint);
+  }
+}
+
+@media (max-width: 620px) {
+  .spec > div {
+    padding: var(--s3) var(--s4);
   }
 
   .spec dd {
@@ -908,18 +932,36 @@ a.also-card:hover .project-arrow {
 /* ── Experience rows ───────────────────────────────────────────────── */
 .roles {
   display: grid;
-  gap: var(--s4);
+  gap: var(--s5);
 }
 
-/* Each role sits on its own white card. */
+/* Each role is a datasheet panel: ink border, hard shadow, ruled date column. */
 .role {
+  position: relative;
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   gap: var(--s5);
   padding: var(--s5);
   background: var(--surface);
-  border: 1px solid var(--line);
+  border: 1px solid var(--ink);
   border-radius: 2px;
+  box-shadow: var(--shadow-sm);
+}
+
+.role-when {
+  padding-right: var(--s5);
+  border-right: 1px solid var(--line-faint);
+}
+
+/* The current role gets the accent corner flag, like the featured project. */
+.role:has(.availability)::before {
+  content: "";
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  border-style: solid;
+  border-width: 0 22px 22px 0;
+  border-color: transparent var(--accent) transparent transparent;
 }
 
 .role-when {
@@ -982,6 +1024,12 @@ a.also-card:hover .project-arrow {
     grid-template-columns: 1fr;
     gap: var(--s3);
     padding: var(--s4);
+  }
+
+  .role-when {
+    padding: 0 0 var(--s3);
+    border-right: 0;
+    border-bottom: 1px solid var(--line-faint);
   }
 
   .role-when {
