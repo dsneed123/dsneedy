@@ -908,18 +908,18 @@ a.also-card:hover .project-arrow {
 /* ── Experience rows ───────────────────────────────────────────────── */
 .roles {
   display: grid;
+  gap: var(--s4);
 }
 
+/* Each role sits on its own white card. */
 .role {
   display: grid;
   grid-template-columns: max-content minmax(0, 1fr);
   gap: var(--s5);
-  padding: var(--s4) 0;
-  border-top: 1px solid var(--line-faint);
-}
-
-.role:first-child {
-  border-top: 2px solid var(--ink);
+  padding: var(--s5);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 2px;
 }
 
 .role-when {
@@ -981,7 +981,7 @@ a.also-card:hover .project-arrow {
   .role {
     grid-template-columns: 1fr;
     gap: var(--s3);
-    padding: var(--s5) 0;
+    padding: var(--s4);
   }
 
   .role-when {
